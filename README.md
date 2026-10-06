@@ -19,7 +19,12 @@ assets/img/favicon.svg
 3. You can delete the other two `home-*.html` files and their CSS files.
 4. Upload the folder to your hosting, or to Vercel or Netlify.
 
+## Photos
+Photos are free Unsplash images loaded from `images.unsplash.com` (free for commercial use). To use your own photo, replace the `src`/`srcset` of that `<img>` with your file, e.g. `assets/img/team.jpg`. **Best:** use real photos of your team, office and projects.
+
 ## Things to update before going live
+- **Portfolio:** the 8 projects are examples by industry (no client names). Replace them with your real projects, photos and links.
+- **About the company:** check the story, mission, vision and the "Founder: Md Sahil" line.
 - **Testimonials:** the reviews are placeholders in `[brackets]`. Replace them with real client reviews (for example from your Google Business Profile). Search for `[Client name]`.
 - **Social links:** in the footer, `href="#"` on Instagram, LinkedIn, Facebook and YouTube.
 - **Blog:** the 3 article cards link to `#blog`. Point them to real article pages once written.

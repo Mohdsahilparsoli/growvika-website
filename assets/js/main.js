@@ -302,6 +302,30 @@
     });
   });
 
+  /* ---------- Portfolio filter ---------- */
+  $$(".pf-filters").forEach(function (bar) {
+    var section = bar.closest("section");
+    var itemsP = $$(".pf-item", section);
+    $$(".pf-btn", bar).forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var f = btn.getAttribute("data-filter");
+        var grid = $(".pf-grid", section);
+        if (grid) grid.classList.toggle("filtered", f !== "all");
+        $$(".pf-btn", bar).forEach(function (b) {
+          var on = b === btn;
+          b.classList.toggle("on", on);
+          b.setAttribute("aria-pressed", String(on));
+        });
+        itemsP.forEach(function (it) {
+          var show = f === "all" || it.getAttribute("data-cat") === f;
+          it.classList.toggle("hide", !show);
+          it.classList.remove("show");
+          if (show) { void it.offsetWidth; it.classList.add("show", "in"); }
+        });
+      });
+    });
+  });
+
   /* ---------- Popup: Start a new project ---------- */
   var modal = $("#project-modal");
   var lastFocus = null;
@@ -395,6 +419,12 @@
       input.placeholder = "Thanks! We'll be in touch.";
     });
   });
+
+  /* ---------- Photo fallback: hide a photo that fails to load (the brand-coloured box shows instead) ---------- */
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG") t.classList.add("img-fail");
+  }, true);
 
   /* ---------- Misc ---------- */
   if (toTop) toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); });

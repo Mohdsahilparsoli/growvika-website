@@ -265,3 +265,8 @@
   .about-art .blk { padding: 18px; }
   .about-art .blk b { font-size: 20px; }
 }
+
+/* Hero photo */
+.hero-photo { border-radius: 30px; overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 1100 / 560; background: var(--soft-2); }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 640px) { .hero-photo { aspect-ratio: 4 / 3; border-radius: 22px; } }
