@@ -1,0 +1,12 @@
+---
+import Idx from "./Idx.astro";
+import H2 from "./H2.astro";
+const { label, a, b, lead } = Astro.props;
+---
+<div class="head-row">
+  <div>
+    <Idx label={label} />
+    <H2 a={a} b={b} />
+  </div>
+  {Astro.slots.has("right") ? <slot name="right" /> : lead && <p class="lead rv" set:html={lead} />}
+</div>

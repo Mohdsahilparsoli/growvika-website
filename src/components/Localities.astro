@@ -1,0 +1,25 @@
+---
+// Overlay slider of localities inside one city.
+import SliderWrap from "./SliderWrap.astro";
+import LOC_INFO from "../data/loc_info.json";
+import POOL from "../data/pool.json";
+import TPL from "../data/tpl.json";
+import SERVICES from "../data/services.json";
+import { U, pad, dec } from "../lib/site";
+const { city, soft = true } = Astro.props;
+const info = LOC_INFO as Record<string, [string, string, string]>;
+const pool = [city.img, city.img2, city.img3, ...POOL];
+const cards = city.locs.map((l: string, k: number) => {
+  const key = l.replace(/&(?!amp;)/g, "&amp;");
+  let i = info[key] ?? info[l] ?? ["Local business area", "shops, clinics and services", "website-development"];
+  if (city.slug === "faridabad" && l === "Sector 15") i = info["Sector 15 (Faridabad)"];
+  const [kind, biz, svc] = i;
+  const sv = SERVICES.find((s) => s.slug === svc)!;
+  const txt = TPL[k % TPL.length].replaceAll("{l}", l).replaceAll("{c}", city.name).replaceAll("{biz}", biz).replaceAll("{svc}", sv.name.toLowerCase());
+  return { l, kind, sv, txt, img: pool[k % pool.length] };
+});
+---
+<SliderWrap cls={"sec sl2-sec" + (soft ? " soft" : "")} label="Areas we cover" a="Across" b={`<em class="s">${city.name}.</em>`}
+  lead={`We work with businesses in every part of ${city.name} — at your office or online. Drag or use the arrows to explore each area.`}>
+{cards.map((c, k) => <article class="sl2-c ov"><img src={U(c.img, 900)} alt={dec(`${c.l}, ${city.name}`)} loading="lazy"><div class="ov-b"><div class="ov-top"><span class="ov-k" set:html={c.kind} /><span class="sl2-n">{pad(k + 1)}</span></div><h3 set:html={c.l} /><p set:html={c.txt} /><div class="ov-f"><a href={`${c.sv.slug}.html`}>{c.sv.name}</a><button type="button" data-open-modal>Free meeting <i class="fa-solid fa-arrow-right"></i></button></div></div></article>)}
+</SliderWrap>

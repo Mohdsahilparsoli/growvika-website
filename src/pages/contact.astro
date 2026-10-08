@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import ContactCards from "../components/ContactCards.astro";
+import Enquiry from "../components/Enquiry.astro";
+import HeadRow from "../components/HeadRow.astro";
+import { WA } from "../lib/site";
+const ctas = `<a href="https://wa.me/${WA}" target="_blank" rel="noopener" class="btn btn-i"><i class="fa-brands fa-whatsapp"></i> WhatsApp us</a>
+        <a href="tel:+919818186876" class="btn btn-o"><i class="fa-solid fa-phone"></i> +91-9818186876</a>`;
+---
+<Base path="contact" cur="contact" crumbs={[["Contact us", "contact"]]}
+  title="Contact GrowVika | Website, App &amp; Marketing Agency in Delhi NCR"
+  desc="Contact GrowVika: call or WhatsApp +91-9818186876, email sahil@growvika.com, or send your project details. Free first meeting across Delhi NCR.">
+  <PageHero cr={[[null, "Contact us"]]} h1a="Let's talk about" h1b='your <em class="s">project.</em>'
+    lead="Call, WhatsApp or send a few details. You'll talk directly to the people who build your website, app or CRM — and get a clear plan with a fixed quote."
+    img="meeting" alt="GrowVika team in a client meeting" ctas={ctas}
+    strip={["Call", "WhatsApp", "Email", "Free meeting", "Fixed quote", "Same-day reply", "Delhi NCR"]} />
+  <!-- ============ WAYS TO REACH ============ -->
+  <ContactCards />
+  <Enquiry id="form" label="Send an enquiry" />
+  <!-- ============ WHAT HAPPENS NEXT ============ -->
+  <section class="sec next">
+    <div class="wrap">
+      <HeadRow label="What happens next" a='From message to <em class="s">plan.</em>'><Fragment slot="right" /></HeadRow>
+      <div class="next-grid">
+        <div class="nx rv"><span class="n">01</span><i class="fa-regular fa-comments"></i><h3>We reply</h3><p>We get back to you on WhatsApp or call, usually the same day.</p></div>
+        <div class="nx rv d1"><span class="n">02</span><i class="fa-regular fa-calendar-check"></i><h3>Free discovery call</h3><p>We understand your business, customers and goals — online or at your office.</p></div>
+        <div class="nx rv d2"><span class="n">03</span><i class="fa-solid fa-file-signature"></i><h3>Clear plan &amp; fixed quote</h3><p>You get the scope, timeline and a fixed price before any work starts.</p></div>
+      </div>
+    </div>
+  </section>
+</Base>

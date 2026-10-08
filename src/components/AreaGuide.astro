@@ -1,0 +1,18 @@
+---
+// Long-form SEO guide for a single city page.
+import SeoCopy from "./SeoCopy.astro";
+import SERVICES from "../data/services.json";
+const { a } = Astro.props;
+const c = a.name;
+const pops = a.pop.map((x: string) => SERVICES.find((s) => s.slug === x)!);
+const blocks = [
+  [`Growing a business online in ${c}`, `<p>${a.intro} Whether you're in ${a.locs.slice(0, 4).join(", ")} or anywhere else in ${c}, customers compare businesses on Google and Instagram before they call. A clear website, a strong Google Business Profile and fast replies on WhatsApp make the difference.</p>`],
+  [`Website development in ${c}`, `<p>We build fast, mobile-first websites for ${c} businesses with service pages, area pages and click-to-call and WhatsApp buttons — so visitors from local searches turn into enquiries. Every site includes on-page SEO, Google Analytics and Search Console.</p>`],
+  [`Local SEO and Google Maps in ${c}`, `<p>Ranking in Google Maps for searches like “near me” in ${c} depends on a complete, active Google Business Profile, consistent contact details, real photos and genuine reviews. We set this up and keep it active with posts and review requests.</p>`],
+  [`Apps, CRM and software for ${c} businesses`, `<p>For ${a.inds.slice(0, 3).map((i: string) => i.toLowerCase()).join(", ")} and more, we build mobile apps, CRMs and custom tools that replace spreadsheets — so every lead is followed up and every booking, payment and renewal is tracked.</p>`],
+  [`Popular services in ${c}`, "<ul>" + pops.map((s) => `<li><a href="${s.slug}.html">${s.name}</a> — ${s.card}</li>`).join("") + "</ul>"],
+  [`Meet us in ${c}`, `<p>The first meeting at your office in ${c} is free. After that, most work happens on WhatsApp and video calls, with in-person visits whenever they help.</p>`],
+];
+---
+<SeoCopy label={`${c} guide`} a="Digital marketing &amp;" b={`<em class="s">development in ${c}.</em>`} blocks={blocks}
+  asideTitle={`Why ${c} businesses choose us`} asideItems={["Free first meeting in " + c, "Local SEO for your area", "Websites, apps, CRM &amp; ads", "Fixed quotes, no hidden cost", "Same-day WhatsApp replies", "You own everything"]} soft />

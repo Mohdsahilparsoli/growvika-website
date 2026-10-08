@@ -1,0 +1,5 @@
+---
+// items: [href | null, label][]
+const { items } = Astro.props;
+---
+<nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Home</a>{items.map(([href, label]) => <Fragment><i class="fa-solid fa-chevron-right"></i>{href ? <a href={href} set:html={label} /> : <span set:html={label} />}</Fragment>)}</nav>

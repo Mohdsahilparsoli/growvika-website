@@ -1,0 +1,13 @@
+---
+import SliderWrap from "./SliderWrap.astro";
+import AREAS from "../data/areas.json";
+import { U, pad } from "../lib/site";
+const {
+  exclude, label = "Cities we serve", a = "Pick your", b = '<em class="s">city.</em>',
+  lead = "Local pages for every part of Delhi NCR — with the areas we cover and what businesses there need most.", soft = false,
+} = Astro.props;
+const cs = AREAS.filter((c) => c.slug !== exclude);
+---
+<SliderWrap cls={"sec sl2-sec" + (soft ? " soft" : "")} label={label} a={a} b={b} lead={lead}>
+{cs.map((c, k) => <article class="sl2-c ov"><img src={U(c.img, 900)} alt={c.name} loading="lazy"><div class="ov-b"><div class="ov-top"><span class="ov-k">{c.tag}</span><span class="sl2-n">{pad(k + 1)}</span></div><h3>{c.name}</h3><p set:html={c.intro} /><p class="ov-locs" set:html={c.locs.slice(0, 5).join(", ") + " &amp; more"} /><div class="ov-f"><a href={`service-area-${c.slug}.html`}>View {c.name}</a><button type="button" data-open-modal>Free meeting <i class="fa-solid fa-arrow-right"></i></button></div></div></article>)}
+</SliderWrap>

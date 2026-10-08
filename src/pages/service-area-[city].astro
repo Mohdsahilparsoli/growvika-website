@@ -1,0 +1,67 @@
+---
+// One page per city: service-area-delhi.html, service-area-noida.html …
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import Split from "../components/Split.astro";
+import Localities from "../components/Localities.astro";
+import AreaGuide from "../components/AreaGuide.astro";
+import SvcCards from "../components/SvcCards.astro";
+import Incl from "../components/Incl.astro";
+import Industries from "../components/Industries.astro";
+import Process from "../components/Process.astro";
+import WorkGrid from "../components/WorkGrid.astro";
+import Why from "../components/Why.astro";
+import MapSec from "../components/MapSec.astro";
+import CityCards from "../components/CityCards.astro";
+import Faq from "../components/Faq.astro";
+import Enquiry from "../components/Enquiry.astro";
+import AREAS from "../data/areas.json";
+import SERVICES from "../data/services.json";
+import SVC_LONG from "../data/svc_long.json";
+import WORK from "../data/work.json";
+import INDUSTRIES from "../data/industries.json";
+
+export function getStaticPaths() {
+  return AREAS.map((a) => ({ params: { city: a.slug }, props: { a } }));
+}
+const { a } = Astro.props;
+const n = a.name;
+const svcs = a.pop.map((x) => SERVICES.find((s) => s.slug === x)!);
+const popular = [
+  ...svcs.map((s) => [s.icon, s.name, (SVC_LONG as Record<string, string>)[s.slug]]),
+  ["fa-location-dot", "Google Business Profile", `Complete, active Google Business Profile with the right categories, services, photos, posts and a review strategy — so you show up in Google Maps and “near me” searches across ${n}.`],
+  ["fa-brands fa-whatsapp", "WhatsApp enquiries", `Click-to-chat buttons on your website, ads and profile, with ready message templates — the way most customers in ${n} prefer to enquire.`],
+  ["fa-hashtag", "Social media", `Monthly content calendar with reels, posts and stories that show your work, your team and your offers to people around ${n}.`],
+  ["fa-chart-line", "Monthly reports", "Clear monthly reports showing calls, WhatsApp chats, form leads, rankings and ad costs — plus what we'll improve next month."],
+  ["fa-handshake", "Local meetings", `Free first meeting at your office in ${n}, then regular updates on WhatsApp and video calls, with visits whenever they help.`],
+];
+const inds = a.inds.map((i, k) => [i, `Websites, local SEO, social media and CRM for ${i.toLowerCase()} in ${n} — so nearby customers find you on Google Maps, trust what they see and contact you on WhatsApp.`, INDUSTRIES[k % 6][2]]);
+const title = `Website, App &amp; Digital Marketing Agency in ${n} | GrowVika`;
+---
+<Base path={`service-area-${a.slug}`} cur="areas" title={title}
+  crumbs={[["Service area", "service-area"], [`Website, App & Digital Marketing Agency in ${n}`, `service-area-${a.slug}`]]}
+  desc={`GrowVika builds websites, apps, CRMs and runs digital marketing for businesses in ${n} — ${a.locs.slice(0, 5).join(", ")} and nearby. Free first meeting.`}>
+  <PageHero cr={[["service-area.html", "Service area"], [null, n]]} h1a="Digital agency in" h1b={`<em class="s">${n}.</em>`} lead={a.intro} img={a.img}
+    b1={["fa-solid fa-location-dot", n, a.tag]} b2={["fa-solid fa-handshake", "Free first meeting", `at your office in ${n}`]}
+    chips={a.locs.slice(0, 6)} strip={a.locs} />
+  <Split label="Why GrowVika" a="A local team for" b={`<em class="s">${n} businesses.</em>`} img={a.img2} img2={a.img3}
+    text={`Customers in ${n} search on their phones, compare a few options on Google Maps, and message the one that looks most trustworthy. We help you be that business — with a fast website, an optimised Google profile, social media that builds trust and a CRM so no enquiry is missed.`}
+    bullets={["Free first meeting at your office", "Local SEO for your exact area", "Websites, apps, CRM and marketing in one team", "Replies on WhatsApp the same day"]} />
+  <Localities city={a} />
+  <AreaGuide a={a} />
+  <SvcCards label={`Services in ${n}`} a="Everything you need" b={`<em class="s">in ${n}.</em>`} lead="All our services are available here." />
+  <Incl label="Popular here" a={`What ${n}`} b='<em class="s">businesses ask for.</em>' items={popular} soft />
+  <Industries items={inds} label={`Industries in ${n}`} a='Who we help <em class="s">here.</em>' lead="Common businesses we work with in this area." />
+  <Process />
+  <WorkGrid items={WORK.slice(0, 3)} label="Examples" a="The kind of work" b='<em class="s">we do.</em>' soft />
+  <Why stat={["1:1", `founder-led for ${n}`]} />
+  <MapSec q={a.q} />
+  <CityCards exclude={a.slug} label="Nearby" a="We also" b='<em class="s">serve.</em>' lead="Other cities across Delhi NCR." soft />
+  <Faq a={n} b='<em class="s">FAQs.</em>' items={[
+    [`Do you have clients in ${n}?`, `We work with businesses across Delhi NCR including ${n}. Ask us for examples similar to your business.`],
+    [`Can we meet in ${n}?`, `Yes. The first meeting at your office in ${n} is free, or we can talk on a video call.`],
+    [`Which areas of ${n} do you cover?`, `All of ${n} — including ${a.locs.slice(0, 5).join(", ")} and nearby.`],
+    ["How long does a website take?", "Most business websites go live in 7–15 days after we receive your content."],
+    ["Do you also run local ads?", `Yes — Google and Meta ads targeted to customers in and around ${n}.`]]} />
+  <Enquiry a="Let's grow your business" b={`<em class="s">in ${n}.</em>`} />
+</Base>

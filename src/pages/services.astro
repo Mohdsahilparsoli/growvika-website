@@ -1,0 +1,55 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import SvcCards from "../components/SvcCards.astro";
+import Marquee from "../components/Marquee.astro";
+import Split from "../components/Split.astro";
+import Incl from "../components/Incl.astro";
+import Process from "../components/Process.astro";
+import Types from "../components/Types.astro";
+import Why from "../components/Why.astro";
+import WorkGrid from "../components/WorkGrid.astro";
+import Stack from "../components/Stack.astro";
+import Industries from "../components/Industries.astro";
+import Promise from "../components/Promise.astro";
+import Faq from "../components/Faq.astro";
+import Enquiry from "../components/Enquiry.astro";
+import SERVICES from "../data/services.json";
+import WORK from "../data/work.json";
+import FAQ_GROUPS from "../data/faq_groups.json";
+---
+<Base path="services" cur="services" crumbs={[["Services", "services"]]}
+  title="Services | Websites, Apps, CRM, Software &amp; Marketing | GrowVika"
+  desc="All GrowVika services: website development, e-commerce stores, mobile apps, CRM, custom software and digital marketing for businesses in Delhi NCR.">
+  <PageHero cr={[[null, "Services"]]} h1a="Everything you need" h1b='to <em class="s">grow online.</em>'
+    lead="Websites, online stores, mobile apps, CRMs, custom software and digital marketing — designed, built and grown by one team in Delhi NCR." img="code"
+    b1={["fa-solid fa-bolt", "Live in 7–15 days", "for most business websites"]} b2={["fa-solid fa-file-signature", "Fixed quotes", "no hidden charges"]}
+    chips={SERVICES.map((s) => s.short)} />
+  <SvcCards label="Our services" a="Six ways we" b='<em class="s">help you grow.</em>' lead="Each service has its own page with what's included, process and FAQs." />
+  <Marquee words={["Design", "Develop", "Launch", "Rank", "Advertise", "Automate", "Support"]} />
+  <Split label="Build + grow" a="Build it right." b='<em class="s">Then grow it.</em>' img="team" img2="marketing"
+    text="Most agencies either build or market. We do both — so your website is made to convert, your ads land on the right page, and every lead goes straight into your CRM. One team, one plan, one point of contact."
+    bullets={["Websites, stores and apps that convert", "SEO, social media and ads that bring traffic", "CRM and software that manage every lead", "One WhatsApp group with the whole team"]} />
+  <Incl label="What's always included" a="Included in" b='<em class="s">every project.</em>' soft items={[
+    ["fa-comments", "Free consultation", "We understand your business before quoting."],
+    ["fa-file-signature", "Fixed quote", "Scope and cost agreed before we start."],
+    ["fa-mobile-screen", "Mobile-first", "Designed and tested for phones first."],
+    ["fa-magnifying-glass", "SEO foundations", "Clean structure that Google can read."],
+    ["fa-brands fa-whatsapp", "WhatsApp updates", "Progress shared regularly, in plain words."],
+    ["fa-graduation-cap", "Training", "We show your team how to use everything."],
+    ["fa-lock", "Full ownership", "Domain, code and data in your name."],
+    ["fa-headset", "Post-launch support", "Fixes and help after you go live."]]} />
+  <Process />
+  <Types label="Packages" a="Common" b='<em class="s">starting points.</em>' lead="Not sure what you need? These combinations work for most businesses — we'll tailor the exact scope." items={[
+    ["Launch kit", "Business website + Google Business Profile + WhatsApp setup."],
+    ["Sell online", "E-commerce store + payments + shipping + Meta catalogue."],
+    ["Lead machine", "Landing page + Meta/Google ads + CRM for follow-ups."],
+    ["Automate", "Custom CRM or software to replace spreadsheets."]]} />
+  <Why />
+  <WorkGrid items={WORK.slice(0, 6)} soft />
+  <Stack label="Tools &amp; tech" a="Modern tools," b='<em class="s">proven stack.</em>' />
+  <Industries />
+  <Promise />
+  <Faq items={[...FAQ_GROUPS[1][3], ...FAQ_GROUPS[2][3].slice(0, 2)]} />
+  <Enquiry />
+</Base>

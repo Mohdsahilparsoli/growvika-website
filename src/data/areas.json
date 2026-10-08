@@ -1,0 +1,238 @@
+[
+ {
+  "slug": "delhi",
+  "name": "Delhi",
+  "tag": "The capital",
+  "img": "india_gate",
+  "img2": "qutub",
+  "img3": "lotus",
+  "intro": "From Connaught Place showrooms to South Delhi clinics, Delhi businesses compete hard for every search. We build websites, run local SEO and set up CRMs that help you win your neighbourhood.",
+  "locs": [
+   "Connaught Place",
+   "Karol Bagh",
+   "Laxmi Nagar",
+   "Dwarka",
+   "Rohini",
+   "Saket",
+   "Janakpuri",
+   "Pitampura",
+   "Rajouri Garden",
+   "Lajpat Nagar",
+   "Preet Vihar",
+   "Vasant Kunj"
+  ],
+  "pop": [
+   "website-development",
+   "digital-marketing",
+   "crm-development"
+  ],
+  "inds": [
+   "Clinics & doctors",
+   "Showrooms & retail",
+   "Coaching centres",
+   "Restaurants & cafés",
+   "CA & legal firms",
+   "Real estate"
+  ],
+  "near": [
+   "gurugram",
+   "noida",
+   "ghaziabad"
+  ],
+  "q": "Delhi"
+ },
+ {
+  "slug": "gurugram",
+  "name": "Gurugram",
+  "tag": "Offices & startups",
+  "img": "gurugram",
+  "img2": "team",
+  "img3": "meeting",
+  "intro": "Startups, corporate offices and premium services around Cyber City and Golf Course Road need fast products and sharp lead generation. We build apps, CRMs and landing pages that keep up.",
+  "locs": [
+   "Cyber City",
+   "Golf Course Road",
+   "Sohna Road",
+   "Udyog Vihar",
+   "DLF Phase 1–5",
+   "Sector 29",
+   "MG Road",
+   "Sushant Lok",
+   "Sector 56",
+   "Golf Course Extension"
+  ],
+  "pop": [
+   "mobile-app-development",
+   "custom-software-development",
+   "digital-marketing"
+  ],
+  "inds": [
+   "Startups & SaaS",
+   "Corporate offices",
+   "Real estate",
+   "Premium salons & gyms",
+   "Restaurants",
+   "Consultants"
+  ],
+  "near": [
+   "delhi",
+   "faridabad",
+   "noida"
+  ],
+  "q": "Gurugram"
+ },
+ {
+  "slug": "noida",
+  "name": "Noida",
+  "tag": "IT & education hub",
+  "img": "noida",
+  "img2": "code",
+  "img3": "desk",
+  "intro": "IT parks, coaching institutes and retail along the Expressway make Noida one of the most digital-first markets in NCR. We build online stores, admission CRMs and SEO that brings students and customers.",
+  "locs": [
+   "Sector 18",
+   "Sector 62",
+   "Sector 63",
+   "Sector 132",
+   "Noida Extension",
+   "Film City",
+   "Sector 50",
+   "Sector 76",
+   "Sector 15",
+   "Sector 137"
+  ],
+  "pop": [
+   "ecommerce-development",
+   "crm-development",
+   "digital-marketing"
+  ],
+  "inds": [
+   "Coaching institutes",
+   "IT services",
+   "Retail & e-commerce",
+   "Clinics",
+   "Real estate",
+   "Restaurants"
+  ],
+  "near": [
+   "greater-noida",
+   "delhi",
+   "ghaziabad"
+  ],
+  "q": "Noida"
+ },
+ {
+  "slug": "greater-noida",
+  "name": "Greater Noida",
+  "tag": "Fast-growing",
+  "img": "gnoida",
+  "img2": "sketch",
+  "img3": "smiling",
+  "intro": "New businesses around Pari Chowk, Knowledge Park and Gaur City are growing fast. Get found online from day one with a professional website, Google Business Profile and social media.",
+  "locs": [
+   "Pari Chowk",
+   "Knowledge Park",
+   "Alpha & Beta",
+   "Gaur City",
+   "Jagat Farm",
+   "Greater Noida West",
+   "Delta",
+   "Techzone"
+  ],
+  "pop": [
+   "website-development",
+   "digital-marketing",
+   "crm-development"
+  ],
+  "inds": [
+   "Colleges & coaching",
+   "New retail",
+   "Clinics",
+   "Restaurants",
+   "Real estate",
+   "Manufacturing units"
+  ],
+  "near": [
+   "noida",
+   "ghaziabad",
+   "delhi"
+  ],
+  "q": "Greater Noida"
+ },
+ {
+  "slug": "ghaziabad",
+  "name": "Ghaziabad",
+  "tag": "Retail & services",
+  "img": "ghaziabad",
+  "img2": "phone",
+  "img3": "pair",
+  "intro": "Shops, clinics and service businesses in Indirapuram, Vaishali and Raj Nagar win customers on Google Maps and Instagram. We set up both — and the website and CRM behind them.",
+  "locs": [
+   "Indirapuram",
+   "Vaishali",
+   "Raj Nagar",
+   "Kaushambi",
+   "Vasundhara",
+   "Crossings Republik",
+   "Raj Nagar Extension",
+   "Kavi Nagar"
+  ],
+  "pop": [
+   "digital-marketing",
+   "website-development",
+   "ecommerce-development"
+  ],
+  "inds": [
+   "Clinics & diagnostics",
+   "Retail shops",
+   "Salons",
+   "Coaching",
+   "Restaurants",
+   "Home services"
+  ],
+  "near": [
+   "noida",
+   "delhi",
+   "greater-noida"
+  ],
+  "q": "Ghaziabad"
+ },
+ {
+  "slug": "faridabad",
+  "name": "Faridabad",
+  "tag": "Industry & B2B",
+  "img": "faridabad",
+  "img2": "screen",
+  "img3": "laptop_mug",
+  "intro": "Manufacturers and B2B suppliers in NIT and the industrial sectors need catalogue websites, enquiry systems and custom software. We build tools that help you get and manage bulk orders.",
+  "locs": [
+   "NIT",
+   "Sector 15",
+   "Sector 21",
+   "Ballabgarh",
+   "Neharpar",
+   "Industrial Area",
+   "Sector 16",
+   "Old Faridabad"
+  ],
+  "pop": [
+   "website-development",
+   "custom-software-development",
+   "crm-development"
+  ],
+  "inds": [
+   "Manufacturers",
+   "B2B suppliers",
+   "Exporters",
+   "Schools",
+   "Clinics",
+   "Retail"
+  ],
+  "near": [
+   "delhi",
+   "gurugram",
+   "noida"
+  ],
+  "q": "Faridabad"
+ }
+]

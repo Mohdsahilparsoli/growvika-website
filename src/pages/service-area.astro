@@ -1,0 +1,58 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import CityCards from "../components/CityCards.astro";
+import SeoCopy from "../components/SeoCopy.astro";
+import AreaSlider from "../components/AreaSlider.astro";
+import Split from "../components/Split.astro";
+import Incl from "../components/Incl.astro";
+import SvcCards from "../components/SvcCards.astro";
+import Marquee from "../components/Marquee.astro";
+import Process from "../components/Process.astro";
+import Industries from "../components/Industries.astro";
+import Why from "../components/Why.astro";
+import Promise from "../components/Promise.astro";
+import Faq from "../components/Faq.astro";
+import Enquiry from "../components/Enquiry.astro";
+import AREAS from "../data/areas.json";
+const links = AREAS.map((a) => `<a href="service-area-${a.slug}.html">${a.name}</a>`).join(", ");
+---
+<Base path="service-area" cur="areas" crumbs={[["Service Area", "service-area"]]}
+  title="Service Area | Delhi, Gurugram, Noida, Ghaziabad, Faridabad | GrowVika"
+  desc="GrowVika serves businesses across Delhi NCR — Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad — with websites, apps, CRM and digital marketing.">
+  <PageHero cr={[[null, "Service area"]]} h1a="Your neighbourhood" h1b='<em class="s">digital team.</em>'
+    lead="We work with businesses across Delhi NCR — in person at your office or fully online. Pick your city to see the areas we cover and what local businesses need most." img="india_gate"
+    b1={["fa-solid fa-city", "6 cities", "across Delhi NCR"]} b2={["fa-solid fa-handshake", "Free first meeting", "at your office"]}
+    chips={AREAS.map((a) => a.name)} />
+  <CityCards />
+  <SeoCopy label="Delhi NCR guide" a="Digital agency for" b='<em class="s">all of Delhi NCR.</em>' asideTitle="Serving Delhi NCR" asideItems={AREAS.map((a) => a.name)} blocks={[
+    ["One team across six cities", `<p>GrowVika works with businesses in ${links}. Each city has its own customers, competitors and search habits — so we build local pages, local SEO and campaigns targeted to the areas you actually serve.</p>`],
+    ["Websites and local SEO", "<p>Customers search “near me” on their phones. We build fast, mobile-first websites with service and area pages, and set up your Google Business Profile so you appear in Google Maps for your neighbourhood.</p>"],
+    ["Apps, CRM and software", "<p>From restaurant ordering apps in Gurugram to admission CRMs in Noida and B2B portals in Faridabad, we build software that fits how NCR businesses work — with UPI payments, WhatsApp and Hindi/English content.</p>"],
+    ["How we work with you", "<ul><li>Free first meeting at your office anywhere in Delhi NCR</li><li>Fixed quote before work begins</li><li>Updates on WhatsApp and video calls</li><li>Support after launch, one message away</li></ul>"]]} />
+  <AreaSlider label="Explore" />
+  <Split label="Local + online" a="Local when it helps," b={`<em class="s">online when it's faster.</em>`} img="meeting" img2="pair" soft
+    text="Meet us at your office for the first conversation, then work together on WhatsApp and video calls. You get a local team that understands NCR customers — without wasting time in traffic."
+    bullets={["Free first meeting anywhere in Delhi NCR", "Updates on WhatsApp, calls when needed", "Online projects across India too"]} />
+  <Incl label="Why local matters" a="Built for" b='<em class="s">NCR customers.</em>' items={[
+    ["fa-location-dot", "Local SEO", "Rank for searches like “near me” in your area."],
+    ["fa-language", "Hindi + English", "Content that speaks to your customers."],
+    ["fa-brands fa-whatsapp", "WhatsApp-first", "How NCR customers prefer to enquire."],
+    ["fa-indian-rupee-sign", "UPI & COD", "Payments customers here trust."],
+    ["fa-map", "Google Maps", "Profile, photos, posts and reviews strategy."],
+    ["fa-mobile-screen", "Mobile-first", "Most local searches happen on phones."],
+    ["fa-handshake", "In-person meetings", "Meet the team before you decide."],
+    ["fa-clock", "Same-day replies", "Quick answers during business hours."]]} />
+  <SvcCards label="Available everywhere" a="Services in" b='<em class="s">every city.</em>' lead="All services are available across Delhi NCR." soft />
+  <Marquee words={AREAS.flatMap((a) => a.locs.slice(0, 2))} />
+  <Process />
+  <Industries />
+  <Why />
+  <Promise />
+  <Faq items={[
+    ["Do you only work in Delhi NCR?", "Our home market is Delhi NCR, but we work online with businesses across India."],
+    ["Is the first meeting really free?", "Yes. We'll meet at your office in Delhi NCR or on a video call — no charge, no obligation."],
+    ["Is my area covered?", "If you're anywhere in Delhi, Gurugram, Noida, Greater Noida, Ghaziabad or Faridabad — yes."],
+    ["Do you charge more for travel?", "No. Meetings within Delhi NCR are part of the project."]]} />
+  <Enquiry />
+</Base>

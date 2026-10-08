@@ -1,0 +1,53 @@
+---
+// City tabs slider (home + service-area listing).
+import Idx from "./Idx.astro";
+const { label = "Service area", n } = Astro.props;
+---
+<!-- ============ 9. SERVICE AREA ============ -->
+<section class="sec area2" id="areas">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        {n ? <div class="idx rv"><b>{n}</b><span>{label}</span></div> : <Idx label={label} />}
+        <h2 class="h2 rv"><span class="mask"><span>Your neighbourhood</span></span><span class="mask"><span><em class="s">digital team.</em></span></span></h2>
+      </div>
+      <div class="ar-facts rv">
+        <div><i class="fa-solid fa-city"></i><b>6 cities</b><span>across Delhi NCR</span></div>
+        <div><i class="fa-solid fa-handshake"></i><b>On-site</b><span>meetings at your office</span></div>
+        <div><i class="fa-solid fa-globe"></i><b>Online</b><span>anywhere in India</span></div>
+      </div>
+    </div>
+    <div class="ar-grid rv">
+      <div class="ar-tabs" role="tablist" aria-label="Cities">
+          <button type="button" class="ar-tab on" data-ar="0" role="tab" aria-selected="true"><span class="n">01</span><span class="t"><b>Delhi</b><small>The capital</small></span><i class="fa-solid fa-arrow-right"></i><span class="pg"><i></i></span></button>
+          <button type="button" class="ar-tab" data-ar="1" role="tab" aria-selected="false"><span class="n">02</span><span class="t"><b>Gurugram</b><small>Offices &amp; startups</small></span><i class="fa-solid fa-arrow-right"></i><span class="pg"><i></i></span></button>
+          <button type="button" class="ar-tab" data-ar="2" role="tab" aria-selected="false"><span class="n">03</span><span class="t"><b>Noida</b><small>IT &amp; education hub</small></span><i class="fa-solid fa-arrow-right"></i><span class="pg"><i></i></span></button>
+          <button type="button" class="ar-tab" data-ar="3" role="tab" aria-selected="false"><span class="n">04</span><span class="t"><b>Greater Noida</b><small>Fast-growing</small></span><i class="fa-solid fa-arrow-right"></i><span class="pg"><i></i></span></button>
+          <button type="button" class="ar-tab" data-ar="4" role="tab" aria-selected="false"><span class="n">05</span><span class="t"><b>Ghaziabad</b><small>Retail &amp; services</small></span><i class="fa-solid fa-arrow-right"></i><span class="pg"><i></i></span></button>
+          <button type="button" class="ar-tab" data-ar="5" role="tab" aria-selected="false"><span class="n">06</span><span class="t"><b>Faridabad</b><small>Industry &amp; B2B</small></span><i class="fa-solid fa-arrow-right"></i><span class="pg"><i></i></span></button>
+      </div>
+      <div class="ar-stage">
+          <div class="ar-slide on" data-ar-s="0"><img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1200&q=70" alt="India Gate, New Delhi" loading="lazy">
+            <div class="ar-hero"><span class="ar-tag">The capital</span><h3>Delhi</h3><p>From Connaught Place showrooms to South Delhi clinics — websites and local SEO that win the neighbourhood search.</p></div>
+          </div>
+          <div class="ar-slide" data-ar-s="1"><img src="https://images.unsplash.com/photo-1715870251864-64fd4a6ae4ad?auto=format&fit=crop&w=1200&q=70" alt="Gurugram skyline" loading="lazy">
+            <div class="ar-hero"><span class="ar-tag">Offices &amp; startups</span><h3>Gurugram</h3><p>Startups and corporate teams around Cyber City and Golf Course Road — apps, CRMs and lead-generation sites.</p></div>
+          </div>
+          <div class="ar-slide" data-ar-s="2"><img src="https://images.unsplash.com/photo-1688978022482-00702c9eb83c?auto=format&fit=crop&w=1200&q=70" alt="Noida high-rises" loading="lazy">
+            <div class="ar-hero"><span class="ar-tag">IT &amp; education hub</span><h3>Noida</h3><p>IT parks, coaching institutes and retail along the Expressway — stores, admission CRMs and SEO.</p></div>
+          </div>
+          <div class="ar-slide" data-ar-s="3"><img src="https://images.unsplash.com/photo-1661858435242-ed971767e954?auto=format&fit=crop&w=1200&q=70" alt="Road and buildings in Greater Noida" loading="lazy">
+            <div class="ar-hero"><span class="ar-tag">Fast-growing</span><h3>Greater Noida</h3><p>New businesses around Pari Chowk, Knowledge Park and Gaur City — get found online from day one.</p></div>
+          </div>
+          <div class="ar-slide" data-ar-s="4"><img src="https://images.unsplash.com/photo-1645938374241-7f0e5f520663?auto=format&fit=crop&w=1200&q=70" alt="Metro station near Ghaziabad" loading="lazy">
+            <div class="ar-hero"><span class="ar-tag">Retail &amp; services</span><h3>Ghaziabad</h3><p>Shops, clinics and service businesses in Indirapuram and Vaishali — more calls from Google Maps and ads.</p></div>
+          </div>
+          <div class="ar-slide" data-ar-s="5"><img src="https://images.unsplash.com/photo-1645938374927-d74b9349be51?auto=format&fit=crop&w=1200&q=70" alt="Highway and city lights at night" loading="lazy">
+            <div class="ar-hero"><span class="ar-tag">Industry &amp; B2B</span><h3>Faridabad</h3><p>Manufacturers and B2B suppliers in NIT and the industrial sectors — catalogue sites, portals and custom software.</p></div>
+          </div>
+        <div class="ar-nav"><span class="ar-cnt"><b data-ar-cnt>01</b> / 06</span><button type="button" data-ar-prev aria-label="Previous city"><i class="fa-solid fa-arrow-left"></i></button><button type="button" data-ar-next aria-label="Next city"><i class="fa-solid fa-arrow-right"></i></button></div>
+      </div>
+    </div>
+  </div>
+</section>
+

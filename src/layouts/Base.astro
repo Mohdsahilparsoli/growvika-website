@@ -1,0 +1,91 @@
+---
+/**
+ * Page shell: <head> (SEO + schema), header, main, footer, popup, scripts.
+ * Every section eyebrow renders "<b>##</b>"; we number them here in page order.
+ * FAQPage JSON-LD is built from the FAQ accordions found in the page.
+ */
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Popup from "../components/Popup.astro";
+import AREAS from "../data/areas.json";
+import { BASE, VER, NOINDEX, U, ld, plain, pad } from "../lib/site";
+
+interface Props {
+  title: string;
+  desc: string;
+  path: string; // "" for home, "about", "blog-xyz" …
+  cur?: string;
+  popup?: number;
+  ogimg?: string;
+  crumbs?: [string, string][] | null; // [name, path] for BreadcrumbList
+  schema?: string; // extra JSON-LD
+}
+const { title, desc, path, cur = "", popup = 0, ogimg = "team", crumbs = null, schema = "" } = Astro.props;
+
+let n = 0;
+const body = (await Astro.slots.render("default")).replace(/<b>##<\/b>/g, () => `<b>${pad(++n)}</b>`);
+
+const org = ld({
+  "@context": "https://schema.org", "@type": "ProfessionalService", name: "GrowVika", url: BASE,
+  telephone: "+91-9818186876", email: "sahil@growvika.com",
+  description: "Website development, mobile apps, CRM, custom software and digital marketing agency in Delhi NCR.",
+  areaServed: AREAS.map((a) => a.name),
+  address: { "@type": "PostalAddress", addressRegion: "Delhi NCR", addressCountry: "IN" },
+  founder: { "@type": "Person", name: "Md Sahil" },
+});
+const bc = crumbs && crumbs.length
+  ? ld({
+      "@context": "https://schema.org", "@type": "BreadcrumbList",
+      itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: BASE + "/" },
+        ...crumbs.map(([name, p], k) => ({ "@type": "ListItem", position: k + 2, name, item: `${BASE}/${p}` }))],
+    })
+  : "";
+const qs = [...body.matchAll(/<div class="qa[^"]*"><button type="button" aria-expanded="[a-z]+">(.*?)<i class="fa-solid fa-plus"><\/i><\/button><div class="ans"><div><p>(.*?)<\/p>/g)];
+const faqld = qs.length
+  ? ld({ "@context": "https://schema.org", "@type": "FAQPage",
+      mainEntity: qs.slice(0, 30).map((m) => ({ "@type": "Question", name: plain(m[1]), acceptedAnswer: { "@type": "Answer", text: plain(m[2]) } })) })
+  : "";
+const url = `${BASE}/${path}`;
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title set:html={title} />
+<meta name="description" content={plain(desc)}>
+{NOINDEX && <meta name="robots" content="noindex, nofollow">}
+<link rel="canonical" href={url}>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GrowVika">
+<meta property="og:title" content={plain(title)}>
+<meta property="og:description" content={plain(desc)}>
+<meta property="og:url" content={url}>
+<meta property="og:image" content={U(ogimg, 1200)}>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A0F1E">
+<Fragment set:html={org + bc + faqld + schema} />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href={`assets/css/agency.css?v=${VER}`}>
+</head>
+<body data-auto-popup={String(popup)}>
+
+<div class="cur" aria-hidden="true"><svg viewBox="0 0 46 46"><circle class="tr" cx="23" cy="23" r="21"/><circle class="pr" cx="23" cy="23" r="21"/></svg><span class="lbl">View</span></div>
+<div class="cur-dot" aria-hidden="true"></div>
+
+<Header cur={cur} />
+
+<main>
+<Fragment set:html={body} />
+</main>
+
+<Footer />
+<Popup />
+<script is:inline src={`assets/js/agency.js?v=${VER}`} defer></script>
+</body>
+</html>

@@ -1,53 +1,70 @@
 # GrowVika website
 
-Plain HTML, CSS and JavaScript. No build step and no libraries.
+Built with **[Astro](https://astro.build)**: a static site with no client framework. The output is plain HTML, CSS and JS in `dist/`.
 
-**Pages:** `index.html` (home), `about.html`, `services.html` + 6 service pages (`website-development.html`, `ecommerce-development.html`, `mobile-app-development.html`, `crm-development.html`, `custom-software-development.html`, `digital-marketing.html`), `work.html`, `service-area.html` + 6 city pages (`service-area-delhi.html` …), `blog.html` + 9 article pages (`blog-*.html`), `faq.html`, `contact.html`. SEO: every generated page has a canonical URL, Open Graph tags and JSON-LD (organisation, breadcrumbs, FAQ, blog posting); `sitemap.xml` and `robots.txt` are in the root — change the domain in `tools/pages/build.py` (`BASE`) when the site moves to growvika.com.
-
-The inner pages are generated from `tools/pages/` (content in `data.py` and `articles.py`, sections in `build.py` and `more.py`, page layouts in `pages.py`). To regenerate after editing content: `python3 tools/pages/pages.py <version>`. Hand edits to generated pages are overwritten by regenerating.
-
-**Main home page:** `index.html` (premium agency design) uses `assets/css/agency.css` and `assets/js/agency.js`. Fonts: Syne (headings), Fraunces italic (accent words), Plus Jakarta Sans (body). Icons: Font Awesome.
-
-The older 3 layouts are kept for reference at `layouts.html` (they use `base.css`, `home-*.css`, `main.js`).
-
-```
-index.html          ← main home page (new agency design)
-layouts.html        ← old preview page: choose one of 3 layouts
-home-1.html         ← Layout 1: Classic Agency
-home-2.html         ← Layout 2: Editorial Split
-home-3.html         ← Layout 3: Bento
-assets/css/base.css ← shared styles: brand colours, logo, header + mega menu, cursor, popup, footer
-assets/css/home-1.css, home-2.css, home-3.css ← styles for each layout
-assets/js/main.js   ← mega menu, mobile menu, custom cursor, scroll animations, popup, FAQ, forms
-assets/img/favicon.svg
+```bash
+npm install
+npm run dev      # local dev server at http://localhost:4321
+npm run build    # static build into dist/
+npm run preview  # serve the build
 ```
 
-## Going live with one layout
-1. Pick the layout you like, e.g. `home-2.html`.
-2. Rename it to `index.html` (replacing the preview page).
-3. You can delete the other two `home-*.html` files and their CSS files.
-4. Upload the folder to your hosting, or to Vercel or Netlify.
+Vercel builds the site automatically from `vercel.json` (`npm run build`, output `dist`, `cleanUrls`, so `/about` serves `about.html`).
 
-## Photos
-Photos are free Unsplash images loaded from `images.unsplash.com` (free for commercial use). To use your own photo, replace the `src`/`srcset` of that `<img>` with your file, e.g. `assets/img/team.jpg`. **Best:** use real photos of your team, office and projects.
+## Folder structure
 
-## Things to update before going live
-- **Portfolio:** the 8 projects are examples by industry (no client names). Replace them with your real projects, photos and links.
-- **About the company:** check the story, mission, vision and the "Founder: Md Sahil" line.
-- **Testimonials:** the reviews are placeholders in `[brackets]`. Replace them with real client reviews (for example from your Google Business Profile). Search for `[Client name]`.
-- **Social links:** in the footer, `href="#"` on Instagram, LinkedIn, Facebook and YouTube.
-- **Blog:** the 3 article cards link to `#blog`. Point them to real article pages once written.
-- **Legal pages:** Privacy policy, Terms and Refund policy links in the footer.
-- **Prices & FAQ answers:** taken from your current plans (website from ₹9,999, etc.). Check they are still correct.
+```
+src/
+  layouts/Base.astro       ← <head> (SEO, Open Graph, JSON-LD), header, footer, popup, scripts
+  pages/                   ← one file per page (routes)
+    index.astro            ← home
+    about.astro  services.astro  work.astro  service-area.astro  blog.astro  faq.astro  contact.astro
+    [service].astro        ← 6 service pages  (website-development.html …)
+    service-area-[city].astro ← 6 city pages (service-area-delhi.html …)
+    blog-[slug].astro      ← 9 article pages  (blog-*.html)
+    sitemap.xml.ts         ← sitemap generated from the data
+  components/              ← reusable sections (PageHero, Split, Incl, SvcCards, Faq, Promise, Enquiry …)
+    home/                  ← homepage-only sections
+  data/*.json              ← ALL content: services, areas, work, articles, FAQs, reviews, images …
+  lib/site.ts              ← BASE url, WhatsApp number, image helper, NOINDEX switch
+public/
+  assets/css/agency.css    ← site styles
+  assets/js/agency.js      ← menus, sliders, cursor, popup, forms, animations
+  robots.txt
+  home-1/2/3.html, layouts.html ← old layouts (kept for reference, e.g. /home-2)
+```
+
+## Editing content
+- **Text, services, cities, projects, FAQs and articles** live in `src/data/*.json`. Edit the JSON and rebuild. Every page that uses that item updates.
+- **Page layout** (which sections a page shows, and in what order) is in `src/pages/*.astro`.
+- **Section numbers** (01, 02 …) are added automatically in page order by `Base.astro`.
+- **Reviews ("Our promise")** are SAMPLE data in `src/data/sample_reviews.json`, with the shape `[tag, icon, stars, business, city, text]`. Replace them with real Google reviews, or load them dynamically in `src/components/Promise.astro`.
+- **Images** are Unsplash ids in `src/data/img.json`. Use `U("key", width)` in components.
+
+## Search engines (noindex)
+The site is currently **hidden from Google**. Three settings do this:
+1. `<meta name="robots" content="noindex, nofollow">` on every page, controlled by `NOINDEX` in `src/lib/site.ts`.
+2. `Disallow: /` in `public/robots.txt`.
+3. An `X-Robots-Tag: noindex, nofollow` header in `vercel.json`.
+
+**At launch:** set `NOINDEX = false`, remove `Disallow: /`, delete the X-Robots-Tag header, and change `BASE` (in `src/lib/site.ts`) and `site` (in `astro.config.mjs`) to `https://growvika.com`.
 
 ## How the forms work
-The "Start a new project" popup and the enquiry forms send the details straight to **sahil@growvika.com** using the free FormSubmit service (no WhatsApp, no email app). The **first** enquiry triggers a one-time activation email from FormSubmit to that inbox — click the link in it once, and every enquiry after that arrives automatically. If the service is ever unreachable, the visitor's email app opens with the details filled in instead. To change the inbox, edit `INBOX` in `assets/js/agency.js`.
+The "Start a new project" popup and the enquiry forms send the details to **sahil@growvika.com** through the free FormSubmit service.
+- The **first** enquiry triggers a one-time activation email to that inbox. Click the link in it once, and every enquiry after that arrives automatically.
+- If FormSubmit is unreachable, the visitor's email app opens with the details filled in.
+- To change the inbox, edit `INBOX` in `public/assets/js/agency.js`.
 
 ## Popup timing
-The popup also opens by itself **once per visit after 25 seconds**. Change or turn it off on the `<body>` tag:
-`<body data-auto-popup="25">` → use `"0"` to turn auto-open off.
+The popup opens by itself once per visit after 25 seconds on the home page. This is the `popup={25}` prop in `src/pages/index.astro`; use `0` to turn it off.
+
+## Things to update before going live
+- Real client reviews, the Google rating, and the Google reviews link (`.gr-btn` in `Promise.astro`).
+- Social links in the footer (`href="#"`).
+- Privacy policy, Terms and Refunds pages.
+- The portfolio projects in `src/data/work.json`: replace the example projects with real ones.
 
 ## Brand
-- Navy `#0A0F1E`, indigo `#5C6BFF` (logo square), button indigo `#4453F0` (darker, for readable white text)
-- Logo and headings: **Syne**; body text: **Manrope** (Google Fonts)
-- The logo is built in code (text + square), so it stays sharp at any size.
+- Navy `#0A0F1E`, indigo `#5C6BFF` (logo square), button indigo `#4453F0`.
+- Fonts: **Syne** for headings, **Fraunces** italic for accent words, **Plus Jakarta Sans** for body text.
+- Icons: Font Awesome.

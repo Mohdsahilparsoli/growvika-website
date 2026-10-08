@@ -1,0 +1,15 @@
+---
+import HeadRow from "./HeadRow.astro";
+import INDUSTRIES from "../data/industries.json";
+import { U, pad } from "../lib/site";
+const { items = INDUSTRIES, label = "Industries", a = 'Who we <em class="s">help.</em>', lead = "We know what customers in these industries search for, and what makes them call." } = Astro.props;
+---
+<section class="sec">
+  <div class="wrap">
+<HeadRow label={label} a={a} lead={lead} />
+    <div class="ind-list">
+{items.map(([t, d, img], k) => <a href="contact.html" data-open-modal class="ind-row rv" data-img={U(img, 600)}><span class="n">{pad(k + 1)}</span><h3 set:html={t} /><p set:html={d} /><span class="ar"><i class="fa-solid fa-arrow-right"></i></span></a>)}
+    </div>
+  </div>
+  <div class="follower" aria-hidden="true"></div>
+</section>

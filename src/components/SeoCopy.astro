@@ -1,0 +1,20 @@
+---
+// Long-form SEO copy with a sticky aside card. blocks: [heading, html][]
+import HeadRow from "./HeadRow.astro";
+import { WA } from "../lib/site";
+const { label, a, b, blocks, asideTitle, asideItems, soft = false } = Astro.props;
+---
+<section class={soft ? "sec seo soft" : "sec seo"}>
+  <div class="wrap">
+<HeadRow label={label} a={a} b={b} />
+    <div class="seo-g">
+      <article class="prose rv">
+{blocks.map(([h, p]) => <Fragment><h3 set:html={h} />
+<Fragment set:html={p} /></Fragment>)}
+      </article>
+      <aside class="seo-aside rv">
+        <div class="sa-card"><h4 set:html={asideTitle} /><ul>{asideItems.map((x) => <li><i class="fa-solid fa-check"></i><Fragment set:html={x} /></li>)}</ul><button type="button" class="btn btn-i" data-open-modal>Get a free quote <i class="fa-solid fa-arrow-right"></i></button><a href={`https://wa.me/${WA}`} target="_blank" rel="noopener" class="sa-wa"><i class="fa-brands fa-whatsapp"></i> Ask on WhatsApp</a></div>
+      </aside>
+    </div>
+  </div>
+</section>

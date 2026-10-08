@@ -1,0 +1,46 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import Split from "../components/Split.astro";
+import Incl from "../components/Incl.astro";
+import Nums from "../components/Nums.astro";
+import SvcCards from "../components/SvcCards.astro";
+import Process from "../components/Process.astro";
+import Why from "../components/Why.astro";
+import Industries from "../components/Industries.astro";
+import Promise from "../components/Promise.astro";
+import Faq from "../components/Faq.astro";
+import Enquiry from "../components/Enquiry.astro";
+import FAQ_GROUPS from "../data/faq_groups.json";
+---
+<Base path="about" cur="about" crumbs={[["About GrowVika", "about"]]}
+  title="About GrowVika | Website, App, CRM &amp; Marketing Agency in Delhi NCR"
+  desc="GrowVika is a founder-led digital agency in Delhi NCR building websites, apps, CRMs and custom software — and marketing them. Meet the team and how we work.">
+  <PageHero cr={[[null, "About us"]]} h1a="One team that builds" h1b='and <em class="s">grows.</em>'
+    lead="GrowVika is a founder-led digital agency in Delhi NCR. We design and build websites, apps, CRMs and custom software — and run the marketing that brings customers to them." img="team"
+    b1={["fa-solid fa-user-tie", "Founder-led", "you work with the builder"]} b2={["fa-solid fa-layer-group", "11+ services", "under one roof"]} />
+  <Split label="Our story" a="Why we started" b='<em class="s">GrowVika.</em>'
+    text="Most local businesses end up with one person for the website, another for ads, and a spreadsheet for leads. Nothing talks to each other, and the owner is stuck in the middle. We started GrowVika to put it all under one roof — so the site, the app, the CRM and the marketing work together."
+    bullets={["Founded and run by Md Sahil", "Builders and marketers in one team", "We use our own CRM to run the business", "Clear quotes, honest advice, real support"]} img="meeting" img2="desk" />
+  <Incl label="What we stand for" a="Mission, vision" b='&amp; <em class="s">values.</em>' soft items={[
+    ["fa-bullseye", "Our mission", "Give every growing business a professional online presence at a fair, fixed price."],
+    ["fa-eye", "Our vision", "Be the first team NCR businesses call when they want to grow online."],
+    ["fa-comments", "Honest advice", "We tell you what you need — and what you don't."],
+    ["fa-file-signature", "Transparent pricing", "Fixed quotes before work starts. No surprise bills."],
+    ["fa-clock", "On-time delivery", "Clear timelines and regular updates on WhatsApp."],
+    ["fa-handshake", "Long-term support", "We stay after launch for fixes, updates and growth."],
+    ["fa-mobile-screen", "Mobile-first", "Everything is designed for phones first."],
+    ["fa-lock", "You own it", "Domain, code and data stay in your name."]]} />
+  <Nums items={[["11+", "Services under one roof"], ["6", "Cities across Delhi NCR"], ["1", "Team for build &amp; marketing"], ["7–15", "Days to launch most websites"]]} />
+  <SvcCards soft />
+  <Split label="Meet the founder" a="Hi, I'm" b='<em class="s">Md Sahil.</em>' rev img="smiling"
+    text="I build the websites, apps and CRMs myself, with a small team of designers and marketers. When you work with GrowVika, you talk to me directly — about your business, your customers and what will actually bring results. No sales scripts."
+    bullets={["You get my WhatsApp, not a ticket number", "I'll tell you honestly if you don't need something", "Every project is checked by me before launch"]}
+    extra='<div class="sign rv" style="margin-top:26px"><div class="who"><span>MS</span><div><b>Md Sahil</b><small>Founder, GrowVika</small></div></div><a href="contact.html" class="link">Talk to me <i class="fa-solid fa-arrow-right"></i></a></div>' />
+  <Process />
+  <Why />
+  <Industries />
+  <Promise />
+  <Faq items={[...FAQ_GROUPS[0][3], ...FAQ_GROUPS[5][3].slice(0, 2)]} />
+  <Enquiry />
+</Base>

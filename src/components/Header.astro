@@ -1,0 +1,100 @@
+---
+import SERVICES from "../data/services.json";
+import AREAS from "../data/areas.json";
+import { U, pad } from "../lib/site";
+const { cur = "" } = Astro.props;
+const build = SERVICES.filter((s) => s.group === "Build");
+const grow = SERVICES.filter((s) => s.group === "Grow");
+const nav = (key: string) => (key === cur ? { class: "cur-page", "aria-current": "page" } : {});
+---
+<!-- ============ TOPBAR + HEADER ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="tb-l">
+      <a href="tel:+919818186876"><i class="fa-solid fa-phone"></i>+91-9818186876</a>
+      <a href="mailto:sahil@growvika.com"><i class="fa-solid fa-envelope"></i>sahil@growvika.com</a>
+      <span><i class="fa-solid fa-location-dot"></i>Serving all of Delhi NCR</span>
+    </div>
+    <div class="tb-r">
+      <div class="soc">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="header" id="top">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="GrowVika home">GrowVika<i></i></a>
+    <nav class="nav" aria-label="Main">
+      <ul>
+        <li><a href="about.html" {...nav("about")}>About</a></li>
+        <li class="has-mega">
+          <button type="button" class={cur === "services" ? "cur-page" : ""} aria-expanded="false" aria-controls="mega">Services <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="mega" id="mega">
+            <div class="mega-col">
+              <h5>Build</h5>
+              {build.map((s) => <a href={`${s.slug}.html`}><span class="ic"><i class={`fa-solid ${s.icon}`}></i></span><span><b>{s.name}</b><small>{s.tag}</small></span></a>)}
+            </div>
+            <div class="mega-col">
+              <h5>Grow &amp; automate</h5>
+              {grow.map((s) => <a href={`${s.slug}.html`}><span class="ic"><i class={`fa-solid ${s.icon}`}></i></span><span><b>{s.name}</b><small>{s.tag}</small></span></a>)}
+            </div>
+            <div class="mega-feat">
+              <img src={U("team", 600)} alt="GrowVika team planning a project" loading="lazy">
+              <small>All services</small>
+              <h4>Websites, apps, CRM, software &amp; marketing.</h4>
+              <a href="services.html" class="ma-all">View all services <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </li>
+        <li><a href="work.html" {...nav("work")}>Work</a></li>
+        <li class="has-mega">
+          <button type="button" class={cur === "areas" ? "cur-page" : ""} aria-expanded="false" aria-controls="mega-areas">Service Area <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="mega mega-areas" id="mega-areas">
+            <div class="mega-col">
+              <h5>Cities we serve</h5>
+              <div class="mc-grid">
+                {AREAS.map((a, k) => <a href={`service-area-${a.slug}.html`}><span class="mc-n">{pad(k + 1)}</span><span><b>{a.name}</b><small>{a.tag}</small></span><i class="fa-solid fa-arrow-right"></i></a>)}
+              </div>
+            </div>
+            <div class="mega-feat ma-feat">
+              <img src={U("india_gate", 600)} alt="India Gate, New Delhi" loading="lazy">
+              <small>Delhi NCR</small>
+              <h4>Free first meeting at your office.</h4>
+              <a href="service-area.html" class="ma-all">View service area <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </li>
+        <li><a href="blog.html" {...nav("blog")}>Blog</a></li>
+        <li><a href="faq.html" {...nav("faq")}>FAQ</a></li>
+        <li><a href="contact.html" {...nav("contact")}>Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="h-right">
+    <a href="tel:+919818186876" class="hcall"><span class="ic"><i class="fa-solid fa-phone-volume"></i></span><span><small>Call us</small><b>+91-9818186876</b></span></a>
+    <button type="button" class="btn btn-d" data-open-modal>Start a project <i class="fa-solid fa-arrow-right"></i></button>
+    <button type="button" class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><i class="fa-solid fa-bars-staggered"></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="mnav-bd"></div>
+<aside class="mnav" id="mnav" aria-label="Mobile menu">
+  <div class="top"><span class="logo">GrowVika<i></i></span><button type="button" class="mnav-x" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button></div>
+  <a class="l1" href="index.html">Home <i class="fa-solid fa-arrow-right"></i></a>
+  <a class="l1" href="about.html">About <i class="fa-solid fa-arrow-right"></i></a>
+  <a class="l1" href="services.html">Services <i class="fa-solid fa-arrow-right"></i></a>
+  <div class="sub">{SERVICES.map((s) => <a href={`${s.slug}.html`}>{s.short}</a>)}</div>
+  <a class="l1" href="work.html">Work <i class="fa-solid fa-arrow-right"></i></a>
+  <a class="l1" href="service-area.html">Service Area <i class="fa-solid fa-arrow-right"></i></a>
+  <div class="sub">{AREAS.map((a) => <a href={`service-area-${a.slug}.html`}>{a.name}</a>)}</div>
+  <a class="l1" href="blog.html">Blog <i class="fa-solid fa-arrow-right"></i></a>
+  <a class="l1" href="faq.html">FAQ <i class="fa-solid fa-arrow-right"></i></a>
+  <a class="l1" href="contact.html">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
+  <button type="button" class="btn btn-i" data-open-modal>Start a new project <i class="fa-solid fa-arrow-right"></i></button>
+  <div class="ct">Call or WhatsApp<a href="tel:+919818186876">+91-9818186876</a><a href="mailto:sahil@growvika.com">sahil@growvika.com</a></div>
+</aside>

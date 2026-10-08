@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import HomeHero from "../components/home/HomeHero.astro";
+import HomeAbout from "../components/home/HomeAbout.astro";
+import HomeServices from "../components/home/HomeServices.astro";
+import HomeWork from "../components/home/HomeWork.astro";
+import HomeProcess from "../components/home/HomeProcess.astro";
+import HomeWhy from "../components/home/HomeWhy.astro";
+import HomeIndustries from "../components/home/HomeIndustries.astro";
+import Promise from "../components/Promise.astro";
+import AreaSlider from "../components/AreaSlider.astro";
+import HomeBlog from "../components/home/HomeBlog.astro";
+import HomeFaq from "../components/home/HomeFaq.astro";
+import Enquiry from "../components/Enquiry.astro";
+---
+<Base path="" popup={25}
+  title="GrowVika | Website, App, CRM &amp; Digital Marketing Agency in Delhi NCR"
+  desc="GrowVika is a Delhi NCR agency for website development, mobile apps, CRM, custom software and digital marketing. One team to build your business online and grow it.">
+  <HomeHero />
+  <HomeAbout />
+  <HomeServices />
+  <HomeWork />
+  <HomeProcess />
+  <HomeWhy />
+  <HomeIndustries />
+  <!-- ============ 8. OUR PROMISE ============ -->
+  <Promise n="07" />
+  <AreaSlider n="08" />
+  <HomeBlog />
+  <HomeFaq />
+  <Enquiry id="contact" n="11" />
+</Base>

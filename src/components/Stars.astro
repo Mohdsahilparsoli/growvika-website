@@ -1,0 +1,5 @@
+---
+// n of 5 filled stars.
+const { n } = Astro.props;
+---
+<span class="stars" aria-label={`${n} out of 5 stars`}>{[0, 1, 2, 3, 4].map((i) => <i class={i < n ? "fa-solid fa-star" : "fa-regular fa-star"}></i>)}</span>

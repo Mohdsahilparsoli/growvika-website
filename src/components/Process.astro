@@ -1,0 +1,22 @@
+---
+import Idx from "./Idx.astro";
+import H2 from "./H2.astro";
+import PROCESS from "../data/process.json";
+import { U, pad } from "../lib/site";
+const { steps = PROCESS.map(([t, d, w]) => [t, d, w]), label = "How we work", a = "Simple process.", b = '<em class="s">No surprises.</em>' } = Astro.props;
+const imgs = ["meeting", "sketch", "code", "data"];
+---
+<section class="sec soft proc">
+  <div class="wrap">
+    <div class="proc-l">
+      <Idx label={label} />
+      <H2 a={a} b={b} />
+      <div class="proc-img rv">
+{steps.map((_, k) => <img class={k === 0 ? "on" : undefined} src={U(imgs[k % 4])} alt="" loading="lazy">)}
+      </div>
+    </div>
+    <div class="steps">
+{steps.map(([t, d, w], k) => <div class={k === 0 ? "step on rv" : "step rv"}><span class="n">{pad(k + 1)}</span><div><h3 set:html={t} /><p set:html={d} /></div><span class="wk-t" set:html={w} /></div>)}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+// FAQ accordion. Markup is kept on one line per item — Base.astro reads it for FAQPage JSON-LD.
+import Idx from "./Idx.astro";
+import H2 from "./H2.astro";
+import { WA } from "../lib/site";
+const { items, label = "FAQ", a = "Questions,", b = '<em class="s">answered.</em>', sid, more = true, card = true, cls = "sec faq", n } = Astro.props;
+---
+<section class={cls} id={sid}>
+  <div class="wrap">
+    <div class="faq-l">
+      <Idx label={label} n={n} />
+      <H2 a={a} b={b} />
+      {card
+        ? <div class="faq-card rv"><h4>Still have a question?</h4><p>Message us on WhatsApp. You'll get a reply from the person who builds your project.</p><a href={`https://wa.me/${WA}`} target="_blank" rel="noopener" class="btn btn-w"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a></div>
+        : <p class="lead rv" style="margin-top:20px">{items.length} questions</p>}
+      {more && <a href="faq.html" class="link" style="margin-top:18px">All questions <i class="fa-solid fa-arrow-right"></i></a>}
+    </div>
+    <div class="qas">
+{items.map(([q, ans], k) => <div class={k === 0 ? "qa open rv" : "qa rv"}><button type="button" aria-expanded={k === 0 ? "true" : "false"}><Fragment set:html={q} /><i class="fa-solid fa-plus"></i></button><div class="ans"><div><p set:html={ans} /></div></div></div>)}
+    </div>
+  </div>
+</section>

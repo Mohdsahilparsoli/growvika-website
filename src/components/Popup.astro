@@ -1,0 +1,71 @@
+---
+// Project enquiry popup (opened by any [data-open-modal] button).
+---
+<!-- ============ POPUP ============ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" aria-hidden="true">
+  <div class="bd" data-close></div>
+  <div class="m-box">
+    <button type="button" class="m-close" data-close aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <aside class="m-side">
+      <img src="https://images.unsplash.com/photo-1603201667230-bd139210db18?auto=format&fit=crop&w=900&q=75" alt="" loading="lazy">
+      <div class="m-top"><span class="logo">GrowVika<i></i></span></div>
+      <div class="m-mid">
+        <small class="m-eyebrow">Free consultation</small>
+        <h3>Let's build something <em class="s">great.</em></h3>
+        <p>Tell us what you need. You talk directly to the people who build it — no middlemen.</p>
+        <ul class="m-ticks">
+          <li><span><i class="fa-solid fa-comments"></i></span>Free consultation &amp; honest advice</li>
+          <li><span><i class="fa-solid fa-file-invoice"></i></span>Fixed quote, no hidden cost</li>
+          <li><span><i class="fa-brands fa-whatsapp"></i></span>Reply the same day</li>
+        </ul>
+      </div>
+      <div class="m-stats">
+        <div><b>7–15</b><span>days to launch most sites</span></div>
+        <div><b>11+</b><span>services under one roof</span></div>
+        <div><b>1 team</b><span>build + marketing</span></div>
+      </div>
+    </aside>
+    <div class="m-form">
+      <form id="pform" novalidate>
+        <div class="m-head">
+          <span class="m-step"><i></i>Project enquiry</span>
+          <h3 id="m-title">Start a new <em class="s">project</em></h3>
+          <p>Takes under a minute — we'll call or email you the same day.</p>
+        </div>
+        <div class="fg">
+          <div class="fl"><i class="fa-regular fa-user"></i><input id="f-name" name="name" required autocomplete="name" placeholder=" "><label for="f-name">Your name *</label><span class="e">Please enter your name</span></div>
+          <div class="fl"><i class="fa-brands fa-whatsapp"></i><input id="f-phone" name="phone" type="tel" required inputmode="tel" autocomplete="tel" placeholder=" "><label for="f-phone">Phone / WhatsApp *</label><span class="e">Enter a valid 10-digit number</span></div>
+          <div class="full"><span class="lbl">What do you need? <small>Pick one or more</small></span>
+            <div class="svc-pick">
+              <label><input type="checkbox" name="svc" value="Website"><span><i class="fa-solid fa-code"></i>Website<b class="tk"><i class="fa-solid fa-check"></i></b></span></label>
+              <label><input type="checkbox" name="svc" value="E-commerce"><span><i class="fa-solid fa-bag-shopping"></i>E-commerce<b class="tk"><i class="fa-solid fa-check"></i></b></span></label>
+              <label><input type="checkbox" name="svc" value="Mobile app"><span><i class="fa-solid fa-mobile-screen"></i>Mobile app<b class="tk"><i class="fa-solid fa-check"></i></b></span></label>
+              <label><input type="checkbox" name="svc" value="CRM"><span><i class="fa-solid fa-users-gear"></i>CRM<b class="tk"><i class="fa-solid fa-check"></i></b></span></label>
+              <label><input type="checkbox" name="svc" value="Custom software"><span><i class="fa-solid fa-gears"></i>Software<b class="tk"><i class="fa-solid fa-check"></i></b></span></label>
+              <label><input type="checkbox" name="svc" value="Digital marketing"><span><i class="fa-solid fa-bullhorn"></i>Marketing<b class="tk"><i class="fa-solid fa-check"></i></b></span></label>
+            </div>
+          </div>
+          <div class="fl full"><i class="fa-solid fa-briefcase"></i><input id="f-biz" name="biz" autocomplete="organization" placeholder=" "><label for="f-biz">Business name</label></div>
+          <div class="full"><span class="lbl">When do you want to start?</span>
+            <div class="seg" role="radiogroup" aria-label="Timeline">
+              <label><input type="radio" name="budget" value="As soon as possible"><span><i class="fa-solid fa-bolt"></i>ASAP</span></label>
+              <label><input type="radio" name="budget" value="Within a month"><span>Within a month</span></label>
+              <label><input type="radio" name="budget" value="1–3 months"><span>1–3 months</span></label>
+              <label><input type="radio" name="budget" value="Just exploring"><span>Just exploring</span></label>
+            </div>
+          </div>
+          <div class="fl full ta"><i class="fa-regular fa-pen-to-square"></i><textarea id="f-msg" name="msg" placeholder=" "></textarea><label for="f-msg">Tell us a little more (optional)</label></div>
+        </div>
+        <button type="submit" class="btn btn-i m-submit"><span>Send enquiry</span><i class="fa-solid fa-paper-plane"></i></button>
+        <div class="m-foot"><span><i class="fa-solid fa-lock"></i>Your details stay private</span><span>Prefer to talk? <a href="tel:+919818186876">+91-9818186876</a></span></div>
+      </form>
+      <div class="m-ok">
+        <div class="ok-ic"><i class="fa-solid fa-check"></i></div>
+        <h3>Thanks! Enquiry <em class="s">received.</em></h3>
+        <p>We've got your details and will call or email you the same day.</p>
+        <button type="button" class="btn btn-o" data-close>Back to the site</button>
+      </div>
+    </div>
+  </div>
+</div>
+

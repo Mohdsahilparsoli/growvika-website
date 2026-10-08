@@ -1,0 +1,33 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import Faq from "../components/Faq.astro";
+import Marquee from "../components/Marquee.astro";
+import SvcCards from "../components/SvcCards.astro";
+import ContactCards from "../components/ContactCards.astro";
+import CtaStrip from "../components/CtaStrip.astro";
+import Enquiry from "../components/Enquiry.astro";
+import FAQ_GROUPS from "../data/faq_groups.json";
+---
+<Base path="faq" cur="faq" crumbs={[["FAQ", "faq"]]}
+  title="FAQ | Websites, Apps, CRM, SEO &amp; Pricing Questions | GrowVika"
+  desc="Answers to common questions about GrowVika's websites, online stores, apps, CRM, custom software, SEO, pricing, payments and support.">
+  <PageHero cr={[[null, "FAQ"]]} h1a="Questions," h1b='<em class="s">answered.</em>'
+    lead="Everything business owners usually ask us — timelines, pricing, ownership, SEO and support. Can't find yours? Ask us on WhatsApp." img="pair"
+    b1={["fa-solid fa-circle-question", "24+ answers", "in 6 topics"]} b2={["fa-brands fa-whatsapp", "Ask anything", "reply the same day"]}
+    ctas='<a href="#faq-general" class="btn btn-i">Browse questions <i class="fa-solid fa-arrow-down"></i></a><a href="https://wa.me/919818186876" target="_blank" rel="noopener" class="btn btn-o"><i class="fa-brands fa-whatsapp"></i> Ask on WhatsApp</a>' />
+  <section class="sec faq-top">
+    <div class="wrap">
+      <div class="fq-search rv"><i class="fa-solid fa-magnifying-glass"></i><input type="search" id="fq-q" placeholder="Search questions — e.g. “how long”, “ownership”, “SEO”" aria-label="Search FAQs"><span class="fq-n" id="fq-n"></span></div>
+      <div class="ft-row">{FAQ_GROUPS.map(([id, name, ic]) => <a href={`#faq-${id}`} class="ft rv"><i class={`fa-solid ${ic}`}></i>{name}</a>)}</div>
+    </div>
+  </section>
+  {FAQ_GROUPS.map(([id, name, , qs], k) => (
+    <Faq items={qs} label={name} a={(name as string).split(" ")[0]} b='<em class="s">questions.</em>' sid={`faq-${id}`} more={false} card={false}
+      cls={k % 2 ? "sec faq fq-group soft" : "sec faq fq-group"} />))}
+  <Marquee words={["Timelines", "Pricing", "Ownership", "SEO", "Apps", "CRM", "Support", "Payments"]} />
+  <SvcCards label="Popular services" a="Explore our" b='<em class="s">services.</em>' lead="Each service page has its own detailed FAQs." soft />
+  <ContactCards label="Still need help?" a='Talk to a <em class="s">real person.</em>' />
+  <CtaStrip t1="Ready to start" t2="your project?" sub="Free consultation, fixed quote, and a reply the same day." />
+  <Enquiry />
+</Base>

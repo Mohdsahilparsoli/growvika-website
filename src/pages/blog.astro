@@ -1,0 +1,66 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import HeadRow from "../components/HeadRow.astro";
+import BlogCard from "../components/BlogCard.astro";
+import Marquee from "../components/Marquee.astro";
+import Incl from "../components/Incl.astro";
+import Types from "../components/Types.astro";
+import SvcCards from "../components/SvcCards.astro";
+import Split from "../components/Split.astro";
+import Why from "../components/Why.astro";
+import Promise from "../components/Promise.astro";
+import Faq from "../components/Faq.astro";
+import Enquiry from "../components/Enquiry.astro";
+import ARTICLES from "../data/articles.json";
+import BLOG_CATS from "../data/blog_cats.json";
+import { WA } from "../lib/site";
+---
+<Base path="blog" cur="blog" crumbs={[["Blog", "blog"]]}
+  title="Blog | Website, SEO, CRM &amp; Marketing Tips | GrowVika"
+  desc="Practical guides for Delhi NCR businesses on websites, Google Maps ranking, social media, ads, apps and CRM from the GrowVika team.">
+  <PageHero cr={[[null, "Blog"]]} h1a="Ideas to help you" h1b='<em class="s">grow online.</em>'
+    lead="Practical guides on websites, Google Maps, social media, ads, apps and CRM — written for business owners, not developers." img="laptop_mug"
+    b1={["fa-solid fa-book-open", "Plain-English guides", "no jargon"]} b2={["fa-solid fa-lightbulb", "Real questions", "from NCR businesses"]}
+    ctas='<a href="#posts" class="btn btn-i">Read the latest <i class="fa-solid fa-arrow-down"></i></a><a href="https://wa.me/919818186876" target="_blank" rel="noopener" class="btn btn-o"><i class="fa-brands fa-whatsapp"></i> Ask a question</a>' />
+  <section class="sec" id="posts">
+    <div class="wrap">
+      <HeadRow label="Latest articles" a="Practical guides" b='<em class="s">for growing businesses.</em>' lead="Short, useful articles about websites, Google, social media, apps and CRM." />
+      <div class="wf rv" role="tablist">{BLOG_CATS.map((c, k) => <button type="button" class={k === 0 ? "on" : ""} data-bf={c}>{c}</button>)}</div>
+      <div class="bl-grid">
+        {ARTICLES.map((p) => <BlogCard p={p} cat />)}
+      </div>
+    </div>
+  </section>
+  <Marquee words={["Websites", "Local SEO", "CRM", "Apps", "Social media", "Ads", "E-commerce", "Software"]} />
+  <Incl label="Topics" a="Browse by" b='<em class="s">topic.</em>' soft imgs={["code", "phone", "data", "mobile", "social", "marketing", "shop", "screen"]} items={[
+    ["fa-code", "Websites", "Design, speed, content and conversions."], ["fa-location-dot", "Local SEO", "Google Maps, reviews and near-me searches."],
+    ["fa-users-gear", "CRM", "Leads, follow-ups and sales process."], ["fa-mobile-screen", "Apps", "When you need one and what it costs to run."],
+    ["fa-hashtag", "Social media", "Reels, posting plans and content ideas."], ["fa-bullhorn", "Ads", "Meta and Google ads for local businesses."],
+    ["fa-bag-shopping", "E-commerce", "Stores, payments, shipping and growth."], ["fa-gears", "Software", "Automating the work spreadsheets can't handle."]]} />
+  <Types label="Start here" a="New to" b='<em class="s">going online?</em>' lead="Four steps we recommend to every local business." items={[
+    ["Get your Google Business Profile right", "The free listing that brings the most local calls."],
+    ["Build a website that answers questions", "What to say on each page so visitors call you."],
+    ["Set up WhatsApp enquiries", "Make it one tap for customers to message you."],
+    ["Track every lead", "A simple CRM so no enquiry is ever forgotten."]]} />
+  <Incl label="Quick tips" a="Six tips you can" b='<em class="s">use today.</em>' style="tabs" dark items={[
+    ["fa-image", "Compress your images", "Big photos are the #1 reason sites are slow on phones."],
+    ["fa-star", "Ask for reviews", "Send a review link on WhatsApp after every happy customer."],
+    ["fa-phone", "Show your number", "Put a click-to-call button at the top of every page."],
+    ["fa-clock", "Reply fast", "Leads answered in 5 minutes convert far better than next day."],
+    ["fa-camera", "Post real photos", "Real photos of your team and work build trust."],
+    ["fa-bullseye", "One goal per page", "Each page should ask for one action: call, chat or book."]]} />
+  <SvcCards label="Need help?" a="Let us" b='<em class="s">do it for you.</em>' lead="Every topic here is something we can set up for you." soft />
+  <Split label="Ask us" a="Have a question" b='<em class="s">we should answer?</em>' img="laptop_mug" rev
+    text="Tell us what you'd like to learn — we write articles based on real questions from business owners in Delhi NCR. Or just ask us directly on WhatsApp."
+    bullets={["Websites, SEO, apps, CRM or ads", "Answered in plain words", "Free — no strings attached"]}
+    extra={`<a href="https://wa.me/${WA}" target="_blank" rel="noopener" class="btn btn-i rv" style="margin-top:24px"><i class="fa-brands fa-whatsapp"></i> Ask on WhatsApp</a>`} />
+  <Why />
+  <Promise />
+  <Faq a="Blog" b='<em class="s">questions.</em>' items={[
+    ["How often do you publish?", "We add new guides regularly based on questions from business owners."],
+    ["Can I suggest a topic?", "Yes — send it on WhatsApp and we'll try to cover it."],
+    ["Is the advice free to use?", "Absolutely. Use it for your business; ask us if you'd like help."],
+    ["Do you write blogs for clients?", "Yes, SEO blog writing is part of our marketing services."]]} />
+  <Enquiry />
+</Base>

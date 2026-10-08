@@ -1,0 +1,30 @@
+---
+// Bento grid of example projects. items: WORK rows [title, sub, img, cat, tags, desc].
+import HeadRow from "./HeadRow.astro";
+import WORK_CATS from "../data/work_cats.json";
+import WORK_DETAIL from "../data/work_detail.json";
+import { U, dec } from "../lib/site";
+const {
+  items, label = "Selected work", a = "Built for real", b = '<em class="s">businesses.</em>', filt = false,
+  lead = "A look at the kind of projects we build — by industry, with the problem we solved and what we built.", soft = false,
+} = Astro.props;
+const n = items.length;
+const sizes = n === 3 || n === 6 ? Array(n).fill("") : ["big", "mid", ...Array(Math.max(0, n - 2)).fill("")];
+const det = WORK_DETAIL as Record<string, [string, string[], string[]]>;
+---
+<section class={soft ? "sec soft" : "sec"} id="work">
+  <div class="wrap">
+<HeadRow label={label} a={a} b={b} lead={lead} />
+    {filt && <div class="wf rv" role="tablist">{WORK_CATS.map(([c, l], k) => <button type="button" class={k === 0 ? "on" : ""} data-wf={c}>{l}</button>)}</div>}
+    <div class="work-grid">
+{items.map(([t, sub, img, cat, tag, d], k) => (
+      <a href="contact.html" class={`wk ${sizes[k]} rv`} data-cat={cat} data-open-modal data-cursor="view">
+        <div class="img rv cl"><img src={U(img, 1000)} alt={dec(`${t} — ${sub}`)} loading="lazy"></div>
+        <span class="res"><i class="fa-solid fa-circle-check"></i><Fragment set:html={det[t][1][0]} /></span>
+        <div class="meta"><div><h3 set:html={t} /><small set:html={sub} /></div><div class="tags">{tag.split(" + ").map((x) => <span set:html={x} />)}</div></div>
+        <p class="wk-p" set:html={`${d} ${det[t][0]}`} />
+      </a>))}
+    </div>
+    <p class="note rv">Examples by industry — client names are kept private. Ask us on WhatsApp for live links to projects similar to yours.</p>
+  </div>
+</section>

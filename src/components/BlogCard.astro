@@ -1,0 +1,5 @@
+---
+import { U, dec } from "../lib/site";
+const { p, cls = "bc rv", cat = false } = Astro.props;
+---
+<a href={`blog-${p.slug}.html`} class={cls} data-cat={cat ? p.cat : undefined} data-cursor="view"><div class="img"><img src={U(p.img, 800)} alt={dec(p.title)} loading="lazy"><span class="cat" set:html={p.cat} /></div><div class="meta"><span><i class="fa-regular fa-folder"></i><Fragment set:html={p.folder} /></span><span><i class="fa-regular fa-clock"></i>{p.mins}</span></div><h3 set:html={p.title} /><p set:html={p.desc} /><span class="rm">Read article <i class="fa-solid fa-arrow-right"></i></span></a>

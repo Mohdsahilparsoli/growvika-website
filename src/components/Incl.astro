@@ -1,0 +1,36 @@
+---
+// "What's included" — pinned image slider (default) or image + accordion tabs.
+import SliderWrap from "./SliderWrap.astro";
+import HeadRow from "./HeadRow.astro";
+import INCL_MORE from "../data/incl_more.json";
+import POOL from "../data/pool.json";
+import { U, pad, dec } from "../lib/site";
+const { label, a, b, items, lead, soft = false, dark = false, style = "slider", imgs } = Astro.props;
+
+const seedImgs = (): string[] => {
+  if (imgs) return items.map((_, k) => imgs[k % imgs.length]);
+  const off = [...(label + a)].reduce((s, c) => s + c.codePointAt(0)!, 0) % POOL.length;
+  return items.map((_, k) => POOL[(off + k * 3) % POOL.length]);
+};
+const ims = seedImgs();
+const more = INCL_MORE as Record<string, string>;
+const txt = (t: string, d: string) => (d + " " + (more[t] ?? more[t.replace(/&amp;/g, "&")] ?? "")).trim();
+const cls = "sec" + (soft ? " soft" : "") + (dark ? " dark" : "");
+---
+{style === "slider" ? (
+<SliderWrap cls={cls + " sl2-sec"} label={label} a={a} b={b} lead={lead}>
+{items.map(([, t, d], k) => <article class="sl2-c"><div class="img"><img src={U(ims[k], 800)} alt={dec(t)} loading="lazy"><span class="sl2-n">{pad(k + 1)}</span></div><div class="sl2-b"><h3 set:html={t} /><p set:html={txt(t, d)} /></div></article>)}
+</SliderWrap>
+) : (
+<section class={cls + " ft2-sec"}>
+  <div class="wrap">
+<HeadRow label={label} a={a} b={b} lead={lead} />
+    <div class="ft2" data-ft2>
+      <div class="ft2-vis rv"><div class="ft2-imgs">{items.map(([, t], k) => <img class={k === 0 ? "on" : undefined} src={U(ims[k], 1000)} alt={dec(t)} loading="lazy">)}</div><div class="ft2-cap"><span class="n" data-ft2-n>01</span><b data-ft2-t set:html={items[0][1]} /></div></div>
+      <ol class="ft2-list rv">
+{items.map(([, t, d], k) => <li class={k === 0 ? "ft2-it on" : "ft2-it"}><button type="button" aria-expanded={k === 0 ? "true" : "false"}><span class="n">{pad(k + 1)}</span><span class="t" set:html={t} /><i class="fa-solid fa-arrow-right"></i></button><div class="ft2-a"><div><p set:html={txt(t, d)} /></div></div></li>)}
+      </ol>
+    </div>
+  </div>
+</section>
+)}

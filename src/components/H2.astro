@@ -1,0 +1,4 @@
+---
+const { a, b } = Astro.props;
+---
+<h2 class="h2 rv"><span class="mask"><span set:html={a} /></span>{b && <span class="mask"><span set:html={b} /></span>}</h2>

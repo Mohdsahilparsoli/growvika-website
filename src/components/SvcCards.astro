@@ -1,0 +1,29 @@
+---
+// Service cards grid linking to each service page.
+import HeadRow from "./HeadRow.astro";
+import SERVICES from "../data/services.json";
+import SVC_LONG from "../data/svc_long.json";
+import { U, pad } from "../lib/site";
+const {
+  label = "What we do", a = "Everything you need", b = 'to <em class="s">grow online.</em>',
+  lead = "Pick one service or the whole stack.", soft = false, exclude,
+} = Astro.props;
+const list = SERVICES.filter((s) => s.slug !== exclude);
+---
+<section class={soft ? "sec soft" : "sec"}>
+  <div class="wrap">
+<HeadRow label={label} a={a} b={b} lead={lead} />
+    <div class="sc2-grid">
+      {list.map((s, k) => (
+      <a href={`${s.slug}.html`} class="sc2 rv" data-cursor="view">
+        <div class="sc2-img img"><img src={U(s.img, 800)} alt={`${s.name} in Delhi NCR`} loading="lazy"><span class="sc2-n">{pad(k + 1)}</span><span class="sc2-tag">{s.tag}</span></div>
+        <div class="sc2-b">
+          <div class="sc2-top"><span class="sc-ic"><i class={`fa-solid ${s.icon}`}></i></span><h3>{s.name}</h3></div>
+          <p set:html={(SVC_LONG as Record<string, string>)[s.slug] ?? s.card} />
+          <ul class="sc2-f">{s.incl.slice(0, 4).map((i) => <li><i class="fa-solid fa-check"></i><Fragment set:html={i[1]} /></li>)}</ul>
+          <div class="sc2-foot"><span class="go">Explore service <i class="fa-solid fa-arrow-right"></i></span><span class="sc2-m"><i class="fa-solid fa-file-signature"></i> Fixed quote</span></div>
+        </div>
+      </a>))}
+    </div>
+  </div>
+</section>

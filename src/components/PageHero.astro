@@ -1,0 +1,34 @@
+---
+// Full-screen inner-page hero with a marquee strip at the bottom.
+import Crumbs from "./Crumbs.astro";
+import Marquee from "./Marquee.astro";
+import { U, WA } from "../lib/site";
+const {
+  cr, h1a, h1b, lead, img,
+  b1 = ["fa-brands fa-whatsapp", "Same-day reply", "on WhatsApp &amp; call"],
+  b2 = ["fa-solid fa-handshake", "Free first meeting", "at your office in Delhi NCR"],
+  ctas, chips, alt = "",
+  strip = ["Websites", "Mobile apps", "CRM", "Custom software", "SEO", "Social media", "Google &amp; Meta Ads"],
+} = Astro.props;
+---
+<!-- PAGE HERO -->
+<section class="ph full">
+  <div class="wrap">
+    <div class="ph-txt rv">
+      <Crumbs items={cr} />
+      <h1><span class="mask"><span set:html={h1a} /></span><span class="mask"><span set:html={h1b} /></span></h1>
+      <p class="lead" set:html={lead} />
+      <div class="hero-ctas">
+        {ctas ? <Fragment set:html={ctas} /> : <Fragment><button type="button" class="btn btn-i" data-open-modal>Start a new project <i class="fa-solid fa-arrow-right"></i></button>
+        <a href={`https://wa.me/${WA}`} target="_blank" rel="noopener" class="btn btn-o"><i class="fa-brands fa-whatsapp"></i> WhatsApp us</a></Fragment>}
+      </div>
+      {chips && <div class="ph-chips">{chips.map((c) => <span set:html={c} />)}</div>}
+    </div>
+    <div class="ph-vis rv">
+      <div class="img ph-img"><img src={U(img, 1000)} alt={alt} fetchpriority="high"></div>
+      <div class="h-badge ph-b1"><span class="ic"><i class={b1[0]}></i></span><span><b set:html={b1[1]} /><small set:html={b1[2]} /></span></div>
+      <div class="h-badge ph-b2"><span class="ic"><i class={b2[0]}></i></span><span><b set:html={b2[1]} /><small set:html={b2[2]} /></span></div>
+    </div>
+  </div>
+<Marquee words={strip} />
+</section>

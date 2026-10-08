@@ -1,0 +1,15 @@
+---
+// Long-form SEO guide for a single service page.
+import SeoCopy from "./SeoCopy.astro";
+const { s } = Astro.props;
+const n = s.name, low = n.toLowerCase();
+const blocks = [
+  [`What is included in ${low}?`, `<p>${s.lead} Every project includes ${s.incl.slice(0, 5).map((i) => i[1]).join(", ")} and more — scoped clearly in a fixed quote before work begins.</p>`],
+  [`Who needs ${low}?`, `<p>We regularly build for ${s.inds.slice(0, 5).map((i) => i.toLowerCase()).join(", ")} and other growing businesses across Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad. If your customers find you on their phones and contact you on WhatsApp, this service is built for that journey.</p>`],
+  [`How long does ${low} take?`, `<p>Our process has four clear stages — ${s.steps.map((x) => x[0].toLowerCase()).join(", ")}. Timelines depend on scope; you'll see a realistic schedule in your quote and get progress updates on WhatsApp at every stage.</p>`],
+  [`What does ${low} cost in Delhi NCR?`, "<p>The cost depends on the features, number of pages or screens, integrations and content. Instead of hourly billing, we send a <strong>fixed quote</strong> after a free consultation, so you know the full investment upfront — with no hidden charges later.</p>"],
+  [`How to choose the right ${low} partner`, "<ul><li>Ask to see similar projects and speak to the people who will build yours.</li><li>Make sure domain, code and data will be in your name.</li><li>Check that SEO basics, speed and mobile testing are included.</li><li>Ask what support looks like after launch.</li></ul>"],
+  ["Why businesses choose GrowVika", `<p>One team builds and markets your project, so ${low} connects directly to SEO, ads and a CRM that tracks every lead. You talk directly to the founder, get honest advice and a fixed price — and we stay with you after launch.</p>`],
+];
+---
+<SeoCopy label="Complete guide" a={n} b='<em class="s">in Delhi NCR.</em>' blocks={blocks} asideTitle={`${s.short} — what you get`} asideItems={s.incl.slice(0, 6).map((i) => i[1])} soft />

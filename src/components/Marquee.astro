@@ -1,0 +1,5 @@
+---
+const { words } = Astro.props;
+const sp = words.map((w, k) => (k % 2 === 0 ? `${w} ` : `<em>${w}</em> `) + '<i class="fa-solid fa-asterisk"></i> ').join("");
+---
+<div class="marq-wrap flat"><div class="marq" aria-hidden="true"><div class="tr"><span set:html={sp} /><span set:html={sp} /></div></div></div>

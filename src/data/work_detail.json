@@ -1,0 +1,122 @@
+{
+ "Dental clinic website": [
+  "Patients searched on Google Maps, found an outdated site with no booking option and called the next clinic.",
+  [
+   "Treatment pages written for patients",
+   "Appointment request with WhatsApp confirmation",
+   "Google Business Profile photos, services and posts",
+   "Review request flow after every visit"
+  ],
+  [
+   "WordPress",
+   "Google Business Profile",
+   "GA4",
+   "WhatsApp"
+  ]
+ ],
+ "Restaurant ordering app": [
+  "Most online orders came through aggregator apps with high commissions and no customer data.",
+  [
+   "Menu with categories, add-ons and combos",
+   "Cart, UPI / card / COD checkout",
+   "Order status updates and push offers",
+   "Admin panel for menu, orders and timings"
+  ],
+  [
+   "Flutter",
+   "Firebase",
+   "Razorpay",
+   "OneSignal"
+  ]
+ ],
+ "Fashion e-commerce store": [
+  "The brand sold on Instagram DMs — slow replies, manual payments and lost orders.",
+  [
+   "Catalogue with sizes, colours and stock",
+   "Coupons, combos and COD",
+   "Courier booking and tracking links",
+   "Meta catalogue for Instagram shopping"
+  ],
+  [
+   "Shopify",
+   "Razorpay",
+   "Shiprocket",
+   "Meta Pixel"
+  ]
+ ],
+ "Coaching institute CRM": [
+  "Admission enquiries lived in notebooks and WhatsApp; follow-ups depended on memory.",
+  [
+   "Enquiry capture from website and ads",
+   "Counselling stages and reminders",
+   "Fee instalments and due dates",
+   "Reports by course, source and counsellor"
+  ],
+  [
+   "Next.js",
+   "PostgreSQL",
+   "Supabase",
+   "PWA"
+  ]
+ ],
+ "Salon local SEO growth": [
+  "A great salon with few online reviews was invisible in “salon near me” searches.",
+  [
+   "Google Business Profile optimisation",
+   "Monthly reels and offer calendar",
+   "Review collection on WhatsApp",
+   "Landing page for bridal packages"
+  ],
+  [
+   "Google Business Profile",
+   "Instagram",
+   "Canva",
+   "GA4"
+  ]
+ ],
+ "Manufacturer B2B portal": [
+  "Dealers called for prices and stock; quotes were made manually in Excel.",
+  [
+   "Product catalogue with specifications",
+   "Request-for-quote forms",
+   "Dealer login with price lists",
+   "Enquiry dashboard for the sales team"
+  ],
+  [
+   "Next.js",
+   "Node.js",
+   "PostgreSQL",
+   "Vercel"
+  ]
+ ],
+ "Real-estate lead website": [
+  "Ads sent buyers to a slow brochure PDF — leads were few and poorly qualified.",
+  [
+   "Fast project landing pages",
+   "Lead forms with budget and timeline",
+   "Meta lead campaigns",
+   "CRM for site-visit follow-ups"
+  ],
+  [
+   "Next.js",
+   "Meta Ads",
+   "Google Ads",
+   "CRM"
+  ]
+ ],
+ "Gym membership app": [
+  "Renewals were tracked on paper and members forgot to renew.",
+  [
+   "Membership plans and online renewal",
+   "Attendance check-in",
+   "Renewal and class reminders",
+   "Owner dashboard for revenue and dues"
+  ],
+  [
+   "Flutter",
+   "Supabase",
+   "Razorpay",
+   "OneSignal"
+  ]
+ ]
+}

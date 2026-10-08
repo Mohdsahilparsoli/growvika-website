@@ -1,0 +1,11 @@
+---
+import HeadRow from "./HeadRow.astro";
+const { q, label = "Find us", a = "Serving", b } = Astro.props;
+const qq = q.replaceAll(" ", "+");
+---
+<section class="sec map-sec">
+  <div class="wrap">
+<HeadRow label={label} a={a} b={b ?? `<em class="s">${q}.</em>`} lead="We visit businesses across the city for the first meeting — free." />
+    <div class="map rv" style="margin-top:0"><iframe title={`Map of ${q}`} src={`https://www.google.com/maps?q=${qq},+India&z=11&output=embed`} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><a class="map-open" href={`https://www.google.com/maps?q=${qq}`} target="_blank" rel="noopener">Open in Maps <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+  </div>
+</section>

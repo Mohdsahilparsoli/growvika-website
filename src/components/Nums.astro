@@ -1,0 +1,10 @@
+---
+import HeadRow from "./HeadRow.astro";
+const { items, label = "In numbers", a = "Small team.", b = '<em class="s">Serious focus.</em>' } = Astro.props;
+---
+<section class="sec nums2">
+  <div class="wrap">
+<HeadRow label={label} a={a} b={b} />
+    <div class="n2-grid">{items.map(([v, t]) => <div class="rv"><b set:html={v} /><span set:html={t} /></div>)}</div>
+  </div>
+</section>

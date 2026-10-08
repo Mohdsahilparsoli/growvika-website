@@ -1,0 +1,7 @@
+# Site is not launched yet — keep it out of search engines.
+# At launch: remove "Disallow: /", set NOINDEX = false in src/lib/site.ts,
+# and drop the X-Robots-Tag header in vercel.json.
+User-agent: *
+Disallow: /
+
+Sitemap: https://growvika-website.vercel.app/sitemap.xml

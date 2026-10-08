@@ -1,0 +1,20 @@
+---
+// Tools & tech, grouped by category. `chips` highlights the tools used most for a service.
+import HeadRow from "./HeadRow.astro";
+import TECH from "../data/tech.json";
+import PRINCIPLES from "../data/principles.json";
+const { label, a, b, chips, lead } = Astro.props;
+const norm = (s: string) => s.replace(/&amp;/g, "&").toLowerCase();
+const hl = new Set((chips ?? []).map(norm));
+const on = (n: string) => { const x = norm(n); return hl.has(x) || [...hl].some((h) => h.length > 3 && x.includes(h)); };
+---
+<section class="sec tech">
+  <div class="wrap">
+<HeadRow label={label} a={a} b={b} lead={lead ?? "We pick proven, well-supported tools — so your project is fast, secure and easy for anyone to maintain."} />
+    <div class="tp-row">{PRINCIPLES.map(([ic, t, d]) => <div class="tp rv"><i class={`fa-solid ${ic}`}></i><div><b set:html={t} /><span set:html={d} /></div></div>)}</div>
+    <div class="tc-grid">
+{TECH.map(([ic, t, d, tools]) => <div class="tc rv"><div class="tc-h"><span class="ic"><i class={`fa-solid ${ic}`}></i></span><div><h3 set:html={t} /><p set:html={d} /></div></div><ul>{(tools as string[][]).map(([n, dd]) => <li class={on(n) ? "hl" : ""}><b set:html={n} /><span set:html={dd} /></li>)}</ul></div>)}
+    </div>
+    {chips && <p class="tc-note rv"><i class="fa-solid fa-circle"></i> Highlighted tools are the ones we use most for this service.</p>}
+  </div>
+</section>

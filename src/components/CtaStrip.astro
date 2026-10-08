@@ -1,0 +1,11 @@
+---
+const { t1, t2, sub } = Astro.props;
+---
+<section class="sec cta2">
+  <div class="wrap">
+    <div class="cta2-box rv">
+      <div><h2><Fragment set:html={t1} /> <em class="s" set:html={t2} /></h2><p set:html={sub} /></div>
+      <div class="cta2-b"><button type="button" class="btn btn-w" data-open-modal>Start a new project <i class="fa-solid fa-arrow-right"></i></button><a href="tel:+919818186876" class="btn f-wa"><i class="fa-solid fa-phone"></i> +91-9818186876</a></div>
+    </div>
+  </div>
+</section>

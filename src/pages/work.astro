@@ -1,0 +1,62 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import WorkGrid from "../components/WorkGrid.astro";
+import WorkDeep from "../components/WorkDeep.astro";
+import Incl from "../components/Incl.astro";
+import SeoCopy from "../components/SeoCopy.astro";
+import Split from "../components/Split.astro";
+import Marquee from "../components/Marquee.astro";
+import SvcCards from "../components/SvcCards.astro";
+import Process from "../components/Process.astro";
+import Industries from "../components/Industries.astro";
+import Stack from "../components/Stack.astro";
+import Why from "../components/Why.astro";
+import Promise from "../components/Promise.astro";
+import Faq from "../components/Faq.astro";
+import Enquiry from "../components/Enquiry.astro";
+import WORK from "../data/work.json";
+---
+<Base path="work" cur="work" crumbs={[["Our Work", "work"]]}
+  title="Our Work | Websites, Apps &amp; CRM Projects | GrowVika"
+  desc="Examples of websites, online stores, mobile apps, CRMs, custom software and marketing GrowVika builds for businesses in Delhi NCR.">
+  <PageHero cr={[[null, "Work"]]} h1a="Work that" h1b='<em class="s">works.</em>'
+    lead="Websites, stores, apps, CRMs and campaigns for clinics, restaurants, retailers, institutes and manufacturers across Delhi NCR." img="desk"
+    b1={["fa-solid fa-layer-group", "8+ project types", "websites to CRMs"]} b2={["fa-solid fa-mobile-screen", "Mobile-first", "tested on real phones"]} />
+  <WorkGrid items={WORK} label="All projects" a="Selected" b='<em class="s">projects.</em>' filt lead="Filter by type. Each card is an example of the kind of project we build for that industry." />
+  <WorkDeep items={WORK} />
+  <Incl label="Every project" a="What every project" b='<em class="s">includes.</em>' soft items={[
+    ["fa-comments", "Discovery call", "We learn your customers, competitors and goals."],
+    ["fa-pen-ruler", "Design approval", "You approve designs before any code is written."],
+    ["fa-mobile-screen", "Mobile testing", "Tested on real Android and iPhone devices."],
+    ["fa-gauge-high", "Speed checks", "Optimised images and code for fast loading."],
+    ["fa-magnifying-glass", "SEO setup", "Titles, meta, sitemap, Search Console and analytics."],
+    ["fa-brands fa-whatsapp", "Lead capture", "Call, WhatsApp and forms wired to you or your CRM."],
+    ["fa-graduation-cap", "Handover &amp; training", "Logins, documentation and a walkthrough for your team."],
+    ["fa-headset", "Post-launch support", "Fixes and help after you go live."]]} />
+  <SeoCopy label="Our work" a="Websites, apps &amp; CRM" b='<em class="s">built for Delhi NCR.</em>' asideTitle="Ask for examples"
+    asideItems={["Live links on request", "Projects in your industry", "Talk to the builder", "Free consultation"]} blocks={[
+    ["What kind of projects do we build?", '<p>From <a href="website-development.html">business websites</a> and <a href="ecommerce-development.html">online stores</a> to <a href="mobile-app-development.html">mobile apps</a>, <a href="crm-development.html">CRMs</a> and <a href="custom-software-development.html">custom software</a> — plus the <a href="digital-marketing.html">SEO, social media and ads</a> that bring customers to them.</p>'],
+    ["Industries we build for", "<p>Clinics and dentists, restaurants and cafés, fashion and lifestyle brands, coaching institutes, salons and gyms, real-estate developers, manufacturers and B2B suppliers across Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</p>"],
+    ["How we measure success", "<ul><li>Faster pages that work well on mobile</li><li>More calls, WhatsApp chats and form enquiries — tracked, not guessed</li><li>Fewer lost leads thanks to follow-up reminders</li><li>Less time spent on spreadsheets and manual work</li></ul>"],
+    ["Want to see a project like yours?", "<p>Many clients prefer privacy, so we share live links and references one-to-one. Message us on WhatsApp with your industry and we'll send relevant examples.</p>"]]} />
+  <Split label="Case study" a="Dental clinic:" b='<em class="s">from Google to booked.</em>' img="clinic" img2="phone" soft
+    text="<b>The challenge:</b> patients searched on Google Maps, found an outdated site and called a competitor. <b>What we built:</b> a fast treatment-focused website with online appointment requests, WhatsApp booking, Google Business Profile optimisation and review requests after every visit."
+    bullets={["Treatment pages written for patients, not doctors", "Appointment request → WhatsApp in one tap", "Google Maps profile, photos and posts", "Simple CRM to follow up on enquiries"]} />
+  <Marquee words={["Clinics", "Restaurants", "Fashion", "Coaching", "Salons", "Manufacturers", "Real estate", "Gyms"]} />
+  <SvcCards label="By service" a="What we" b='<em class="s">build.</em>' lead="Explore each service to see what's included." />
+  <Process />
+  <Split label="Our approach" a="Simple, fast" b='<em class="s">and measurable.</em>' img="sketch" rev
+    text="Every project starts with your customer: what they search, what they need to see, and what makes them call. We design for that, build it fast, and track enquiries after launch so we can keep improving."
+    bullets={["Designed around real customer questions", "Speed and mobile tested before launch", "Analytics and lead tracking from day one"]} />
+  <Industries />
+  <Stack label="Tools &amp; tech" a="Built with" b='<em class="s">modern tools.</em>' />
+  <Why />
+  <Promise />
+  <Faq items={[
+    ["Can I see live examples?", "Yes — ask us on WhatsApp and we'll share live links to projects similar to yours."],
+    ["Why don't you show client names?", "Many clients prefer privacy. We share references and links one-to-one when you ask."],
+    ["Can you redesign my current website?", "Yes. We'll review it first and tell you honestly whether to improve or rebuild."],
+    ["Do you work with startups?", "Yes — from first websites and MVP apps to CRMs as you grow."]]} />
+  <Enquiry />
+</Base>

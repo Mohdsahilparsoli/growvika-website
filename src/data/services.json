@@ -1,0 +1,890 @@
+[
+ {
+  "slug": "website-development",
+  "name": "Website Development",
+  "short": "Websites",
+  "icon": "fa-code",
+  "img": "code",
+  "img2": "desk",
+  "tag": "Business websites",
+  "group": "Build",
+  "h1": [
+   "Websites that bring",
+   "you <em class=\"s\">enquiries.</em>"
+  ],
+  "lead": "Fast, mobile-first business websites and landing pages — designed to look premium, rank on Google and turn visitors into calls and WhatsApp messages.",
+  "card": "Business sites, landing pages and portals that load fast and bring enquiries.",
+  "overview": [
+   "Your website is your best salesperson.",
+   "Most visitors decide in a few seconds whether to call you or go back to Google. We build sites that answer their questions quickly, look trustworthy on a phone, and make it one tap to call or WhatsApp you.",
+   [
+    "Custom design for your brand — no cheap templates",
+    "Built mobile-first and tested on real phones",
+    "SEO basics, Google Analytics and Search Console set up",
+    "Click-to-call, WhatsApp and enquiry forms on every page"
+   ]
+  ],
+  "incl": [
+   [
+    "fa-pen-ruler",
+    "Custom UI design",
+    "Layouts designed around your services and customers."
+   ],
+   [
+    "fa-mobile-screen",
+    "Mobile-first build",
+    "Looks and works great on every phone size."
+   ],
+   [
+    "fa-gauge-high",
+    "Speed optimised",
+    "Compressed images, clean code, fast hosting."
+   ],
+   [
+    "fa-magnifying-glass",
+    "On-page SEO",
+    "Titles, meta, headings, schema and sitemap."
+   ],
+   [
+    "fa-brands fa-whatsapp",
+    "WhatsApp & call buttons",
+    "One-tap contact on every page."
+   ],
+   [
+    "fa-envelope-open-text",
+    "Enquiry forms",
+    "Leads to WhatsApp, email or your CRM."
+   ],
+   [
+    "fa-shield-halved",
+    "SSL & security",
+    "HTTPS, backups and basic hardening."
+   ],
+   [
+    "fa-chart-line",
+    "Analytics setup",
+    "Google Analytics & Search Console."
+   ]
+  ],
+  "types": [
+   [
+    "Business website",
+    "5–10 pages for clinics, shops, consultants and service businesses."
+   ],
+   [
+    "Landing page",
+    "One focused page for an ad campaign or offer."
+   ],
+   [
+    "Corporate site",
+    "Multi-section company site with careers, blog and downloads."
+   ],
+   [
+    "Portfolio / catalogue",
+    "Showcase products or projects with filters and enquiry."
+   ]
+  ],
+  "steps": [
+   [
+    "Discover",
+    "We learn your services, customers and competitors.",
+    "Day 1"
+   ],
+   [
+    "Sitemap & design",
+    "Pages and design for your approval before code.",
+    "Week 1"
+   ],
+   [
+    "Build & content",
+    "We build, add content and connect forms.",
+    "Week 1–2"
+   ],
+   [
+    "Launch & SEO",
+    "Go live, submit to Google, track visits.",
+    "Week 2"
+   ]
+  ],
+  "stack": [
+   "HTML5 / CSS3",
+   "JavaScript",
+   "WordPress",
+   "Next.js",
+   "Tailwind",
+   "Google Analytics",
+   "Search Console",
+   "Cloudflare"
+  ],
+  "inds": [
+   "Clinics & doctors",
+   "Restaurants & cafés",
+   "Coaching institutes",
+   "Real estate",
+   "Salons & gyms",
+   "Manufacturers"
+  ],
+  "faq": [
+   [
+    "How long does a website take?",
+    "Most business websites go live in 7–15 days after we receive your content."
+   ],
+   [
+    "Will I be able to update it myself?",
+    "Yes. We can build on WordPress or give you a simple editor, and show you how to make changes."
+   ],
+   [
+    "Do you write the content?",
+    "We can. Share your details and we'll write clear, SEO-friendly copy for each page."
+   ],
+   [
+    "Is hosting and domain included?",
+    "We help you buy them in your own name and set everything up, so you always own your website."
+   ],
+   [
+    "Will it rank on Google?",
+    "We set up the SEO foundations. Ranking higher for competitive searches usually needs ongoing SEO — we offer that too."
+   ]
+  ]
+ },
+ {
+  "slug": "ecommerce-development",
+  "name": "E-commerce Stores",
+  "short": "E-commerce",
+  "icon": "fa-bag-shopping",
+  "img": "shop",
+  "img2": "phone",
+  "tag": "Online stores",
+  "group": "Build",
+  "h1": [
+   "Online stores that",
+   "<em class=\"s\">sell</em> every day."
+  ],
+  "lead": "Your products online with secure payments, shipping, discount codes and an easy admin — so you can take orders 24×7 without paying marketplace commissions.",
+  "card": "Online stores with payments, shipping and an easy admin to manage orders.",
+  "overview": [
+   "Sell directly — keep your margins.",
+   "Marketplaces take a big cut and own your customers. Your own store lets you build a brand, run your own offers and get repeat orders on WhatsApp and email.",
+   [
+    "Razorpay / UPI / cards and cash on delivery",
+    "Shipping partner integration (e.g. Shiprocket)",
+    "Inventory, variants, coupons and GST invoices",
+    "Abandoned-cart reminders and order updates"
+   ]
+  ],
+  "incl": [
+   [
+    "fa-store",
+    "Store design",
+    "A branded storefront that builds trust."
+   ],
+   [
+    "fa-credit-card",
+    "Payments",
+    "UPI, cards, wallets, net-banking and COD."
+   ],
+   [
+    "fa-truck-fast",
+    "Shipping",
+    "Courier integration and tracking links."
+   ],
+   [
+    "fa-boxes-stacked",
+    "Inventory",
+    "Stock, variants, sizes and colours."
+   ],
+   [
+    "fa-ticket",
+    "Coupons & offers",
+    "Discount codes, combos and free shipping."
+   ],
+   [
+    "fa-file-invoice",
+    "GST invoices",
+    "Automatic invoices for every order."
+   ],
+   [
+    "fa-bell",
+    "Order alerts",
+    "Email / WhatsApp updates for customers."
+   ],
+   [
+    "fa-chart-pie",
+    "Sales reports",
+    "See what sells and who buys again."
+   ]
+  ],
+  "types": [
+   [
+    "D2C brand store",
+    "Fashion, beauty, food and lifestyle brands."
+   ],
+   [
+    "Catalogue + enquiry",
+    "B2B products where customers ask for a quote."
+   ],
+   [
+    "Single-product store",
+    "Fast landing-page style store for one hero product."
+   ],
+   [
+    "Multi-vendor (custom)",
+    "Marketplace-style platforms built to order."
+   ]
+  ],
+  "steps": [
+   [
+    "Plan the catalogue",
+    "Categories, products, shipping and payment flow.",
+    "Week 1"
+   ],
+   [
+    "Design & build",
+    "Storefront, cart and checkout.",
+    "Week 1–3"
+   ],
+   [
+    "Connect & test",
+    "Payments, shipping, invoices, test orders.",
+    "Week 3"
+   ],
+   [
+    "Launch & market",
+    "Go live and plan ads / SEO for sales.",
+    "Week 4"
+   ]
+  ],
+  "stack": [
+   "Shopify",
+   "WooCommerce",
+   "Custom (Next.js)",
+   "Razorpay",
+   "PhonePe / UPI",
+   "Shiprocket",
+   "Meta Pixel",
+   "GA4 e-commerce"
+  ],
+  "inds": [
+   "Fashion & apparel",
+   "Food & bakery",
+   "Beauty & wellness",
+   "Home & décor",
+   "Electronics accessories",
+   "B2B suppliers"
+  ],
+  "faq": [
+   [
+    "Shopify or WooCommerce?",
+    "It depends on your products and budget. We'll recommend one after understanding your catalogue."
+   ],
+   [
+    "Can I accept cash on delivery?",
+    "Yes, along with UPI, cards and wallets through a payment gateway."
+   ],
+   [
+    "Who uploads the products?",
+    "We can upload them for you, or train your team to do it."
+   ],
+   [
+    "Can customers track orders?",
+    "Yes — tracking links are sent automatically when you ship."
+   ],
+   [
+    "Do you help with selling after launch?",
+    "Yes. We run Meta and Google shopping ads and SEO for stores."
+   ]
+  ]
+ },
+ {
+  "slug": "mobile-app-development",
+  "name": "Mobile App Development",
+  "short": "Mobile apps",
+  "icon": "fa-mobile-screen",
+  "img": "mobile",
+  "img2": "phone",
+  "tag": "Android & iOS",
+  "group": "Build",
+  "h1": [
+   "Apps your customers",
+   "<em class=\"s\">love</em> to use."
+  ],
+  "lead": "Android and iOS apps for bookings, orders, memberships and field teams — with an admin panel to run it all, built by the same team that builds your website.",
+  "card": "Android and iOS apps for bookings, orders, memberships and more.",
+  "overview": [
+   "An app when you really need one.",
+   "We'll tell you honestly if a website is enough. When an app makes sense — repeat bookings, loyalty, delivery or a field team — we build one that is simple, fast and easy to maintain.",
+   [
+    "One codebase for Android and iOS",
+    "Admin panel to manage users, orders and content",
+    "Push notifications, payments and maps",
+    "Play Store & App Store publishing support"
+   ]
+  ],
+  "incl": [
+   [
+    "fa-object-group",
+    "App UI/UX",
+    "Clean screens designed for thumbs."
+   ],
+   [
+    "fa-mobile",
+    "Android & iOS",
+    "Cross-platform build, native feel."
+   ],
+   [
+    "fa-user-lock",
+    "Login & profiles",
+    "OTP, email or social login."
+   ],
+   [
+    "fa-bell",
+    "Push notifications",
+    "Offers, reminders and order updates."
+   ],
+   [
+    "fa-credit-card",
+    "In-app payments",
+    "UPI, cards and wallets."
+   ],
+   [
+    "fa-map-location-dot",
+    "Maps & location",
+    "Tracking, store locator, delivery."
+   ],
+   [
+    "fa-table-columns",
+    "Admin panel",
+    "Manage everything from a browser."
+   ],
+   [
+    "fa-upload",
+    "Store publishing",
+    "Play Store & App Store listing help."
+   ]
+  ],
+  "types": [
+   [
+    "Booking app",
+    "Clinics, salons, gyms and services."
+   ],
+   [
+    "Ordering / delivery app",
+    "Restaurants, grocery and local delivery."
+   ],
+   [
+    "Membership & loyalty",
+    "Gyms, clubs and coaching."
+   ],
+   [
+    "Field-team app",
+    "Sales, service and attendance tracking."
+   ]
+  ],
+  "steps": [
+   [
+    "Scope the app",
+    "Screens, users and must-have features.",
+    "Week 1"
+   ],
+   [
+    "Design screens",
+    "Clickable design to approve before code.",
+    "Week 1–2"
+   ],
+   [
+    "Build & test",
+    "App + admin panel, tested on real devices.",
+    "Week 2–7"
+   ],
+   [
+    "Publish & support",
+    "Store listing, launch and updates.",
+    "Week 8"
+   ]
+  ],
+  "stack": [
+   "Flutter",
+   "React Native",
+   "Firebase",
+   "Node.js",
+   "PostgreSQL",
+   "Razorpay",
+   "Google Maps",
+   "OneSignal"
+  ],
+  "inds": [
+   "Clinics & healthcare",
+   "Restaurants",
+   "Gyms & fitness",
+   "Coaching institutes",
+   "Logistics",
+   "Field services"
+  ],
+  "faq": [
+   [
+    "Android or iOS first?",
+    "We usually build both together from one codebase, so you don't pay twice."
+   ],
+   [
+    "How long does an app take?",
+    "A focused first version typically takes 4–8 weeks depending on features."
+   ],
+   [
+    "Do you publish it on the stores?",
+    "Yes, we help with Play Store and App Store accounts, listings and approval."
+   ],
+   [
+    "What about updates later?",
+    "We offer monthly support for fixes, updates and new features."
+   ],
+   [
+    "Do I get the source code?",
+    "Yes, the app and its code belong to you."
+   ]
+  ]
+ },
+ {
+  "slug": "crm-development",
+  "name": "CRM Development",
+  "short": "CRM",
+  "icon": "fa-users-gear",
+  "img": "data",
+  "img2": "laptop_mug",
+  "tag": "Leads & follow-ups",
+  "group": "Grow",
+  "h1": [
+   "Never lose a lead",
+   "<em class=\"s\">again.</em>"
+  ],
+  "lead": "A CRM built around how your team actually works — every enquiry, follow-up, client, payment and renewal in one place, on desktop and phone.",
+  "card": "Track every lead, follow-up, client and payment in one place.",
+  "overview": [
+   "Built on our own experience.",
+   "We run GrowVika on a CRM we built ourselves — lead stages, follow-up reminders, plan renewals and income tracking. We build the same kind of system for your business, shaped around your process.",
+   [
+    "Lead stages that match your sales process",
+    "Follow-up reminders so nobody is forgotten",
+    "Clients, payments, renewals and due amounts",
+    "Works on phone like an app"
+   ]
+  ],
+  "incl": [
+   [
+    "fa-filter",
+    "Lead pipeline",
+    "Custom stages from new enquiry to won."
+   ],
+   [
+    "fa-clock",
+    "Follow-up reminders",
+    "Today's calls and overdue tasks at a glance."
+   ],
+   [
+    "fa-address-book",
+    "Client records",
+    "History, notes and documents per client."
+   ],
+   [
+    "fa-indian-rupee-sign",
+    "Payments & dues",
+    "Received, pending and next due date."
+   ],
+   [
+    "fa-rotate",
+    "Renewals",
+    "Monthly / yearly plans with reminders."
+   ],
+   [
+    "fa-users",
+    "Team roles",
+    "Admin, sales and staff permissions."
+   ],
+   [
+    "fa-chart-column",
+    "Reports",
+    "Income, conversions and team performance."
+   ],
+   [
+    "fa-mobile-screen",
+    "Mobile-friendly",
+    "Feels like an app on any phone."
+   ]
+  ],
+  "types": [
+   [
+    "Sales CRM",
+    "Leads, stages, follow-ups and conversions."
+   ],
+   [
+    "Admissions CRM",
+    "Enquiries, counselling and fee follow-ups."
+   ],
+   [
+    "Service CRM",
+    "Clients, AMC, renewals and visits."
+   ],
+   [
+    "Real-estate CRM",
+    "Site visits, inventory and broker leads."
+   ]
+  ],
+  "steps": [
+   [
+    "Map your process",
+    "How leads come in and who follows up.",
+    "Week 1"
+   ],
+   [
+    "Design the screens",
+    "Dashboards and forms for your team.",
+    "Week 1–2"
+   ],
+   [
+    "Build & import",
+    "Build the CRM and import your existing data.",
+    "Week 2–5"
+   ],
+   [
+    "Train & improve",
+    "Team training and changes after real use.",
+    "Week 6"
+   ]
+  ],
+  "stack": [
+   "Next.js",
+   "Node.js",
+   "PostgreSQL",
+   "Supabase",
+   "WhatsApp links",
+   "Google Sheets import",
+   "Vercel",
+   "PWA"
+  ],
+  "inds": [
+   "Agencies & consultants",
+   "Coaching institutes",
+   "Real estate",
+   "Clinics",
+   "Insurance & finance",
+   "B2B sales teams"
+  ],
+  "faq": [
+   [
+    "Why not use a ready-made CRM?",
+    "Ready-made tools charge per user and force their process on you. A custom CRM fits your workflow and you own it."
+   ],
+   [
+    "Can you import my Excel data?",
+    "Yes, we import leads and clients from Excel or Google Sheets."
+   ],
+   [
+    "Does it work on mobile?",
+    "Yes. It works in the phone browser and can be added to the home screen like an app."
+   ],
+   [
+    "Can it send WhatsApp messages?",
+    "It can open WhatsApp with a ready message for each lead. Full WhatsApp API automation can be added."
+   ],
+   [
+    "Is my data safe?",
+    "Data is stored securely with logins and role-based access, and backed up regularly."
+   ]
+  ]
+ },
+ {
+  "slug": "custom-software-development",
+  "name": "Custom Software",
+  "short": "Software",
+  "icon": "fa-gears",
+  "img": "screen",
+  "img2": "sketch",
+  "tag": "Billing, booking & tools",
+  "group": "Grow",
+  "h1": [
+   "Software that fits",
+   "your <em class=\"s\">business.</em>"
+  ],
+  "lead": "Billing, booking, inventory, HR and internal dashboards — custom tools that replace messy spreadsheets and save your team hours every week.",
+  "card": "Billing, booking, inventory and internal tools that replace spreadsheets.",
+  "overview": [
+   "Stop forcing your work into spreadsheets.",
+   "If your team copies data between Excel files, WhatsApp groups and notebooks, a small custom tool can save hours every day. We build exactly what you need — nothing you'll never use.",
+   [
+    "Built around your exact workflow",
+    "Works in the browser — no installation",
+    "Role-based access for your team",
+    "Can grow with your business over time"
+   ]
+  ],
+  "incl": [
+   [
+    "fa-file-invoice-dollar",
+    "Billing & invoicing",
+    "GST invoices, quotations and receipts."
+   ],
+   [
+    "fa-calendar-check",
+    "Booking systems",
+    "Appointments, slots and reminders."
+   ],
+   [
+    "fa-warehouse",
+    "Inventory",
+    "Stock in/out, alerts and reports."
+   ],
+   [
+    "fa-user-clock",
+    "HR & attendance",
+    "Staff, attendance and payroll inputs."
+   ],
+   [
+    "fa-gauge",
+    "Dashboards",
+    "Live numbers for owners and managers."
+   ],
+   [
+    "fa-plug",
+    "Integrations",
+    "Payment gateways, SMS, email, Sheets."
+   ],
+   [
+    "fa-lock",
+    "Secure logins",
+    "Roles and permissions for each user."
+   ],
+   [
+    "fa-cloud",
+    "Cloud hosted",
+    "Access from anywhere, backed up."
+   ]
+  ],
+  "types": [
+   [
+    "Billing software",
+    "Invoices, payments and GST reports."
+   ],
+   [
+    "Booking & scheduling",
+    "Appointments, classes and resources."
+   ],
+   [
+    "Inventory & orders",
+    "Stock, purchase and dispatch."
+   ],
+   [
+    "Admin dashboards",
+    "Reports that pull data together."
+   ]
+  ],
+  "steps": [
+   [
+    "Understand the work",
+    "Watch how your team works today.",
+    "Week 1"
+   ],
+   [
+    "Plan the modules",
+    "What to build first for quick value.",
+    "Week 1–2"
+   ],
+   [
+    "Build in stages",
+    "Usable versions every couple of weeks.",
+    "Week 2–8"
+   ],
+   [
+    "Roll out & support",
+    "Training, fixes and improvements.",
+    "Ongoing"
+   ]
+  ],
+  "stack": [
+   "Next.js",
+   "React",
+   "Node.js",
+   "Python",
+   "PostgreSQL",
+   "Supabase",
+   "REST APIs",
+   "Vercel / AWS"
+  ],
+  "inds": [
+   "Manufacturers",
+   "Distributors",
+   "Clinics & labs",
+   "Schools & institutes",
+   "Service companies",
+   "Retail chains"
+  ],
+  "faq": [
+   [
+    "How do you price custom software?",
+    "After understanding your needs, we give a fixed quote for the first version — no open-ended hourly billing."
+   ],
+   [
+    "Can you start small?",
+    "Yes. We usually build the most useful module first, then add more."
+   ],
+   [
+    "Can it connect to my existing tools?",
+    "Most likely — payment gateways, Google Sheets, SMS and email are common integrations."
+   ],
+   [
+    "Who owns the software?",
+    "You do — including the code and the data."
+   ],
+   [
+    "Do you provide support?",
+    "Yes, monthly support plans cover fixes, hosting and small improvements."
+   ]
+  ]
+ },
+ {
+  "slug": "digital-marketing",
+  "name": "Digital Marketing",
+  "short": "Marketing",
+  "icon": "fa-bullhorn",
+  "img": "marketing",
+  "img2": "social",
+  "tag": "SEO, social & ads",
+  "group": "Grow",
+  "h1": [
+   "Marketing that fills",
+   "your <em class=\"s\">pipeline.</em>"
+  ],
+  "lead": "SEO, Google Business Profile, social media and Meta & Google Ads — run by the team that built your website, so every click lands on a page made to convert.",
+  "card": "SEO, Google Business Profile, social media and Ads that bring leads.",
+  "overview": [
+   "Traffic is easy. Enquiries are the goal.",
+   "We focus on calls, WhatsApp messages and form fills — not vanity likes. Because we also build websites and CRMs, we can track a lead from the ad all the way to a paying client.",
+   [
+    "Local SEO and Google Maps ranking",
+    "Social media content and reels",
+    "Meta and Google Ads with clear reporting",
+    "Landing pages built for each campaign"
+   ]
+  ],
+  "incl": [
+   [
+    "fa-magnifying-glass-chart",
+    "SEO",
+    "Keywords, on-page fixes and content."
+   ],
+   [
+    "fa-location-dot",
+    "Google Business Profile",
+    "Maps ranking, posts and reviews strategy."
+   ],
+   [
+    "fa-hashtag",
+    "Social media",
+    "Monthly content calendar and reels."
+   ],
+   [
+    "fa-brands fa-meta",
+    "Meta Ads",
+    "Facebook & Instagram lead campaigns."
+   ],
+   [
+    "fa-brands fa-google",
+    "Google Ads",
+    "Search and local campaigns."
+   ],
+   [
+    "fa-pen-nib",
+    "Content writing",
+    "Blogs, captions and ad copy."
+   ],
+   [
+    "fa-chart-line",
+    "Monthly reports",
+    "Leads, cost and what to improve."
+   ],
+   [
+    "fa-flask",
+    "Landing pages",
+    "Fast pages built for each campaign."
+   ]
+  ],
+  "types": [
+   [
+    "Local SEO",
+    "Rank in Google Maps for searches near you."
+   ],
+   [
+    "Social media management",
+    "Consistent posting that builds trust."
+   ],
+   [
+    "Lead-generation ads",
+    "Meta and Google campaigns for enquiries."
+   ],
+   [
+    "Content & blogs",
+    "Articles that answer customer questions."
+   ]
+  ],
+  "steps": [
+   [
+    "Audit",
+    "Your website, Google profile, competitors.",
+    "Week 1"
+   ],
+   [
+    "Plan",
+    "Channels, budget split and content calendar.",
+    "Week 1"
+   ],
+   [
+    "Launch",
+    "Campaigns, posts and SEO fixes go live.",
+    "Week 2"
+   ],
+   [
+    "Report & improve",
+    "Monthly report and changes.",
+    "Monthly"
+   ]
+  ],
+  "stack": [
+   "Google Business Profile",
+   "Search Console",
+   "GA4",
+   "Meta Ads Manager",
+   "Google Ads",
+   "Canva",
+   "Semrush-style tools",
+   "Looker Studio"
+  ],
+  "inds": [
+   "Clinics & dentists",
+   "Restaurants",
+   "Real estate",
+   "Coaching",
+   "Salons & spas",
+   "Local retail"
+  ],
+  "faq": [
+   [
+    "How soon will I see results?",
+    "Ads can bring enquiries within days. SEO usually takes 3–6 months to build steady results."
+   ],
+   [
+    "How much should I spend on ads?",
+    "It depends on your city and industry. We suggest a test budget first, then scale what works."
+   ],
+   [
+    "Do you guarantee rankings?",
+    "No honest agency can guarantee rankings. We guarantee clear work, monthly reports and honest advice."
+   ],
+   [
+    "Do you make reels and creatives?",
+    "Yes — graphics, short videos and captions as part of social media plans."
+   ],
+   [
+    "Is there a long contract?",
+    "Plans are monthly; we recommend at least 3 months to judge results fairly."
+   ]
+  ]
+ }
+]

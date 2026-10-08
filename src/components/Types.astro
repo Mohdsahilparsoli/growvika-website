@@ -1,0 +1,13 @@
+---
+import HeadRow from "./HeadRow.astro";
+import { pad } from "../lib/site";
+const { label, a, b, items, lead, soft = false } = Astro.props;
+---
+<section class={soft ? "sec types soft" : "sec types"}>
+  <div class="wrap">
+<HeadRow label={label} a={a} b={b} lead={lead} />
+    <div class="ty2-grid">
+{items.map(([t, d], k) => <div class="ty2 rv"><span class="n">{pad(k + 1)}</span><h3 set:html={t} /><p set:html={d} /><button type="button" class="ty2-go" data-open-modal>Ask about this <i class="fa-solid fa-arrow-right"></i></button></div>)}
+    </div>
+  </div>
+</section>

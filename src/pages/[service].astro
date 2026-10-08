@@ -1,0 +1,59 @@
+---
+// One page per service: website-development.html, crm-development.html …
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import Split from "../components/Split.astro";
+import Incl from "../components/Incl.astro";
+import Types from "../components/Types.astro";
+import ServiceGuide from "../components/ServiceGuide.astro";
+import Process from "../components/Process.astro";
+import Why from "../components/Why.astro";
+import Industries from "../components/Industries.astro";
+import Stack from "../components/Stack.astro";
+import WorkGrid from "../components/WorkGrid.astro";
+import SvcCards from "../components/SvcCards.astro";
+import Promise from "../components/Promise.astro";
+import Faq from "../components/Faq.astro";
+import Enquiry from "../components/Enquiry.astro";
+import SERVICES from "../data/services.json";
+import WORK from "../data/work.json";
+import INDUSTRIES from "../data/industries.json";
+
+export function getStaticPaths() {
+  return SERVICES.map((s) => ({ params: { service: s.slug }, props: { s } }));
+}
+const { s } = Astro.props;
+
+const CAT: Record<string, string> = {
+  "website-development": "website", "ecommerce-development": "ecommerce", "mobile-app-development": "app",
+  "crm-development": "crm", "custom-software-development": "software", "digital-marketing": "marketing",
+};
+const first = WORK.filter((w) => w[3].includes(s.slug.split("-")[0]) || CAT[s.slug] === w[3]);
+const rel = [...first, ...WORK.filter((w) => !first.includes(w))].slice(0, 3);
+
+const isUpper = (x: string) => x === x.toUpperCase() && x !== x.toLowerCase();
+const ind = (i: string) => (isUpper(i[0]) && !isUpper(i) ? i.toLowerCase() : i);
+const inds = s.inds.map((i, k) => [i,
+  `${s.name} for ${ind(i)} — planned around how your customers search, compare and contact you, with mobile-first design, WhatsApp enquiries and SEO built in from day one.`,
+  INDUSTRIES[k % 6][2]]);
+const title = `${s.name} in Delhi NCR | GrowVika`;
+---
+<Base path={s.slug} cur="services" crumbs={[["Services", "services"], [`${s.name} in Delhi NCR`, s.slug]]} title={title}
+  desc={`${s.name} by GrowVika for businesses in Delhi, Gurugram, Noida and NCR. ${s.card} Free consultation and fixed quotes.`}>
+  <PageHero cr={[["services.html", "Services"], [null, s.name]]} h1a={s.h1[0]} h1b={s.h1[1]} lead={s.lead} img={s.img}
+    b1={["fa-solid " + s.icon, s.name, s.tag]} b2={["fa-solid fa-file-signature", "Fixed quote", "free first consultation"]}
+    strip={[s.short, ...s.stack.slice(0, 6)]} />
+  <Split label="Overview" a={s.overview[0]} text={s.overview[1]} bullets={s.overview[2]} img={s.img2} img2={s.img} />
+  <Incl label="What's included" a="Everything you" b='<em class="s">need.</em>' items={s.incl} soft />
+  <Types label="Types" a="What we" b='<em class="s">build.</em>' items={s.types} lead="Tell us which one fits — or describe your idea and we'll suggest the right approach." />
+  <ServiceGuide s={s} />
+  <Process steps={s.steps} a="How it" b='<em class="s">works.</em>' />
+  <Why />
+  <Industries items={inds} label="Who it's for" a='Built for <em class="s">your industry.</em>' lead="Industries we regularly build for." />
+  <Stack label="Tools &amp; tech" a="Technology" b='<em class="s">we trust.</em>' chips={s.stack} lead="Proven, well-supported tools — so your project is easy to maintain." />
+  <WorkGrid items={rel} label="Related work" a="Examples of" b='<em class="s">our work.</em>' soft />
+  <SvcCards label="Other services" a="Works great" b='<em class="s">together.</em>' lead="Combine services for the best results." exclude={s.slug} />
+  <Promise />
+  <Faq items={s.faq} a={s.short} b='<em class="s">questions.</em>' />
+  <Enquiry a="Let's talk about your" b={`<em class="s">${s.short.toLowerCase()}.</em>`} />
+</Base>

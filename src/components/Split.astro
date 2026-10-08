@@ -1,0 +1,20 @@
+---
+// Image + text section with optional tick list.
+import Idx from "./Idx.astro";
+import H2 from "./H2.astro";
+import { U } from "../lib/site";
+const { label, a, b, text, bullets, img = "meeting", img2, rev = false, soft = false, extra = "", sid } = Astro.props;
+const cls = "sec split" + (rev ? " rev" : "") + (soft ? " soft" : "");
+---
+<section class={cls} id={sid}>
+  <div class="wrap">
+    <div class={img2 ? "sp-pics two" : "sp-pics"}><div class="p1 img rv cl"><img src={U(img)} alt="" loading="lazy"></div>{img2 && <div class="p2 img rv cl d2"><img src={U(img2, 700)} alt="" loading="lazy"></div>}</div>
+    <div class="sp-txt">
+      <Idx label={label} />
+      <H2 a={a} b={b} />
+      <p class="rv sp-p" set:html={text} />
+      {bullets && <ul class="ticklist rv">{bullets.map((x) => <li><i class="fa-solid fa-check"></i><Fragment set:html={x} /></li>)}</ul>}
+      <Fragment set:html={extra} />
+    </div>
+  </div>
+</section>

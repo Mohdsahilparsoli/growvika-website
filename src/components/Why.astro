@@ -1,0 +1,17 @@
+---
+import HeadRow from "./HeadRow.astro";
+import WHY from "../data/why.json";
+import { U, pad } from "../lib/site";
+const { label = "Why choose us", a = "Six reasons clients", b = '<em class="s">stay with us.</em>', items = WHY, img = "smiling", stat = ["10+", "cities served across Delhi NCR"] } = Astro.props;
+---
+<section class="sec soft why2">
+  <div class="wrap">
+<HeadRow label={label} a={a} b={b}><button slot="right" type="button" class="btn btn-o rv" data-open-modal>Talk to us <i class="fa-solid fa-arrow-right"></i></button></HeadRow>
+    <div class="why-wrap">
+      <div class="why-g">
+{items.map(([ic, t, d], k) => <div class="wy rv"><span class="n">— {pad(k + 1)}</span><i class={`fa-solid ${ic}`}></i><h3 set:html={t} /><p set:html={d} /></div>)}
+      </div>
+      <div class="why-img img rv cl"><img src={U(img, 700)} alt="" loading="lazy"><div><b set:html={stat[0]} /><span set:html={stat[1]} /></div></div>
+    </div>
+  </div>
+</section>

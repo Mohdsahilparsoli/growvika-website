@@ -1,0 +1,5 @@
+---
+// Section eyebrow. "##" is replaced with the running section number by the layout.
+const { label, n = "##" } = Astro.props;
+---
+<div class="idx rv"><b>{n}</b><span set:html={label} /></div>

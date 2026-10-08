@@ -1,0 +1,282 @@
+{
+ "Connaught Place": [
+  "Central business district",
+  "offices, showrooms, restaurants and cafés",
+  "website-development"
+ ],
+ "Karol Bagh": [
+  "Busy market hub",
+  "retail shops, jewellers, hotels and wholesalers",
+  "ecommerce-development"
+ ],
+ "Laxmi Nagar": [
+  "Education &amp; retail area",
+  "coaching institutes, CA firms and local retail",
+  "crm-development"
+ ],
+ "Dwarka": [
+  "Planned residential sub-city",
+  "clinics, schools, gyms and neighbourhood services",
+  "digital-marketing"
+ ],
+ "Rohini": [
+  "Large residential area",
+  "clinics, coaching centres, retail and home services",
+  "digital-marketing"
+ ],
+ "Saket": [
+  "South Delhi hub",
+  "hospitals, clinics, malls and premium services",
+  "website-development"
+ ],
+ "Janakpuri": [
+  "West Delhi neighbourhood",
+  "clinics, institutes, restaurants and showrooms",
+  "website-development"
+ ],
+ "Pitampura": [
+  "North-west Delhi hub",
+  "coaching, clinics, retail and food businesses",
+  "digital-marketing"
+ ],
+ "Rajouri Garden": [
+  "Shopping &amp; dining area",
+  "fashion retail, restaurants and salons",
+  "ecommerce-development"
+ ],
+ "Lajpat Nagar": [
+  "Popular market area",
+  "fashion, home décor, clinics and wholesalers",
+  "ecommerce-development"
+ ],
+ "Preet Vihar": [
+  "East Delhi neighbourhood",
+  "coaching institutes, clinics and professional services",
+  "crm-development"
+ ],
+ "Vasant Kunj": [
+  "South-west Delhi residential area",
+  "premium clinics, salons, schools and malls",
+  "digital-marketing"
+ ],
+ "Cyber City": [
+  "Corporate &amp; tech hub",
+  "IT companies, startups, co-working spaces and cafés",
+  "custom-software-development"
+ ],
+ "Golf Course Road": [
+  "Premium business corridor",
+  "corporate offices, premium real estate and clinics",
+  "website-development"
+ ],
+ "Sohna Road": [
+  "Fast-growing commercial belt",
+  "real-estate projects, retail and services",
+  "digital-marketing"
+ ],
+ "Udyog Vihar": [
+  "Industrial &amp; office area",
+  "manufacturers, exporters and corporate offices",
+  "custom-software-development"
+ ],
+ "DLF Phase 1–5": [
+  "Established residential areas",
+  "clinics, salons, gyms and home services",
+  "digital-marketing"
+ ],
+ "Sector 29": [
+  "Food &amp; nightlife hub",
+  "restaurants, bars, cafés and event venues",
+  "mobile-app-development"
+ ],
+ "MG Road": [
+  "Retail &amp; office corridor",
+  "malls, showrooms, offices and restaurants",
+  "website-development"
+ ],
+ "Sushant Lok": [
+  "Residential &amp; commercial mix",
+  "clinics, coaching centres and local businesses",
+  "crm-development"
+ ],
+ "Sector 56": [
+  "Growing residential sector",
+  "neighbourhood services, clinics and retail",
+  "digital-marketing"
+ ],
+ "Golf Course Extension": [
+  "New-age residential corridor",
+  "real estate, premium services and retail",
+  "website-development"
+ ],
+ "Sector 18": [
+  "Noida's main market",
+  "retail, restaurants, malls and showrooms",
+  "ecommerce-development"
+ ],
+ "Sector 62": [
+  "IT &amp; institutional hub",
+  "IT companies, institutes and offices",
+  "custom-software-development"
+ ],
+ "Sector 63": [
+  "Industrial &amp; startup area",
+  "manufacturers, startups and service companies",
+  "custom-software-development"
+ ],
+ "Sector 132": [
+  "Expressway business district",
+  "corporate offices and IT companies",
+  "crm-development"
+ ],
+ "Noida Extension": [
+  "Large residential area",
+  "clinics, schools, gyms and local retail",
+  "digital-marketing"
+ ],
+ "Film City": [
+  "Media &amp; production hub",
+  "media houses, studios and production companies",
+  "website-development"
+ ],
+ "Sector 50": [
+  "Residential sector",
+  "clinics, salons and neighbourhood services",
+  "digital-marketing"
+ ],
+ "Sector 76": [
+  "High-rise residential area",
+  "home services, clinics and retail",
+  "digital-marketing"
+ ],
+ "Sector 15": [
+  "Established residential sector",
+  "clinics, coaching and local businesses",
+  "website-development"
+ ],
+ "Sector 137": [
+  "Expressway residential corridor",
+  "neighbourhood retail, gyms and services",
+  "digital-marketing"
+ ],
+ "Pari Chowk": [
+  "Central commercial area",
+  "retail, restaurants and services",
+  "website-development"
+ ],
+ "Knowledge Park": [
+  "Education hub",
+  "colleges, institutes and student services",
+  "crm-development"
+ ],
+ "Alpha &amp; Beta": [
+  "Residential sectors",
+  "clinics, schools and local retail",
+  "digital-marketing"
+ ],
+ "Gaur City": [
+  "Large residential township",
+  "retail, food, salons and home services",
+  "digital-marketing"
+ ],
+ "Jagat Farm": [
+  "Local market area",
+  "shops, eateries and services",
+  "website-development"
+ ],
+ "Greater Noida West": [
+  "Fast-growing residential belt",
+  "new retail, clinics, gyms and schools",
+  "digital-marketing"
+ ],
+ "Delta": [
+  "Residential sectors",
+  "neighbourhood services and retail",
+  "website-development"
+ ],
+ "Techzone": [
+  "Industrial &amp; IT zone",
+  "manufacturers, IT units and offices",
+  "custom-software-development"
+ ],
+ "Indirapuram": [
+  "Busy residential &amp; retail hub",
+  "clinics, restaurants, salons and coaching",
+  "digital-marketing"
+ ],
+ "Vaishali": [
+  "Metro-connected business area",
+  "offices, clinics, retail and services",
+  "website-development"
+ ],
+ "Raj Nagar": [
+  "Central residential area",
+  "clinics, schools, retail and services",
+  "digital-marketing"
+ ],
+ "Kaushambi": [
+  "Commercial &amp; hospital area",
+  "hospitals, offices and hotels",
+  "website-development"
+ ],
+ "Vasundhara": [
+  "Residential sectors",
+  "local retail, clinics and home services",
+  "digital-marketing"
+ ],
+ "Crossings Republik": [
+  "Residential township",
+  "neighbourhood retail, gyms and services",
+  "digital-marketing"
+ ],
+ "Raj Nagar Extension": [
+  "Growing residential area",
+  "new retail, clinics and schools",
+  "website-development"
+ ],
+ "Kavi Nagar": [
+  "Established residential &amp; industrial area",
+  "manufacturers, retail and services",
+  "custom-software-development"
+ ],
+ "NIT": [
+  "Main commercial area",
+  "markets, showrooms, clinics and services",
+  "website-development"
+ ],
+ "Sector 21": [
+  "Residential &amp; commercial sector",
+  "clinics, schools and retail",
+  "digital-marketing"
+ ],
+ "Ballabgarh": [
+  "Industrial &amp; market town",
+  "manufacturers, traders and retail",
+  "custom-software-development"
+ ],
+ "Neharpar": [
+  "Greater Faridabad residential area",
+  "new retail, clinics and schools",
+  "digital-marketing"
+ ],
+ "Industrial Area": [
+  "Manufacturing belt",
+  "factories, suppliers and exporters",
+  "custom-software-development"
+ ],
+ "Sector 16": [
+  "Central residential sector",
+  "clinics, coaching and local businesses",
+  "website-development"
+ ],
+ "Old Faridabad": [
+  "Traditional market area",
+  "traders, retail and local services",
+  "ecommerce-development"
+ ],
+ "Sector 15 (Faridabad)": [
+  "Commercial &amp; residential sector",
+  "markets, clinics and offices",
+  "website-development"
+ ]
+}

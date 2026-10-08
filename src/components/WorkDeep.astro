@@ -1,0 +1,27 @@
+---
+// Project deep-dives: challenge → what we built → stack.
+import HeadRow from "./HeadRow.astro";
+import WORK_DETAIL from "../data/work_detail.json";
+import { U, dec } from "../lib/site";
+const { items, label = "Project deep-dives", a = "How we", b = '<em class="s">solved it.</em>' } = Astro.props;
+const det = WORK_DETAIL as Record<string, [string, string[], string[]]>;
+---
+<section class="sec deep">
+  <div class="wrap">
+<HeadRow label={label} a={a} b={b} lead="A closer look at the problems behind these projects and what we built to fix them." />
+{items.map(([t, sub, img, , tag], k) => {
+  const [ch, built, st] = det[t];
+  return (
+    <div class={k % 2 ? "wd rev rv" : "wd rv"}>
+      <div class="wd-img img rv cl"><img src={U(img, 1000)} alt={dec(t)} loading="lazy"><span class="wk2-tag" set:html={tag} /></div>
+      <div class="wd-b">
+        <small set:html={sub} />
+        <h3 set:html={t} />
+        <div class="wd-ch"><b>The challenge</b><p set:html={ch} /></div>
+        <div class="wd-built"><b>What we built</b><ul>{built.map((x) => <li><i class="fa-solid fa-check"></i><Fragment set:html={x} /></li>)}</ul></div>
+        <div class="wd-st">{st.map((x) => <span set:html={x} />)}</div>
+      </div>
+    </div>);
+})}
+  </div>
+</section>

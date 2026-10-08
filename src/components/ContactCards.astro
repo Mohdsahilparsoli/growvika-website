@@ -1,0 +1,16 @@
+---
+import HeadRow from "./HeadRow.astro";
+import { WA } from "../lib/site";
+const { label = "Reach us", a = `Pick what's <em class="s">easiest.</em>`, cls = "sec ways" } = Astro.props;
+---
+<section class={cls}>
+  <div class="wrap">
+<HeadRow label={label} a={a} lead="Every message reaches the founder and the build team — no call centre, no ticket numbers." />
+    <div class="way-grid">
+      <a href="tel:+919818186876" class="way rv"><span class="ic"><i class="fa-solid fa-phone"></i></span><small>Call us</small><b>+91-9818186876</b><p>Talk through your idea in a quick call.</p><span class="go">Call now <i class="fa-solid fa-arrow-right"></i></span></a>
+      <a href={`https://wa.me/${WA}`} target="_blank" rel="noopener" class="way wa-way rv d1"><span class="ic"><i class="fa-brands fa-whatsapp"></i></span><small>WhatsApp</small><b>Chat with us</b><p>Fastest reply — share photos, links or voice notes.</p><span class="go">Open WhatsApp <i class="fa-solid fa-arrow-right"></i></span></a>
+      <a href="mailto:sahil@growvika.com" class="way rv d2"><span class="ic"><i class="fa-regular fa-envelope"></i></span><small>Email</small><b>sahil@growvika.com</b><p>Send a brief, documents or a proposal request.</p><span class="go">Write an email <i class="fa-solid fa-arrow-right"></i></span></a>
+      <button type="button" class="way rv d3" data-open-modal><span class="ic"><i class="fa-solid fa-location-dot"></i></span><small>Meet in person</small><b>Delhi NCR</b><p>Delhi, Gurugram, Noida, Ghaziabad, Faridabad.</p><span class="go">Book a meeting <i class="fa-solid fa-arrow-right"></i></span></button>
+    </div>
+  </div>
+</section>

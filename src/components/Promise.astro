@@ -1,0 +1,25 @@
+---
+// "Our promise" — 2-row review marquee + Google reviews button.
+// SAMPLE data in data/sample_reviews.json: [tag, icon, stars, business, city, text]. Replace with real reviews.
+import Idx from "./Idx.astro";
+import H2 from "./H2.astro";
+import Stars from "./Stars.astro";
+import REVIEWS from "../data/sample_reviews.json";
+const { n } = Astro.props;
+const half = Math.floor(REVIEWS.length / 2);
+const rows = [REVIEWS.slice(0, half), REVIEWS.slice(half)];
+---
+<section class="sec prom">
+  <div class="wrap">
+    <div class="prom-h">
+      <Idx label="Our promise" n={n} />
+      <H2 a="What you can" b='<em class="s">count on.</em>' />
+      <p class="lead rv">Clear commitments we make to every client — on pricing, ownership, quality and support.</p>
+    </div>
+  </div>
+  <div class="mq2" aria-label="Client reviews">
+    {rows.map((row, r) => (
+    <div class={r ? "mq2-row rev" : "mq2-row"}><div class="mq2-tr">{[...row, ...row].map(([tag, ic, stars, biz, city, txt]) => <article class="pr-c rv-card"><div class="pr-top rc-top"><span class="pr-ic"><i class={`fa-solid ${ic}`}></i></span><span class="pr-cat">{tag}</span><Stars n={stars} /></div><p>“{txt}”</p><div class="pr-by"><span class="av">CN</span><div><b>Client name <em class="smp">Sample</em></b><small>{biz} · {city}</small></div></div></article>)}</div></div>))}
+  </div>
+  <div class="wrap gr-cta rv"><a class="gr-btn" href="https://www.google.com/maps/search/?api=1&amp;query=GrowVika" target="_blank" rel="noopener"><span class="gr-g"><i class="fa-brands fa-google"></i></span><span><small>Reviews on Google</small><b>See what our clients say</b></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+</section>

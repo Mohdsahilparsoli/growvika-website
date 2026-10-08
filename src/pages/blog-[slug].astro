@@ -1,0 +1,64 @@
+---
+// One page per article: blog-<slug>.html
+import Base from "../layouts/Base.astro";
+import Crumbs from "../components/Crumbs.astro";
+import HeadRow from "../components/HeadRow.astro";
+import BlogCard from "../components/BlogCard.astro";
+import SvcCards from "../components/SvcCards.astro";
+import Enquiry from "../components/Enquiry.astro";
+import ARTICLES from "../data/articles.json";
+import { BASE, U, ld, dec } from "../lib/site";
+
+export function getStaticPaths() {
+  return ARTICLES.map((art) => ({ params: { slug: art.slug }, props: { art } }));
+}
+const { art } = Astro.props;
+const rel = ARTICLES.filter((x) => x.slug !== art.slug).slice(0, 3);
+const sid = (h: string) => "s-" + h.replace(/<[^>]+>/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+const url = `${BASE}/blog-${art.slug}`;
+const schema = ld({
+  "@context": "https://schema.org", "@type": "BlogPosting", headline: art.title, description: art.desc, image: U(art.img, 1200),
+  datePublished: "2026-10-08", dateModified: "2026-10-08", author: { "@type": "Person", name: "Md Sahil" },
+  publisher: { "@type": "Organization", name: "GrowVika" }, mainEntityOfPage: url,
+});
+---
+<Base path={`blog-${art.slug}`} cur="blog" title={`${art.title} | GrowVika Blog`} desc={art.desc} ogimg={art.img} schema={schema}
+  crumbs={[["Blog", "blog"], [art.title, `blog-${art.slug}`]]}>
+  <section class="art-hero">
+    <div class="wrap">
+      <div class="ah-txt rv">
+        <Crumbs items={[["blog.html", "Blog"], [null, art.cat]]} />
+        <span class="ah-cat" set:html={art.cat} />
+        <h1 set:html={art.title} />
+        <p class="lead" set:html={art.desc} />
+        <div class="ah-meta"><span class="av">MS</span><div><b>Md Sahil</b><small>Founder, GrowVika</small></div><span class="dot"></span><span><i class="fa-regular fa-calendar"></i>8 Oct 2026</span><span><i class="fa-regular fa-clock"></i>{art.mins} read</span></div>
+      </div>
+      <div class="ah-img img rv cl"><img src={U(art.img, 1400)} alt={dec(art.title)} fetchpriority="high"></div>
+    </div>
+  </section>
+  <section class="sec art">
+    <div class="wrap">
+      <article class="prose art-body">
+        <p class="art-intro" set:html={art.intro} />
+        {art.sections.map(([h, html]) => <Fragment><h2 id={sid(h)} set:html={h} />
+<Fragment set:html={html} /></Fragment>)}
+        <div class="takeaways"><h3><i class="fa-solid fa-lightbulb"></i> Key takeaways</h3><ul>{art.takeaways.map((t) => <li><i class="fa-solid fa-check"></i><Fragment set:html={t} /></li>)}</ul></div>
+        <h2 id="faq">Frequently asked questions</h2>
+        <div class="art-faq">{art.faq.map(([q, a], k) => <div class={k === 0 ? "qa open" : "qa"}><button type="button" aria-expanded={k === 0 ? "true" : "false"}><Fragment set:html={q} /><i class="fa-solid fa-plus"></i></button><div class="ans"><div><p set:html={a} /></div></div></div>)}</div>
+        <div class="art-share"><div class="share"><span>Share</span><a href={`https://wa.me/?text=${art.title.replaceAll(" ", "%20")}%20${url}`} target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a><a href={`https://www.linkedin.com/sharing/share-offsite/?url=${url}`} target="_blank" rel="noopener" aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a><a href={`https://twitter.com/intent/tweet?url=${url}`} target="_blank" rel="noopener" aria-label="Share on X"><i class="fa-brands fa-x-twitter"></i></a><button type="button" data-copy={url} aria-label="Copy link"><i class="fa-solid fa-link"></i></button></div></div>
+        <div class="author"><span class="av">MS</span><div><b>Written by Md Sahil</b><p>Founder of GrowVika. Builds websites, apps and CRMs for businesses across Delhi NCR — and runs the marketing that brings them customers.</p><a href="about.html" class="link">About GrowVika <i class="fa-solid fa-arrow-right"></i></a></div></div>
+        <div class="art-cta"><div><h3>Want us to do this for you?</h3><p>Free consultation, fixed quote and a reply the same day.</p></div><button type="button" class="btn btn-w" data-open-modal>Start a project <i class="fa-solid fa-arrow-right"></i></button></div>
+      </article>
+    </div>
+  </section>
+  <section class="sec soft">
+    <div class="wrap">
+      <HeadRow label="Keep reading" a="Related" b='<em class="s">articles.</em>'><a slot="right" href="blog.html" class="btn btn-o rv">All articles</a></HeadRow>
+      <div class="bl-grid">
+        {rel.map((r) => <BlogCard p={r} />)}
+      </div>
+    </div>
+  </section>
+  <SvcCards label="Need help?" a="Let us" b='<em class="s">do it for you.</em>' lead="Everything in this article is something we can set up for you." />
+  <Enquiry />
+</Base>

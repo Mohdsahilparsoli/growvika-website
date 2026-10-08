@@ -1,0 +1,194 @@
+[
+ [
+  "fa-pen-ruler",
+  "Design &amp; UX",
+  "Wireframes, UI design and clickable prototypes you approve before code.",
+  [
+   [
+    "Figma",
+    "UI design &amp; prototypes"
+   ],
+   [
+    "Canva",
+    "Social creatives"
+   ],
+   [
+    "Adobe XD",
+    "Legacy design files"
+   ]
+  ]
+ ],
+ [
+  "fa-code",
+  "Frontend",
+  "Fast, accessible interfaces that work on every screen.",
+  [
+   [
+    "HTML5 / CSS3",
+    "Semantic, SEO-friendly markup"
+   ],
+   [
+    "JavaScript",
+    "Interactions"
+   ],
+   [
+    "React",
+    "Component UIs"
+   ],
+   [
+    "Next.js",
+    "Fast, SEO-ready sites &amp; apps"
+   ],
+   [
+    "Tailwind",
+    "Consistent styling"
+   ]
+  ]
+ ],
+ [
+  "fa-server",
+  "Backend &amp; data",
+  "Secure APIs, databases and logins behind your product.",
+  [
+   [
+    "Node.js",
+    "APIs &amp; servers"
+   ],
+   [
+    "Python",
+    "Automation &amp; data"
+   ],
+   [
+    "PostgreSQL",
+    "Reliable database"
+   ],
+   [
+    "Supabase",
+    "Auth, storage &amp; database"
+   ],
+   [
+    "Firebase",
+    "Realtime &amp; push"
+   ]
+  ]
+ ],
+ [
+  "fa-store",
+  "CMS &amp; e-commerce",
+  "Editable websites and online stores you can manage yourself.",
+  [
+   [
+    "WordPress",
+    "Editable business sites"
+   ],
+   [
+    "Shopify",
+    "Hosted online stores"
+   ],
+   [
+    "WooCommerce",
+    "WordPress stores"
+   ]
+  ]
+ ],
+ [
+  "fa-mobile-screen",
+  "Mobile apps",
+  "One codebase for Android and iOS with a native feel.",
+  [
+   [
+    "Flutter",
+    "Cross-platform apps"
+   ],
+   [
+    "React Native",
+    "Cross-platform apps"
+   ],
+   [
+    "OneSignal",
+    "Push notifications"
+   ]
+  ]
+ ],
+ [
+  "fa-plug",
+  "Payments &amp; integrations",
+  "The services your customers already use in India.",
+  [
+   [
+    "Razorpay",
+    "UPI, cards &amp; wallets"
+   ],
+   [
+    "UPI / PhonePe",
+    "Instant payments"
+   ],
+   [
+    "Shiprocket",
+    "Shipping &amp; tracking"
+   ],
+   [
+    "WhatsApp",
+    "Click-to-chat &amp; alerts"
+   ],
+   [
+    "Google Maps",
+    "Locations &amp; directions"
+   ]
+  ]
+ ],
+ [
+  "fa-chart-line",
+  "Marketing &amp; analytics",
+  "Track every visit, call and lead — and improve every month.",
+  [
+   [
+    "Google Analytics 4",
+    "Visits &amp; conversions"
+   ],
+   [
+    "Search Console",
+    "Google rankings"
+   ],
+   [
+    "Google Ads",
+    "Search campaigns"
+   ],
+   [
+    "Meta Ads",
+    "Facebook &amp; Instagram"
+   ],
+   [
+    "Looker Studio",
+    "Monthly reports"
+   ]
+  ]
+ ],
+ [
+  "fa-shield-halved",
+  "Hosting &amp; security",
+  "Fast global hosting with SSL, backups and monitoring.",
+  [
+   [
+    "Vercel",
+    "Fast hosting"
+   ],
+   [
+    "Cloudflare",
+    "CDN &amp; protection"
+   ],
+   [
+    "AWS",
+    "Scalable cloud"
+   ],
+   [
+    "SSL / HTTPS",
+    "Encrypted connections"
+   ],
+   [
+    "Backups",
+    "Daily safety copies"
+   ]
+  ]
+ ]
+]
