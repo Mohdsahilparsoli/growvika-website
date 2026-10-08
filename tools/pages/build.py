@@ -200,6 +200,16 @@ def page(fname, title, desc, cur, sections, popup=0, schema="", ogimg="team", cr
     def num(m):
         n[0] += 1
         return f'<b>{n[0]:02d}</b>'
+    sections = list(sections)
+    if sections and sections[0].lstrip().startswith("<!-- PAGE HERO -->"):
+        strip = None
+        if len(sections) > 1 and sections[1].lstrip().startswith('<div class="marq-wrap'):
+            strip = sections.pop(1)
+        if not strip:
+            strip = marquee(["Websites", "Mobile apps", "CRM", "Custom software", "SEO", "Social media", "Google &amp; Meta Ads"])
+        h = sections[0]
+        k = h.rindex("</section>")
+        sections[0] = h[:k].replace('<section class="ph">', '<section class="ph full">', 1) + strip + "\n" + h[k:]
     body = "\n".join(sections)
     body = re.sub(r"<b>##</b>", num, body)
     path = "" if fname == "index.html" else fname[:-5]

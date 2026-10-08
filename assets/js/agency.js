@@ -312,8 +312,8 @@
       sec.classList.toggle("pinned", pinned);
       tr.style.transform = "";
       if (!pinned) { sec.style.height = ""; return; }
-      var cs = $$(".sl2-c", tr), last = cs[cs.length - 1], pad = parseFloat(getComputedStyle(tr).paddingLeft) || 0;
-      maxX = last ? Math.max(0, last.offsetLeft + last.offsetWidth + pad - tr.clientWidth) : 0;
+      var cs = $$(".sl2-c", tr), last = cs[cs.length - 1];
+      maxX = last ? Math.max(0, last.offsetLeft + last.offsetWidth - tr.clientWidth) : 0;
       sec.style.height = (window.innerHeight + maxX) + "px";
       move();
     }
