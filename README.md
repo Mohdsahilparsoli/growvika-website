@@ -2,6 +2,10 @@
 
 Plain HTML, CSS and JavaScript. No build step and no libraries.
 
+**Pages:** `index.html` (home), `about.html`, `services.html` + 6 service pages (`website-development.html`, `ecommerce-development.html`, `mobile-app-development.html`, `crm-development.html`, `custom-software-development.html`, `digital-marketing.html`), `work.html`, `service-area.html` + 6 city pages (`service-area-delhi.html` …), `blog.html`, `faq.html`, `contact.html`.
+
+The inner pages are generated from `tools/pages/` (content in `data.py`, sections in `build.py`, page layouts in `pages.py`). To regenerate after editing content: `python3 tools/pages/pages.py <version>`. Hand edits to generated pages are overwritten by regenerating.
+
 **Main home page:** `index.html` (premium agency design) uses `assets/css/agency.css` and `assets/js/agency.js`. Fonts: Syne (headings), Fraunces italic (accent words), Plus Jakarta Sans (body). Icons: Font Awesome.
 
 The older 3 layouts are kept for reference at `layouts.html` (they use `base.css`, `home-*.css`, `main.js`).
