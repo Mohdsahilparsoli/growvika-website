@@ -445,7 +445,7 @@ em.s{font-family:var(--f-ser);font-style:italic;font-weight:400;letter-spacing:-
 .m-side:after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(500px 300px at 0% 0%,rgba(143,153,255,.45),transparent 70%),linear-gradient(170deg,rgba(58,71,224,.55) 0%,rgba(10,15,30,.78) 45%,rgba(10,15,30,.96) 100%)}
 .m-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .m-side .logo{color:#fff;font-size:24px}
-.m-side .logo i{background:var(--lime)}
+.m-side .logo i{background:var(--ind)}
 .m-live{display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border-radius:99px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(8px);font-size:12px;font-weight:600;white-space:nowrap}
 .m-live i{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(200,241,105,.7);animation:mPulse 2s infinite}
 .m-eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin-bottom:14px}
@@ -1532,3 +1532,4 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
 .logo{gap:0;align-items:baseline;line-height:1}
 .logo i{width:.2em;height:.2em;border-radius:.03em;transform:none;margin-left:.05em;flex-shrink:0}
 
+.btn.busy{opacity:.6;pointer-events:none}

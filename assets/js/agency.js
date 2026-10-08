@@ -171,7 +171,21 @@
     $("[data-b-next]").addEventListener("click", function () { if (bt.scrollLeft + bt.clientWidth >= bt.scrollWidth - 5) bt.scrollTo({ left: 0, behavior: "smooth" }); else bstep(1); });
   }
 
-  /* enquiry form -> WhatsApp */
+
+  /* send enquiries straight to the inbox (no WhatsApp) */
+  var INBOX = "sahil@growvika.com";
+  function sendEnquiry(subject, lines, done, btn) {
+    var body = lines.join("\n");
+    if (btn) { btn.disabled = true; btn.classList.add("busy"); }
+    fetch("https://formsubmit.co/ajax/" + INBOX, {
+      method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({ _subject: subject, _template: "box", _captcha: "false", message: body })
+    }).then(function (r) { if (!r.ok) throw 0; done(); })
+      .catch(function () { window.location.href = "mailto:" + INBOX + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body); done(); })
+      .then(function () { if (btn) { btn.disabled = false; btn.classList.remove("busy"); } });
+  }
+
+  /* enquiry form */
   var ef = $("#eform");
   if (ef) ef.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -184,8 +198,8 @@
     if (F["biz"].value.trim()) L.push("Business: " + F["biz"].value.trim());
     if (F["time"].value) L.push("Timeline: " + F["time"].value);
     if (F["msg"].value.trim()) L.push("Requirement: " + F["msg"].value.trim());
-    window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(L.join("\n")), "_blank", "noopener");
-    $(".form-msg", ef).classList.add("ok"); ef.reset();
+    L[0] = "New enquiry from the website";
+    sendEnquiry("Website enquiry — " + F["name"].value.trim(), L, function () { $(".form-msg", ef).classList.add("ok"); ef.reset(); }, $("button[type=submit]", ef));
   });
 
 
@@ -411,8 +425,8 @@
     if (form.biz.value.trim()) lines.push("Business: " + form.biz.value.trim());
     if (form.budget.value) lines.push("Timeline: " + form.budget.value);
     if (form.msg.value.trim()) lines.push("Details: " + form.msg.value.trim());
-    window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
-    modal.classList.add("sent"); form.reset();
+    lines[0] = "New project enquiry from the website";
+    sendEnquiry("New project — " + name.value.trim(), lines, function () { modal.classList.add("sent"); form.reset(); }, $(".m-submit", form));
   });
   $$(".fl input", form).forEach(function (i) { i.addEventListener("input", function () { i.closest(".fl").classList.remove("err"); }); });
   var auto = +document.body.getAttribute("data-auto-popup") || 0, seen = false;

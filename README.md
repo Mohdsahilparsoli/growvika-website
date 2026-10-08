@@ -41,12 +41,7 @@ Photos are free Unsplash images loaded from `images.unsplash.com` (free for comm
 - **Prices & FAQ answers:** taken from your current plans (website from ₹9,999, etc.). Check they are still correct.
 
 ## How the forms work
-The "Start a new project" popup and the contact form open **WhatsApp** with the visitor's details filled in, sent to **+91-9818186876**. To change the number or email, edit the top of `assets/js/agency.js` (and `main.js` for the old layouts):
-
-```js
-var WHATSAPP = "919818186876";
-var EMAIL = "sahil@growvika.com";
-```
+The "Start a new project" popup and the enquiry forms send the details straight to **sahil@growvika.com** using the free FormSubmit service (no WhatsApp, no email app). The **first** enquiry triggers a one-time activation email from FormSubmit to that inbox — click the link in it once, and every enquiry after that arrives automatically. If the service is ever unreachable, the visitor's email app opens with the details filled in instead. To change the inbox, edit `INBOX` in `assets/js/agency.js`.
 
 ## Popup timing
 The popup also opens by itself **once per visit after 25 seconds**. Change or turn it off on the `<body>` tag:
