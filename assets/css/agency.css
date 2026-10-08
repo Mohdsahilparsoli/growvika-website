@@ -1597,3 +1597,4 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
 .has-cursor .cur{display:grid;place-items:center}
 .cur svg{position:absolute;inset:0}
 .cur .lbl{position:relative;inset:auto;display:block;line-height:1;white-space:nowrap;text-align:center;letter-spacing:.02em}
+.cur .lbl{transform:translateY(-12px)}
