@@ -181,6 +181,29 @@
     $(".form-msg", ef).classList.add("ok"); ef.reset();
   });
 
+
+  /* service area city slider */
+  var atabs = $$(".ar-tab"), aslides = $$(".ar-slide"), acnt = $("[data-ar-cnt]"), ai = 0, atimer, apaused = false;
+  if (atabs.length) {
+    var ago = function (i, user) {
+      ai = (i + atabs.length) % atabs.length;
+      atabs.forEach(function (t, k) { var on = k === ai; t.classList.toggle("on", on); t.setAttribute("aria-selected", on); var g = $(".pg i", t); g.classList.remove("run"); if (on) { void g.offsetWidth; g.classList.add("run"); } });
+      aslides.forEach(function (s, k) { s.classList.toggle("on", k === ai); });
+      acnt.textContent = "0" + (ai + 1);
+      if (user && window.innerWidth <= 980) atabs[ai].scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+      clearTimeout(atimer); if (!apaused && !reduce) atimer = setTimeout(function () { ago(ai + 1); }, 6000);
+    };
+    atabs.forEach(function (t, k) { t.addEventListener("click", function () { ago(k, true); }); });
+    $("[data-ar-prev]").addEventListener("click", function () { ago(ai - 1, true); });
+    $("[data-ar-next]").addEventListener("click", function () { ago(ai + 1, true); });
+    var stage = $(".ar-stage");
+    stage.addEventListener("mouseenter", function () { apaused = true; clearTimeout(atimer); $$(".ar-tab .pg i").forEach(function (g) { g.style.animationPlayState = "paused"; }); });
+    stage.addEventListener("mouseleave", function () { apaused = false; $$(".ar-tab .pg i").forEach(function (g) { g.style.animationPlayState = ""; }); clearTimeout(atimer); atimer = setTimeout(function () { ago(ai + 1); }, 3000); });
+    var tsx = 0; stage.addEventListener("touchstart", function (e) { tsx = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener("touchend", function (e) { var dx = e.changedTouches[0].clientX - tsx; if (Math.abs(dx) > 50) ago(ai + (dx < 0 ? 1 : -1), true); }, { passive: true });
+    new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) ago(ai); else clearTimeout(atimer); }); }, { threshold: 0.25 }).observe(stage);
+  }
+
   /* FAQ */
   $$(".qa").forEach(function (qa) {
     var b = $("button", qa);

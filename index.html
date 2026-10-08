@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="assets/css/agency.css?v=202610081014">
+<link rel="stylesheet" href="assets/css/agency.css?v=202610081021">
 </head>
 <body data-auto-popup="25">
 
@@ -146,7 +146,6 @@
       </div>
     </div>
   </div>
-  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0,40 C240,80 480,0 720,30 C960,60 1200,10 1440,40 L1440,70 L0,70 Z"/></svg>
 </section>
 
 <!-- marquee -->
@@ -357,29 +356,88 @@
 </section>
 
 <!-- ============ 9. SERVICE AREA ============ -->
-<section class="sec" id="areas">
+<section class="sec area2" id="areas">
   <div class="wrap">
-    <div class="area-box rv">
-      <div class="area-l">
-        <div class="idx"><b>08</b><span>Service area</span></div>
-        <h2 class="h2" style="font-size:clamp(34px,4vw,60px)">Local to <em class="s">Delhi NCR.</em></h2>
-        <p class="lead" style="margin-top:16px">Meet in person or work fully online — whichever suits you.</p>
-        <div class="area-chips">
-          <span><i class="fa-solid fa-location-dot"></i>Delhi</span>
-          <span><i class="fa-solid fa-location-dot"></i>Gurugram</span>
-          <span><i class="fa-solid fa-location-dot"></i>Noida</span>
-          <span><i class="fa-solid fa-location-dot"></i>Greater Noida</span>
-          <span><i class="fa-solid fa-location-dot"></i>Ghaziabad</span>
-          <span><i class="fa-solid fa-location-dot"></i>Faridabad</span>
-        </div>
-        <p class="more">Also: Connaught Place, Karol Bagh, Laxmi Nagar, Dwarka, Rohini, Saket, Noida Sector 18, Indirapuram and nearby. Outside NCR? We work online across India.</p>
+    <div class="head-row">
+      <div>
+        <div class="idx rv"><b>08</b><span>Service area</span></div>
+        <h2 class="h2 rv"><span class="mask"><span>Your neighbourhood</span></span><span class="mask"><span><em class="s">digital team.</em></span></span></h2>
       </div>
-      <div class="area-r">
-        <div class="img rv cl" style="--cl:#fff"><img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=900&q=70" alt="India Gate, New Delhi" loading="lazy"></div>
-        <div class="lbl"><b>Delhi · Gurugram · Noida</b>Free first meeting</div>
+      <div class="ar-facts rv">
+        <div><i class="fa-solid fa-city"></i><b>6 cities</b><span>across Delhi NCR</span></div>
+        <div><i class="fa-solid fa-handshake"></i><b>On-site</b><span>meetings at your office</span></div>
+        <div><i class="fa-solid fa-globe"></i><b>Online</b><span>anywhere in India</span></div>
+      </div>
+    </div>
+    <div class="ar-grid rv">
+      <div class="ar-tabs" role="tablist" aria-label="Cities">
+          <button type="button" class="ar-tab on" data-ar="0" role="tab" aria-selected="true"><span class="n">01</span><span class="t"><b>Delhi</b><small>The capital</small></span><i class="fa-solid fa-arrow-right"></i><span class="pg"><i></i></span></button>
+          <button type="button" class="ar-tab" data-ar="1" role="tab" aria-selected="false"><span class="n">02</span><span class="t"><b>Gurugram</b><small>Offices &amp; startups</small></span><i class="fa-solid fa-arrow-right"></i><span class="pg"><i></i></span></button>
+          <button type="button" class="ar-tab" data-ar="2" role="tab" aria-selected="false"><span class="n">03</span><span class="t"><b>Noida</b><small>IT &amp; education hub</small></span><i class="fa-solid fa-arrow-right"></i><span class="pg"><i></i></span></button>
+          <button type="button" class="ar-tab" data-ar="3" role="tab" aria-selected="false"><span class="n">04</span><span class="t"><b>Greater Noida</b><small>Fast-growing</small></span><i class="fa-solid fa-arrow-right"></i><span class="pg"><i></i></span></button>
+          <button type="button" class="ar-tab" data-ar="4" role="tab" aria-selected="false"><span class="n">05</span><span class="t"><b>Ghaziabad</b><small>Retail &amp; services</small></span><i class="fa-solid fa-arrow-right"></i><span class="pg"><i></i></span></button>
+          <button type="button" class="ar-tab" data-ar="5" role="tab" aria-selected="false"><span class="n">06</span><span class="t"><b>Faridabad</b><small>Industry &amp; B2B</small></span><i class="fa-solid fa-arrow-right"></i><span class="pg"><i></i></span></button>
+      </div>
+      <div class="ar-stage">
+          <div class="ar-slide on" data-ar-s="0"><img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1200&q=70" alt="India Gate, New Delhi" loading="lazy">
+            <div class="ar-card">
+              <div class="ar-top"><span class="ar-pin"><i class="fa-solid fa-location-dot"></i>Delhi</span><span class="ar-tag">The capital</span></div>
+              <p>From Connaught Place showrooms to South Delhi clinics — websites and local SEO that win the neighbourhood search.</p>
+              <div class="ar-row"><small>Areas we cover</small><div class="ar-chips"><span>Connaught Place</span><span>Karol Bagh</span><span>Laxmi Nagar</span><span>Dwarka</span><span>Rohini</span><span>Saket</span><span>Janakpuri</span><span>Pitampura</span></div></div>
+              <div class="ar-row"><small>Popular here</small><div class="ar-chips pop"><span>Websites</span><span>Local SEO</span><span>CRM</span></div></div>
+              <button type="button" class="btn btn-w" data-open-modal>Free meeting in Delhi <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+          <div class="ar-slide" data-ar-s="1"><img src="https://images.unsplash.com/photo-1715870251864-64fd4a6ae4ad?auto=format&fit=crop&w=1200&q=70" alt="Gurugram skyline" loading="lazy">
+            <div class="ar-card">
+              <div class="ar-top"><span class="ar-pin"><i class="fa-solid fa-location-dot"></i>Gurugram</span><span class="ar-tag">Offices &amp; startups</span></div>
+              <p>Startups and corporate teams around Cyber City and Golf Course Road — apps, CRMs and lead-generation sites.</p>
+              <div class="ar-row"><small>Areas we cover</small><div class="ar-chips"><span>Cyber City</span><span>Golf Course Road</span><span>Sohna Road</span><span>Udyog Vihar</span><span>DLF Phase 1–5</span><span>Sector 29</span></div></div>
+              <div class="ar-row"><small>Popular here</small><div class="ar-chips pop"><span>Mobile apps</span><span>Custom software</span><span>Google Ads</span></div></div>
+              <button type="button" class="btn btn-w" data-open-modal>Free meeting in Gurugram <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+          <div class="ar-slide" data-ar-s="2"><img src="https://images.unsplash.com/photo-1688978022482-00702c9eb83c?auto=format&fit=crop&w=1200&q=70" alt="Noida high-rises" loading="lazy">
+            <div class="ar-card">
+              <div class="ar-top"><span class="ar-pin"><i class="fa-solid fa-location-dot"></i>Noida</span><span class="ar-tag">IT &amp; education hub</span></div>
+              <p>IT parks, coaching institutes and retail along the Expressway — stores, admission CRMs and SEO.</p>
+              <div class="ar-row"><small>Areas we cover</small><div class="ar-chips"><span>Sector 18</span><span>Sector 62</span><span>Sector 63</span><span>Sector 132</span><span>Noida Extension</span><span>Film City</span></div></div>
+              <div class="ar-row"><small>Popular here</small><div class="ar-chips pop"><span>E-commerce</span><span>CRM</span><span>SEO</span></div></div>
+              <button type="button" class="btn btn-w" data-open-modal>Free meeting in Noida <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+          <div class="ar-slide" data-ar-s="3"><img src="https://images.unsplash.com/photo-1661858435242-ed971767e954?auto=format&fit=crop&w=1200&q=70" alt="Road and buildings in Greater Noida" loading="lazy">
+            <div class="ar-card">
+              <div class="ar-top"><span class="ar-pin"><i class="fa-solid fa-location-dot"></i>Greater Noida</span><span class="ar-tag">Fast-growing</span></div>
+              <p>New businesses around Pari Chowk, Knowledge Park and Gaur City — get found online from day one.</p>
+              <div class="ar-row"><small>Areas we cover</small><div class="ar-chips"><span>Pari Chowk</span><span>Knowledge Park</span><span>Alpha &amp; Beta</span><span>Gaur City</span><span>Jagat Farm</span></div></div>
+              <div class="ar-row"><small>Popular here</small><div class="ar-chips pop"><span>Websites</span><span>Social media</span><span>Google Business</span></div></div>
+              <button type="button" class="btn btn-w" data-open-modal>Free meeting in Greater Noida <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+          <div class="ar-slide" data-ar-s="4"><img src="https://images.unsplash.com/photo-1645938374241-7f0e5f520663?auto=format&fit=crop&w=1200&q=70" alt="Metro station near Ghaziabad" loading="lazy">
+            <div class="ar-card">
+              <div class="ar-top"><span class="ar-pin"><i class="fa-solid fa-location-dot"></i>Ghaziabad</span><span class="ar-tag">Retail &amp; services</span></div>
+              <p>Shops, clinics and service businesses in Indirapuram and Vaishali — more calls from Google Maps and ads.</p>
+              <div class="ar-row"><small>Areas we cover</small><div class="ar-chips"><span>Indirapuram</span><span>Vaishali</span><span>Raj Nagar</span><span>Kaushambi</span><span>Vasundhara</span><span>Crossings Republik</span></div></div>
+              <div class="ar-row"><small>Popular here</small><div class="ar-chips pop"><span>Google Business</span><span>Meta Ads</span><span>Websites</span></div></div>
+              <button type="button" class="btn btn-w" data-open-modal>Free meeting in Ghaziabad <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+          <div class="ar-slide" data-ar-s="5"><img src="https://images.unsplash.com/photo-1645938374927-d74b9349be51?auto=format&fit=crop&w=1200&q=70" alt="Highway and city lights at night" loading="lazy">
+            <div class="ar-card">
+              <div class="ar-top"><span class="ar-pin"><i class="fa-solid fa-location-dot"></i>Faridabad</span><span class="ar-tag">Industry &amp; B2B</span></div>
+              <p>Manufacturers and B2B suppliers in NIT and the industrial sectors — catalogue sites, portals and custom software.</p>
+              <div class="ar-row"><small>Areas we cover</small><div class="ar-chips"><span>NIT</span><span>Sector 15</span><span>Sector 21</span><span>Ballabgarh</span><span>Neharpar</span><span>Industrial Area</span></div></div>
+              <div class="ar-row"><small>Popular here</small><div class="ar-chips pop"><span>B2B websites</span><span>Custom software</span><span>SEO</span></div></div>
+              <button type="button" class="btn btn-w" data-open-modal>Free meeting in Faridabad <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        <div class="ar-nav"><span class="ar-cnt"><b data-ar-cnt>01</b> / 06</span><button type="button" data-ar-prev aria-label="Previous city"><i class="fa-solid fa-arrow-left"></i></button><button type="button" data-ar-next aria-label="Next city"><i class="fa-solid fa-arrow-right"></i></button></div>
       </div>
     </div>
   </div>
+  <div class="ar-mq" aria-hidden="true"><div class="tr"><div><span>Connaught Place</span><i class="fa-solid fa-location-dot"></i> <span>Karol Bagh</span><i class="fa-solid fa-location-dot"></i> <span>Laxmi Nagar</span><i class="fa-solid fa-location-dot"></i> <span>Dwarka</span><i class="fa-solid fa-location-dot"></i> <span>Rohini</span><i class="fa-solid fa-location-dot"></i> <span>Saket</span><i class="fa-solid fa-location-dot"></i> <span>Janakpuri</span><i class="fa-solid fa-location-dot"></i> <span>Pitampura</span><i class="fa-solid fa-location-dot"></i> <span>Cyber City</span><i class="fa-solid fa-location-dot"></i> <span>Golf Course Road</span><i class="fa-solid fa-location-dot"></i> <span>Sohna Road</span><i class="fa-solid fa-location-dot"></i> <span>Udyog Vihar</span><i class="fa-solid fa-location-dot"></i> <span>DLF Phase 1–5</span><i class="fa-solid fa-location-dot"></i> <span>Sector 29</span><i class="fa-solid fa-location-dot"></i> <span>Sector 18</span><i class="fa-solid fa-location-dot"></i> <span>Sector 62</span><i class="fa-solid fa-location-dot"></i> <span>Sector 63</span><i class="fa-solid fa-location-dot"></i> <span>Sector 132</span><i class="fa-solid fa-location-dot"></i> <span>Noida Extension</span><i class="fa-solid fa-location-dot"></i> <span>Film City</span><i class="fa-solid fa-location-dot"></i> <span>Pari Chowk</span><i class="fa-solid fa-location-dot"></i> <span>Knowledge Park</span><i class="fa-solid fa-location-dot"></i> <span>Alpha &amp; Beta</span><i class="fa-solid fa-location-dot"></i> <span>Gaur City</span><i class="fa-solid fa-location-dot"></i> <span>Jagat Farm</span><i class="fa-solid fa-location-dot"></i> <span>Indirapuram</span><i class="fa-solid fa-location-dot"></i> <span>Vaishali</span><i class="fa-solid fa-location-dot"></i> <span>Raj Nagar</span><i class="fa-solid fa-location-dot"></i> <span>Kaushambi</span><i class="fa-solid fa-location-dot"></i> <span>Vasundhara</span><i class="fa-solid fa-location-dot"></i> <span>Crossings Republik</span><i class="fa-solid fa-location-dot"></i> <span>NIT</span><i class="fa-solid fa-location-dot"></i> <span>Sector 15</span><i class="fa-solid fa-location-dot"></i> <span>Sector 21</span><i class="fa-solid fa-location-dot"></i> <span>Ballabgarh</span><i class="fa-solid fa-location-dot"></i> <span>Neharpar</span><i class="fa-solid fa-location-dot"></i> <span>Industrial Area</span><i class="fa-solid fa-location-dot"></i></div><div><span>Connaught Place</span><i class="fa-solid fa-location-dot"></i> <span>Karol Bagh</span><i class="fa-solid fa-location-dot"></i> <span>Laxmi Nagar</span><i class="fa-solid fa-location-dot"></i> <span>Dwarka</span><i class="fa-solid fa-location-dot"></i> <span>Rohini</span><i class="fa-solid fa-location-dot"></i> <span>Saket</span><i class="fa-solid fa-location-dot"></i> <span>Janakpuri</span><i class="fa-solid fa-location-dot"></i> <span>Pitampura</span><i class="fa-solid fa-location-dot"></i> <span>Cyber City</span><i class="fa-solid fa-location-dot"></i> <span>Golf Course Road</span><i class="fa-solid fa-location-dot"></i> <span>Sohna Road</span><i class="fa-solid fa-location-dot"></i> <span>Udyog Vihar</span><i class="fa-solid fa-location-dot"></i> <span>DLF Phase 1–5</span><i class="fa-solid fa-location-dot"></i> <span>Sector 29</span><i class="fa-solid fa-location-dot"></i> <span>Sector 18</span><i class="fa-solid fa-location-dot"></i> <span>Sector 62</span><i class="fa-solid fa-location-dot"></i> <span>Sector 63</span><i class="fa-solid fa-location-dot"></i> <span>Sector 132</span><i class="fa-solid fa-location-dot"></i> <span>Noida Extension</span><i class="fa-solid fa-location-dot"></i> <span>Film City</span><i class="fa-solid fa-location-dot"></i> <span>Pari Chowk</span><i class="fa-solid fa-location-dot"></i> <span>Knowledge Park</span><i class="fa-solid fa-location-dot"></i> <span>Alpha &amp; Beta</span><i class="fa-solid fa-location-dot"></i> <span>Gaur City</span><i class="fa-solid fa-location-dot"></i> <span>Jagat Farm</span><i class="fa-solid fa-location-dot"></i> <span>Indirapuram</span><i class="fa-solid fa-location-dot"></i> <span>Vaishali</span><i class="fa-solid fa-location-dot"></i> <span>Raj Nagar</span><i class="fa-solid fa-location-dot"></i> <span>Kaushambi</span><i class="fa-solid fa-location-dot"></i> <span>Vasundhara</span><i class="fa-solid fa-location-dot"></i> <span>Crossings Republik</span><i class="fa-solid fa-location-dot"></i> <span>NIT</span><i class="fa-solid fa-location-dot"></i> <span>Sector 15</span><i class="fa-solid fa-location-dot"></i> <span>Sector 21</span><i class="fa-solid fa-location-dot"></i> <span>Ballabgarh</span><i class="fa-solid fa-location-dot"></i> <span>Neharpar</span><i class="fa-solid fa-location-dot"></i> <span>Industrial Area</span><i class="fa-solid fa-location-dot"></i></div></div></div>
 </section>
 
 <!-- ============ 10. BLOG ============ -->
@@ -531,6 +589,6 @@
   </div>
 </div>
 
-<script src="assets/js/agency.js?v=202610081014" defer></script>
+<script src="assets/js/agency.js?v=202610081021" defer></script>
 </body>
 </html>
