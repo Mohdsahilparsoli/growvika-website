@@ -922,14 +922,11 @@ em.s{font-family:var(--f-ser);font-style:italic;font-weight:400;letter-spacing:-
 }
 @media (max-width:1180px){.burger{order:3;margin-left:0}.header .hcall{margin-left:auto}.hcall .ic{width:46px;height:46px}}
 
-/* ---------- wider container (1600) + centred menu ---------- */
-.wrap{width:min(1600px,92%)}
-@media (min-width:981px){.hero .wrap{width:min(1600px,92%)}}
+/* ---------- centred menu ---------- */
 .header .wrap{display:flex;align-items:center}
 .header .logo{flex:1 1 0;min-width:max-content}
 .nav{margin:0 auto}
 .h-right{flex:1 1 0;display:flex;align-items:center;justify-content:flex-end;gap:22px;min-width:max-content}
-.mega{width:min(1200px,94vw)}
 @media (max-width:1180px){.nav{display:none}.h-right{gap:10px}.burger{margin-left:0}.header .hcall{margin-left:0}}
 
 /* service-area mega */
