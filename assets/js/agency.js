@@ -95,6 +95,7 @@
   var pin = $(".pin"), rail = $(".rail"), rbar = $("[data-rail-bar]"), rcnt = $("[data-rail-cnt]");
   var pinOn = false, maxX = 0;
   function setupPin() {
+    if (!pin || !rail) return;
     pinOn = window.innerWidth > 980;
     if (!pinOn) { pin.style.height = ""; rail.style.transform = ""; return; }
     maxX = Math.max(0, rail.scrollWidth - window.innerWidth + window.innerWidth * 0.04);
@@ -102,7 +103,7 @@
     movePin();
   }
   function movePin() {
-    if (!pinOn) return;
+    if (!pinOn || !pin) return;
     var r = pin.getBoundingClientRect(), total = pin.offsetHeight - window.innerHeight;
     var p = total > 0 ? Math.min(Math.max(-r.top / total, 0), 1) : 0;
     rail.style.transform = "translate3d(" + (-maxX * p) + "px,0,0)";
@@ -139,9 +140,11 @@
   /* testimonials */
   var tqs = $$(".tq"), ti = 0, tcnt = $("[data-t-cnt]"), ttimer;
   function tgo(i) { ti = (i + tqs.length) % tqs.length; tqs.forEach(function (q, k) { q.classList.toggle("on", k === ti); }); tcnt.innerHTML = "<b>0" + (ti + 1) + "</b> / 0" + tqs.length; var tp = $("[data-t-prog]"); if (tp) { tp.classList.remove("run"); void tp.offsetWidth; tp.classList.add("run"); } clearTimeout(ttimer); ttimer = setTimeout(function () { tgo(ti + 1); }, 7000); }
-  $("[data-t-prev]").addEventListener("click", function () { tgo(ti - 1); });
-  $("[data-t-next]").addEventListener("click", function () { tgo(ti + 1); });
-  tgo(0);
+  if (tqs.length && tcnt) {
+    $("[data-t-prev]").addEventListener("click", function () { tgo(ti - 1); });
+    $("[data-t-next]").addEventListener("click", function () { tgo(ti + 1); });
+    tgo(0);
+  }
 
 
   /* about video: play/pause, pause when off-screen */
