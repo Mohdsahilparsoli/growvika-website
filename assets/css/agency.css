@@ -1661,3 +1661,6 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
 .mq2-row{padding:12px 0 22px}
 .gr-cta{margin-top:12px}
 @media (max-width:640px){.sec.prom{padding-bottom:44px}}
+
+/* promise: 56px visible gap above google button (22px row pad + 34px) */
+.gr-cta{margin-top:34px}
