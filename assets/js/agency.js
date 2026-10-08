@@ -54,6 +54,24 @@
   mbd.addEventListener("click", function () { setNav(false); });
   $$(".mnav a, .mnav [data-open-modal]").forEach(function (a) { a.addEventListener("click", function () { setNav(false); }); });
 
+
+  /* mobile menu: Services / Service Area lists open on tap */
+  $$(".mnav .l1").forEach(function (l1) {
+    var sub = l1.nextElementSibling;
+    if (!sub || !sub.classList.contains("sub")) return;
+    l1.classList.add("has-sub"); sub.classList.add("coll");
+    var ic = $("i", l1); if (ic) ic.className = "fa-solid fa-chevron-down";
+    var all = document.createElement("a"); all.href = l1.getAttribute("href"); all.className = "all";
+    all.textContent = "View all " + l1.textContent.trim().toLowerCase(); sub.insertBefore(all, sub.firstChild);
+    all.addEventListener("click", function () { setNav(false); });
+    l1.setAttribute("aria-expanded", "false");
+    l1.addEventListener("click", function (e) {
+      e.preventDefault(); e.stopImmediatePropagation();
+      var o = !sub.classList.contains("open");
+      sub.classList.toggle("open", o); l1.classList.toggle("open", o); l1.setAttribute("aria-expanded", o);
+    }, true);
+  });
+
   /* reveal */
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });

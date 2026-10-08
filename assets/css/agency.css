@@ -1537,3 +1537,45 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
 /* popup: darker navy panel so the indigo logo mark stands out */
 .m-side:after{background:linear-gradient(180deg,rgba(10,15,30,.92) 0%,rgba(10,15,30,.72) 40%,rgba(10,15,30,.9) 75%,rgba(10,15,30,.97) 100%),radial-gradient(600px 360px at 100% 100%,rgba(92,107,255,.35),transparent 70%)}
 .m-side .logo i{background:var(--ind)}
+
+/* =========== mobile: headings 20% smaller, image first in heroes =========== */
+@media (max-width:640px){
+  .hero h1{font-size:36px}
+  .ph h1,.ph.full h1{font-size:34px}
+  .art-hero h1{font-size:29px}
+  .h2,.sl2-sec.pinned .h2,.pin .h2{font-size:29px}
+  .why2 .h2,.blog2 .h2,.enq .h2{font-size:29px}
+  .f-cta h3,.cta2-box h2{font-size:24px}
+  .cta-box h2{font-size:34px}
+  .statement{font-size:18px}
+  .card-s h3{font-size:22px}.card-end h3{font-size:30px}
+  .wk h3,.step h3{font-size:19px}
+  .ar-hero h3{font-size:27px}
+  .tq blockquote{font-size:22px}
+  .ov-b h3{font-size:22px}
+  .sl2-b h3{font-size:18px}.sc2 h3{font-size:18px}
+  .n2-grid b{font-size:35px}
+  .wd-b h3{font-size:22px}
+  .prose h2{font-size:21px}.prose h3{font-size:18px}
+  .ft2-it .t{font-size:17px}
+  .qa button{font-size:15.5px}
+  .mnav a.l1{font-size:19px}
+  .ind-row h3{font-size:22px}
+  .lc h3,.cc h3{font-size:22px}
+  .bc h3{font-size:21px}
+  .ic-card h3,.ty2 h3{font-size:17px}
+  .hs .cap b{font-size:17px}
+}
+@media (max-width:980px){
+  .hero .h-vis,.ph .ph-vis{order:-1;margin-top:0}
+  .art-hero .wrap{display:flex;flex-direction:column}
+  .art-hero .ah-img{order:-1;border-radius:20px;margin-bottom:26px}
+  .art-hero .ah-meta{margin-bottom:34px}
+}
+
+/* mobile menu: sub-lists closed until tapped */
+.mnav .l1.has-sub i{transition:transform .35s var(--ease)}
+.mnav .l1.has-sub.open i{transform:rotate(180deg)}
+.mnav .sub.coll{display:grid;max-height:0;overflow:hidden;padding:0;transition:max-height .45s var(--ease),padding .45s}
+.mnav .sub.coll.open{max-height:520px;padding:14px 0}
+.mnav .sub a.all{grid-column:1/-1;background:var(--navy);color:#fff}
