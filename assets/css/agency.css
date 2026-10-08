@@ -1656,3 +1656,8 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
 .gr-btn b{font-family:var(--f-head);font-size:18px;color:var(--ink);letter-spacing:-.01em}
 .gr-btn>i{color:var(--ind-d);font-size:14px;margin-left:6px}
 @media (max-width:640px){.gr-btn b{font-size:16px}.gr-btn{padding-right:18px}}
+/* promise: tighter bottom spacing */
+.sec.prom{padding-bottom:56px}
+.mq2-row{padding:12px 0 22px}
+.gr-cta{margin-top:12px}
+@media (max-width:640px){.sec.prom{padding-bottom:44px}}
