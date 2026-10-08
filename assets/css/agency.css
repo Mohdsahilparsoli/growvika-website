@@ -1598,3 +1598,15 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
 .cur svg{position:absolute;inset:0}
 .cur .lbl{position:relative;inset:auto;display:block;line-height:1;white-space:nowrap;text-align:center;letter-spacing:.02em}
 .cur .lbl{transform:translateY(-12px)}
+
+/* ---- button hover: fill fully, and stay visible on dark panels ---- */
+.btn:before{inset:-2px;border-radius:inherit}
+.btn{-webkit-mask-image:-webkit-radial-gradient(white,black)}
+.sa-card .btn-i:before,.why .btn-i:before,.svc .btn-i:before,.tech .btn-i:before,.area2 .btn-i:before,.incl.dark .btn-i:before,.dark .btn-i:before,
+.faq-card .btn-i:before,.takeaways .btn-i:before,.ar-card .btn-i:before,.m-side .btn-i:before,.foot .btn-i:before,.mnav .btn-i:before{background:#fff}
+.sa-card .btn-i:hover,.why .btn-i:hover,.svc .btn-i:hover,.tech .btn-i:hover,.area2 .btn-i:hover,.incl.dark .btn-i:hover,.dark .btn-i:hover,
+.faq-card .btn-i:hover,.takeaways .btn-i:hover,.ar-card .btn-i:hover,.m-side .btn-i:hover,.foot .btn-i:hover{color:var(--ink)}
+.sa-card .btn-d:before,.svc .btn-d:before,.area2 .btn-d:before,.dark .btn-d:before,.foot .btn-d:before{background:#fff}
+.sa-card .btn-d:hover,.svc .btn-d:hover,.area2 .btn-d:hover,.dark .btn-d:hover,.foot .btn-d:hover{color:var(--ink)}
+.btn-w:hover{color:var(--navy)}
+.f-wa:hover,.cta2-b .f-wa:hover{color:#fff}
