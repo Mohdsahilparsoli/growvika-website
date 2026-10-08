@@ -852,7 +852,6 @@ em.s{font-family:var(--f-ser);font-style:italic;font-weight:400;letter-spacing:-
 
 /* ---------- nav: 7 links fit ---------- */
 .nav a.cur-page{background:var(--soft);color:var(--ind-d)}
-.header .hcall{display:none}
 .nav>ul>li>a,.nav>ul>li>button{white-space:nowrap}
 @media (max-width:1180px){.nav>ul>li>a,.nav>ul>li>button{padding:10px 10px;font-size:14.5px}}
 
@@ -909,3 +908,16 @@ em.s{font-family:var(--f-ser);font-style:italic;font-weight:400;letter-spacing:-
   .way{padding:24px}.way .ic{margin-bottom:18px}
   .next{padding-top:70px}
 }
+
+/* header: keep the call block with 7 menu links */
+.header .wrap{gap:22px}
+.nav>ul{gap:2px}
+.nav>ul>li>a,.nav>ul>li>button{padding:10px 12px}
+.header .hcall{display:flex}
+@media (max-width:1439px){.hcall small,.hcall b{display:none}.hcall .ic{width:48px;height:48px}}
+@media (max-width:1180px){
+  .nav,.header .btn{display:none}
+  .burger{display:grid;margin-left:auto}
+  .hcall{order:2}
+}
+@media (max-width:1180px){.burger{order:3;margin-left:0}.header .hcall{margin-left:auto}.hcall .ic{width:46px;height:46px}}
