@@ -23,19 +23,23 @@
   window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
   totop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }); });
 
-  /* mega menu */
-  var mega = $(".has-mega"), megaBtn = mega && $("button", mega), megaTimer;
-  if (mega) {
-    var setMega = function (o) { mega.classList.toggle("open", o); megaBtn.setAttribute("aria-expanded", o); };
-    megaBtn.addEventListener("click", function () { setMega(!mega.classList.contains("open")); });
+  /* mega menus (Services, Service Area) */
+  var megas = $$(".has-mega");
+  megas.forEach(function (mega) {
+    var btn = $("button", mega), timer;
+    var set = function (o) {
+      if (o) megas.forEach(function (m) { if (m !== mega) { m.classList.remove("open"); $("button", m).setAttribute("aria-expanded", "false"); } });
+      mega.classList.toggle("open", o); btn.setAttribute("aria-expanded", o);
+    };
+    btn.addEventListener("click", function () { set(!mega.classList.contains("open")); });
     if (fine) {
-      mega.addEventListener("mouseenter", function () { clearTimeout(megaTimer); setMega(true); });
-      mega.addEventListener("mouseleave", function () { megaTimer = setTimeout(function () { setMega(false); }, 180); });
+      mega.addEventListener("mouseenter", function () { clearTimeout(timer); set(true); });
+      mega.addEventListener("mouseleave", function () { timer = setTimeout(function () { set(false); }, 180); });
     }
-    document.addEventListener("click", function (e) { if (!mega.contains(e.target)) setMega(false); });
-    $$(".mega a").forEach(function (a) { a.addEventListener("click", function () { setMega(false); }); });
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && mega.classList.contains("open")) { setMega(false); megaBtn.focus(); } });
-  }
+    document.addEventListener("click", function (e) { if (!mega.contains(e.target)) set(false); });
+    $$(".mega a", mega).forEach(function (a) { a.addEventListener("click", function () { set(false); }); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && mega.classList.contains("open")) { set(false); btn.focus(); } });
+  });
 
   /* mobile nav */
   var mnav = $(".mnav"), mbd = $(".mnav-bd"), burger = $(".burger");
@@ -206,6 +210,15 @@
     stage.addEventListener("touchend", function (e) { var dx = e.changedTouches[0].clientX - tsx; if (Math.abs(dx) > 50) ago(ai + (dx < 0 ? 1 : -1), true); }, { passive: true });
     new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) ago(ai); else clearTimeout(atimer); }); }, { threshold: 0.25 }).observe(stage);
   }
+  /* links like #areas-2 open the service area on that city */
+  function cityFromHash() {
+    var m = /^#areas-(\d)$/.exec(location.hash), sec = $("#areas");
+    if (!m || !sec) return;
+    if (atabs.length) ago(+m[1]);
+    setTimeout(function () { sec.scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); }, 30);
+  }
+  window.addEventListener("hashchange", cityFromHash);
+  cityFromHash();
 
 
   /* rotating word in hero */

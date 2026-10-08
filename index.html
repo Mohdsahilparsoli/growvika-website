@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="assets/css/agency.css?v=202610081110">
+<link rel="stylesheet" href="assets/css/agency.css?v=202610081120">
 </head>
 <body data-auto-popup="25">
 
@@ -70,15 +70,38 @@
           </div>
         </li>
         <li><a href="#work">Work</a></li>
-        <li><a href="#areas">Service Area</a></li>
+        <li class="has-mega">
+          <button type="button" aria-expanded="false" aria-controls="mega-areas">Service Area <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="mega mega-areas" id="mega-areas">
+            <div class="mega-col">
+              <h5>Cities we serve</h5>
+              <div class="mc-grid">
+              <a href="#areas-0" data-city="0"><span class="mc-n">01</span><span><b>Delhi</b><small>The capital</small></span><i class="fa-solid fa-arrow-right"></i></a>
+              <a href="#areas-1" data-city="1"><span class="mc-n">02</span><span><b>Gurugram</b><small>Offices &amp; startups</small></span><i class="fa-solid fa-arrow-right"></i></a>
+              <a href="#areas-2" data-city="2"><span class="mc-n">03</span><span><b>Noida</b><small>IT &amp; education hub</small></span><i class="fa-solid fa-arrow-right"></i></a>
+              <a href="#areas-3" data-city="3"><span class="mc-n">04</span><span><b>Greater Noida</b><small>Fast-growing</small></span><i class="fa-solid fa-arrow-right"></i></a>
+              <a href="#areas-4" data-city="4"><span class="mc-n">05</span><span><b>Ghaziabad</b><small>Retail &amp; services</small></span><i class="fa-solid fa-arrow-right"></i></a>
+              <a href="#areas-5" data-city="5"><span class="mc-n">06</span><span><b>Faridabad</b><small>Industry &amp; B2B</small></span><i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div class="mega-feat ma-feat">
+              <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=600&q=70" alt="India Gate, New Delhi" loading="lazy">
+              <small>Delhi NCR</small>
+              <h4>Free first meeting at your office.</h4>
+              <a href="#areas" class="ma-all">View service area <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </li>
         <li><a href="#blog">Blog</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </nav>
+    <div class="h-right">
     <a href="tel:+919818186876" class="hcall"><span class="ic"><i class="fa-solid fa-phone-volume"></i></span><span><small>Call us</small><b>+91-9818186876</b></span></a>
     <button type="button" class="btn btn-d" data-open-modal>Start a project <i class="fa-solid fa-arrow-right"></i></button>
     <button type="button" class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><i class="fa-solid fa-bars-staggered"></i></button>
+    </div>
   </div>
 </header>
 
@@ -92,6 +115,7 @@
   </div>
   <a class="l1" href="#work">Work <i class="fa-solid fa-arrow-right"></i></a>
   <a class="l1" href="#areas">Service Area <i class="fa-solid fa-arrow-right"></i></a>
+  <div class="sub"><a href="#areas-0" data-city="0">Delhi</a><a href="#areas-1" data-city="1">Gurugram</a><a href="#areas-2" data-city="2">Noida</a><a href="#areas-3" data-city="3">Greater Noida</a><a href="#areas-4" data-city="4">Ghaziabad</a><a href="#areas-5" data-city="5">Faridabad</a></div>
   <a class="l1" href="#blog">Blog <i class="fa-solid fa-arrow-right"></i></a>
   <a class="l1" href="#faq">FAQ <i class="fa-solid fa-arrow-right"></i></a>
   <a class="l1" href="contact.html">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
@@ -584,6 +608,6 @@
   </div>
 </div>
 
-<script src="assets/js/agency.js?v=202610081110" defer></script>
+<script src="assets/js/agency.js?v=202610081120" defer></script>
 </body>
 </html>
