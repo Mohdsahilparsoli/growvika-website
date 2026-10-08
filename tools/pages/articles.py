@@ -200,3 +200,11 @@ dict(slug="website-slow-on-mobile", cat="Websites", folder="Speed", mins="6 min"
  takeaways=["Resize and compress images first","Use lightweight themes or custom code","Remove unused plugins and scripts","Choose good hosting with caching","Test on mobile with PageSpeed Insights"],
  faq=[("How fast should my website load?","As fast as possible — aim for the main content to appear within a couple of seconds on mobile."),("Will a faster site rank higher?","Speed is one of many factors; it helps both rankings and conversions."),("Can you speed up my existing site?","Yes. We can audit it and either optimise it or recommend a rebuild if that's more cost-effective.")]),
 ]
+
+# Reading time from the real word count (about 200 words per minute)
+import re as _re
+for _a in ARTICLES:
+    _text = _a["intro"] + " ".join(h + " " + b for h, b in _a["sections"]) + " ".join(_a["takeaways"]) + " ".join(q + " " + x for q, x in _a["faq"])
+    _words = len(_re.sub(r"<[^>]+>", " ", _text).split())
+    _a["words"] = _words
+    _a["mins"] = f"{max(3, round(_words / 200))} min"
