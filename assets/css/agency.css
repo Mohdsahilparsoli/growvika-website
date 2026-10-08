@@ -1677,3 +1677,5 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
 .g-rate .stars{font-size:16px}
 .g-rate small{display:block;font-size:13px;color:var(--mut);margin-top:3px}
 .g-rate small span{font-weight:700;color:var(--ink2)}
+
+.rc-top .stars{margin-left:auto}

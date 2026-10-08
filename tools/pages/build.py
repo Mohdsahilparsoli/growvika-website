@@ -467,13 +467,12 @@ def stars(n):
 def review_cards():
     from data import SAMPLE_REVIEWS
     cards = []
-    for n, biz, city, txt in SAMPLE_REVIEWS:
-        cards.append(f'<article class="pr-c rv-card"><div class="rc-top">{stars(n)}<span class="rc-g" title="Google review"><i class="fa-brands fa-google"></i></span></div><p>“{txt}”</p><div class="pr-by"><span class="av">CN</span><div><b>Client name <em class="smp">Sample</em></b><small>{biz} · {city}</small></div></div></article>')
+    for tag, ic, n, biz, city, txt in SAMPLE_REVIEWS:
+        cards.append(f'<article class="pr-c rv-card"><div class="pr-top rc-top"><span class="pr-ic"><i class="fa-solid {ic}"></i></span><span class="pr-cat">{tag}</span>{stars(n)}</div><p>“{txt}”</p><div class="pr-by"><span class="av">CN</span><div><b>Client name <em class="smp">Sample</em></b><small>{biz} · {city}</small></div></div></article>')
     half = len(cards) // 2
     return "".join(cards[:half]), "".join(cards[half:])
 
 def promise():
-    from data import GOOGLE_RATING, GOOGLE_COUNT
     r1, r2 = review_cards()
     return f"""<section class="sec prom">
   <div class="wrap">
@@ -481,7 +480,6 @@ def promise():
       {idx("Our promise")}
       {h2("What you can", '<em class="s">count on.</em>')}
       <p class="lead rv">Clear commitments we make to every client — on pricing, ownership, quality and support.</p>
-      <div class="g-rate rv"><span class="gr-g"><i class="fa-brands fa-google"></i></span><div><div class="g-rate-t"><b data-g-rating>{GOOGLE_RATING}</b>{stars(5)}</div><small><span data-g-count>{GOOGLE_COUNT}</span> reviews on Google</small></div></div>
     </div>
   </div>
   <div class="mq2" aria-label="Client reviews">

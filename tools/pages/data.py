@@ -438,24 +438,24 @@ PROMISES = [
 ]
 
 # SAMPLE reviews — placeholders only. Replace with real Google reviews
-# (or load them dynamically). Each: (stars 1-5, business type, city, text)
+# (or load them dynamically). Each: (tag, fa-icon, stars 1-5, business type, city, text)
 GOOGLE_RATING = "X.X"     # e.g. "4.9"  — set from your Google Business Profile
 GOOGLE_COUNT = "XX"       # e.g. "27"
 SAMPLE_REVIEWS = [
-    (5, "Restaurant", "Delhi", "The new website loads fast and the online order button finally works on mobile. Enquiries started the same week."),
-    (5, "Clinic", "Gurugram", "Appointment form, WhatsApp-free enquiry emails and clean service pages. Patients find us on Google now."),
-    (5, "Retail store", "Noida", "Our Shopify store was set up with proper categories and payment gateway. Handover included every login."),
-    (4, "Coaching institute", "Ghaziabad", "Good communication throughout. The course pages and lead form are simple for students to use."),
-    (5, "Real estate", "Faridabad", "Property listing website with filters and enquiry tracking. Delivered on the date agreed in the quote."),
-    (5, "Manufacturer", "Greater Noida", "Product catalogue site in English and Hindi. Clear milestones, no surprise invoices."),
-    (5, "Salon", "Delhi", "Booking page and Google profile were sorted together. Calls from Google Maps went up noticeably."),
-    (5, "Logistics company", "Gurugram", "Custom CRM for our leads and follow-ups. The team actually uses it every day, which says enough."),
-    (4, "Boutique", "Noida", "Instagram and website now match. Product photos look premium and checkout is quick."),
-    (5, "CA firm", "Delhi", "Professional website with service pages written for real searches. SEO setup was explained properly."),
-    (5, "Gym", "Ghaziabad", "Membership enquiry form and offer pages are easy to update ourselves. Support replies quickly."),
-    (5, "Interior designer", "Gurugram", "Portfolio site shows our projects beautifully. Clients mention the website when they call."),
-    (5, "School", "Faridabad", "Admission enquiry system with email alerts. Parents find information without calling the office."),
-    (5, "Travel agency", "Delhi", "Package pages with clear itineraries and a fast enquiry form. Mobile experience is excellent."),
-    (4, "Bakery", "Noida", "Simple ordering website and Google listing setup. Good value and delivered quickly."),
-    (5, "Startup", "Greater Noida", "Android and iOS app built from one codebase. Regular demos kept us confident at every step."),
+    ("Speed", "fa-gauge-high", 5, "Restaurant", "Delhi", "The new website loads fast and the online order button finally works on mobile. Enquiries started the same week."),
+    ("SEO", "fa-magnifying-glass", 5, "Clinic", "Gurugram", "Appointment form, WhatsApp-free enquiry emails and clean service pages. Patients find us on Google now."),
+    ("Ownership", "fa-key", 5, "Retail store", "Noida", "Our Shopify store was set up with proper categories and payment gateway. Handover included every login."),
+    ("Communication", "fa-comments", 4, "Coaching institute", "Ghaziabad", "Good communication throughout. The course pages and lead form are simple for students to use."),
+    ("Delivery", "fa-calendar-check", 5, "Real estate", "Faridabad", "Property listing website with filters and enquiry tracking. Delivered on the date agreed in the quote."),
+    ("Pricing", "fa-file-invoice", 5, "Manufacturer", "Greater Noida", "Product catalogue site in English and Hindi. Clear milestones, no surprise invoices."),
+    ("SEO", "fa-magnifying-glass", 5, "Salon", "Delhi", "Booking page and Google profile were sorted together. Calls from Google Maps went up noticeably."),
+    ("Quality", "fa-list-check", 5, "Logistics company", "Gurugram", "Custom CRM for our leads and follow-ups. The team actually uses it every day, which says enough."),
+    ("Design", "fa-pen-ruler", 4, "Boutique", "Noida", "Instagram and website now match. Product photos look premium and checkout is quick."),
+    ("SEO", "fa-magnifying-glass", 5, "CA firm", "Delhi", "Professional website with service pages written for real searches. SEO setup was explained properly."),
+    ("Support", "fa-headset", 5, "Gym", "Ghaziabad", "Membership enquiry form and offer pages are easy to update ourselves. Support replies quickly."),
+    ("Design", "fa-pen-ruler", 5, "Interior designer", "Gurugram", "Portfolio site shows our projects beautifully. Clients mention the website when they call."),
+    ("Quality", "fa-list-check", 5, "School", "Faridabad", "Admission enquiry system with email alerts. Parents find information without calling the office."),
+    ("Quality", "fa-mobile-screen", 5, "Travel agency", "Delhi", "Package pages with clear itineraries and a fast enquiry form. Mobile experience is excellent."),
+    ("Pricing", "fa-file-invoice", 4, "Bakery", "Noida", "Simple ordering website and Google listing setup. Good value and delivered quickly."),
+    ("Communication", "fa-comments", 5, "Startup", "Greater Noida", "Android and iOS app built from one codebase. Regular demos kept us confident at every step."),
 ]
