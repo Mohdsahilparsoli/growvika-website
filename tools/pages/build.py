@@ -282,18 +282,29 @@ def split(label, a, b, text, bullets=None, img="meeting", img2=None, rev=False, 
 </section>'''
 
 def svc_cards(svcs, label="What we do", a="Everything you need", b="to <em class=\"s\">grow online.</em>", lead="Pick one service or the whole stack.", soft=False, exclude=None):
-    cards = "\n".join(f'''      <a href="{s["slug"]}.html" class="sc rv" data-cursor="view"><div class="img"><img src="{U(s["img"],800)}" alt="{s["name"]}" loading="lazy"></div><div class="sc-b"><span class="sc-ic"><i class="fa-solid {s["icon"]}"></i></span><h3>{s["name"]}</h3><p>{SVC_LONG.get(s["slug"], s["card"])}</p><span class="go">Explore <i class="fa-solid fa-arrow-right"></i></span></div></a>''' for s in svcs if s["slug"] != exclude)
+    out = []
+    for k, s in enumerate([x for x in svcs if x["slug"] != exclude]):
+        feats = "".join(f'<li><i class="fa-solid fa-check"></i>{t}</li>' for _, t, _ in s["incl"][:4])
+        out.append(f'''      <a href="{s["slug"]}.html" class="sc2 rv" data-cursor="view">
+        <div class="sc2-img img"><img src="{U(s["img"],800)}" alt="{s["name"]} in Delhi NCR" loading="lazy"><span class="sc2-n">{k+1:02d}</span><span class="sc2-tag">{s["tag"]}</span></div>
+        <div class="sc2-b">
+          <div class="sc2-top"><span class="sc-ic"><i class="fa-solid {s["icon"]}"></i></span><h3>{s["name"]}</h3></div>
+          <p>{SVC_LONG.get(s["slug"], s["card"])}</p>
+          <ul class="sc2-f">{feats}</ul>
+          <div class="sc2-foot"><span class="go">Explore service <i class="fa-solid fa-arrow-right"></i></span><span class="sc2-m"><i class="fa-solid fa-file-signature"></i> Fixed quote</span></div>
+        </div>
+      </a>''')
     return f'''<section class="sec{' soft' if soft else ''}">
   <div class="wrap">
 {headrow(label, a, b, lead)}
-    <div class="sc-grid">
-{cards}
+    <div class="sc2-grid">
+{chr(10).join(out)}
     </div>
   </div>
 </section>'''
 
 def incl(label, a, b, items, lead=None, soft=False, dark=False):
-    cards = "\n".join(f'''      <div class="ic-card rv"><span class="ic"><i class="{ic if ic.startswith('fa-brands') else 'fa-solid '+ic}"></i></span><h3>{t}</h3><p>{d}</p></div>''' for ic, t, d in items)
+    cards = "\n".join(f'''      <div class="ic-card rv"><span class="ic"><i class="{ic if ic.startswith('fa-brands') else 'fa-solid '+ic}"></i></span><h3>{t}</h3><p>{d} {INCL_MORE.get(t, INCL_MORE.get(t.replace("&amp;","&"), ""))}</p></div>''' for ic, t, d in items)
     cls = "sec incl" + (" soft" if soft else "") + (" dark" if dark else "")
     return f'''<section class="{cls}">
   <div class="wrap">
@@ -371,19 +382,33 @@ def industries(items=None, label="Industries", a="Who we <em class=\"s\">help.</
   <div class="follower" aria-hidden="true"></div>
 </section>'''
 
-def work_grid(items, label="Selected work", a="Built for real", b="<em class=\"s\">businesses.</em>", filt=False, lead="A look at the kind of projects we build — by industry.", soft=False):
+def work_grid(items, label="Selected work", a="Built for real", b="<em class=\"s\">businesses.</em>", filt=False, lead="A look at the kind of projects we build — by industry, with the problem we solved and what we built.", soft=False):
+    from more import WORK_DETAIL
     chips = ""
     if filt:
         chips = '<div class="wf rv" role="tablist">' + "".join(f'<button type="button" class="{"on" if k==0 else ""}" data-wf="{c}">{l}</button>' for k, (c, l) in enumerate(WORK_CATS)) + '</div>'
-    cards = "\n".join(f'''      <a href="contact.html" class="wk2 rv" data-cat="{cat}" data-open-modal data-cursor="view"><div class="img"><img src="{U(img,800)}" alt="{t}" loading="lazy"></div><span class="wk2-tag">{tag}</span><div class="wk2-b"><small>{sub}</small><h3>{t}</h3><p>{d}</p></div></a>''' for t, sub, img, cat, tag, d in items)
+    cards = []
+    for t, sub, img, cat, tag, d in items:
+        ch, built, st = WORK_DETAIL[t]
+        cards.append(f'''      <a href="contact.html" class="wk2 wk3 rv" data-cat="{cat}" data-open-modal data-cursor="view">
+        <div class="img"><img src="{U(img,800)}" alt="{t} — {sub}" loading="lazy"></div><span class="wk2-tag">{tag}</span>
+        <div class="wk2-b">
+          <small>{sub}</small>
+          <h3>{t}</h3>
+          <p>{d} {ch}</p>
+          <ul class="wk3-f">{"".join(f'<li><i class="fa-solid fa-check"></i>{x}</li>' for x in built[:3])}</ul>
+          <div class="wk3-st">{"".join(f'<span>{x}</span>' for x in st)}</div>
+          <span class="wk3-go">Discuss a similar project <i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+      </a>''')
     return f'''<section class="sec{' soft' if soft else ''}" id="work">
   <div class="wrap">
 {headrow(label, a, b, lead)}
     {chips}
     <div class="wk2-grid">
-{cards}
+{chr(10).join(cards)}
     </div>
-    <p class="note rv">Examples by industry. Ask us for live links to similar projects.</p>
+    <p class="note rv">Examples by industry — client names are kept private. Ask us on WhatsApp for live links to projects similar to yours.</p>
   </div>
 </section>'''
 
