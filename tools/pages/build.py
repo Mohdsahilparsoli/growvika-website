@@ -190,6 +190,7 @@ def footer():
   </div>
 </footer>
 
+<a class="call-fab" href="tel:+919818186876" aria-label="Call +91-9818186876"><i class="fa-solid fa-phone"></i></a>
 <a class="wa" href="https://wa.me/{WA}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 <button type="button" class="totop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
