@@ -507,7 +507,7 @@ em.s{font-family:var(--f-ser);font-style:italic;font-weight:400;letter-spacing:-
 .m-submit:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);transform:translateX(-120%);animation:mShine 3.6s 1.2s infinite}
 .m-submit i{font-size:20px}
 .m-submit:hover i{transform:scale(1.15) rotate(-8deg)}
-.m-foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;margin-top:16px;font-size:13px;color:var(--mut)}
+.m-foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;margin-top:24px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--mut)}
 .m-foot i{color:#16A34A;margin-right:6px}
 .m-foot a{color:var(--ink);font-weight:700}
 .m-foot a:hover{color:var(--ind-d)}
