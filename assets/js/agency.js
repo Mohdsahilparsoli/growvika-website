@@ -138,7 +138,7 @@
 
   /* testimonials */
   var tqs = $$(".tq"), ti = 0, tcnt = $("[data-t-cnt]"), ttimer;
-  function tgo(i) { ti = (i + tqs.length) % tqs.length; tqs.forEach(function (q, k) { q.classList.toggle("on", k === ti); }); tcnt.innerHTML = "<b>0" + (ti + 1) + "</b> / 0" + tqs.length; clearTimeout(ttimer); ttimer = setTimeout(function () { tgo(ti + 1); }, 7000); }
+  function tgo(i) { ti = (i + tqs.length) % tqs.length; tqs.forEach(function (q, k) { q.classList.toggle("on", k === ti); }); tcnt.innerHTML = "<b>0" + (ti + 1) + "</b> / 0" + tqs.length; var tp = $("[data-t-prog]"); if (tp) { tp.classList.remove("run"); void tp.offsetWidth; tp.classList.add("run"); } clearTimeout(ttimer); ttimer = setTimeout(function () { tgo(ti + 1); }, 7000); }
   $("[data-t-prev]").addEventListener("click", function () { tgo(ti - 1); });
   $("[data-t-next]").addEventListener("click", function () { tgo(ti + 1); });
   tgo(0);
