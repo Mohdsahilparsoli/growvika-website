@@ -483,6 +483,7 @@ def promise():
     <div class="mq2-row"><div class="mq2-tr">{r1}{r1}</div></div>
     <div class="mq2-row rev"><div class="mq2-tr">{r2}{r2}</div></div>
   </div>
+  <div class="wrap gr-cta rv"><a class="gr-btn" href="https://www.google.com/maps/search/?api=1&amp;query=GrowVika" target="_blank" rel="noopener"><span class="gr-g"><i class="fa-brands fa-google"></i></span><span><small>Reviews on Google</small><b>See what our clients say</b></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
 </section>"""
 
 def faq(items, label="FAQ", a="Questions,", b="<em class=\"s\">answered.</em>", sid="", more=True, card=True):
