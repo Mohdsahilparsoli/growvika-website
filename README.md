@@ -1,9 +1,14 @@
-# GrowVika website: 3 home page layouts
+# GrowVika website
 
-Plain HTML, CSS and JavaScript. No build step and no libraries. Open `index.html` in a browser to compare the three layouts.
+Plain HTML, CSS and JavaScript. No build step and no libraries.
+
+**Main home page:** `index.html` (premium agency design) uses `assets/css/agency.css` and `assets/js/agency.js`. Fonts: Syne (headings), Fraunces italic (accent words), Plus Jakarta Sans (body). Icons: Font Awesome.
+
+The older 3 layouts are kept for reference at `layouts.html` (they use `base.css`, `home-*.css`, `main.js`).
 
 ```
-index.html          ← preview page: choose a layout
+index.html          ← main home page (new agency design)
+layouts.html        ← old preview page: choose one of 3 layouts
 home-1.html         ← Layout 1: Classic Agency
 home-2.html         ← Layout 2: Editorial Split
 home-3.html         ← Layout 3: Bento
@@ -32,7 +37,7 @@ Photos are free Unsplash images loaded from `images.unsplash.com` (free for comm
 - **Prices & FAQ answers:** taken from your current plans (website from ₹9,999, etc.). Check they are still correct.
 
 ## How the forms work
-The "Start a new project" popup and the contact form open **WhatsApp** with the visitor's details filled in, sent to **+91-9818186876**. To change the number or email, edit the top of `assets/js/main.js`:
+The "Start a new project" popup and the contact form open **WhatsApp** with the visitor's details filled in, sent to **+91-9818186876**. To change the number or email, edit the top of `assets/js/agency.js` (and `main.js` for the old layouts):
 
 ```js
 var WHATSAPP = "919818186876";
