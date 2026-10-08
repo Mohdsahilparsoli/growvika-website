@@ -1584,3 +1584,12 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
 .rail-nav button{border-color:rgba(255,255,255,.6);color:#fff}
 .rail-nav button:hover{background:#fff;color:var(--ink)}
 @media (max-width:980px){.svc .sl2-hr{align-items:flex-start}.svc .sl2-hr .lead{text-align:left}}
+
+/* click flame burst */
+.flame-fx{position:fixed;left:0;top:0;width:0;height:0;pointer-events:none;z-index:10000}
+.flame-fx i{position:absolute;left:0;top:0;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;transform:translate(-50%,-50%) scale(.4);opacity:0;filter:blur(.5px);animation:flame .7s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes flame{
+  0%{opacity:1;transform:translate(-50%,-50%) scale(.5)}
+  40%{opacity:1}
+  100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(1.4)}
+}
