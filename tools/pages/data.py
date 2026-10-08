@@ -155,17 +155,9 @@ WORK = [
 WORK_CATS = [("all","All"),("website","Websites"),("ecommerce","E-commerce"),("app","Apps"),("crm","CRM"),("software","Software"),("marketing","Marketing")]
 
 # ---------------- BLOG ----------------
-POSTS = [
- ("Guide","Websites","5 min","desk","How much does a business website really need?","Pages, features and content — what a small business site must have to bring enquiries."),
- ("Local SEO","Google Maps","4 min","phone","7 ways to rank your shop on Google Maps","Simple Google Business Profile steps that put you in front of nearby customers."),
- ("CRM","Leads","6 min","laptop_mug","Why small businesses lose leads — and how a CRM fixes it","Missed calls, forgotten follow-ups and lost WhatsApp chats — and the simple fix."),
- ("Apps","Mobile apps","5 min","mobile","Do you need an app, or just a better website?","A quick way to decide what your customers actually need."),
- ("Social","Instagram","4 min","social","Reels that bring customers, not just likes","What local businesses should post — and how often."),
- ("Ads","Google & Meta","5 min","marketing","Google Ads vs Meta Ads for local businesses","Where to spend first, and how to know it's working."),
- ("E-commerce","Online store","6 min","shop","Shopify vs WooCommerce for Indian brands","Costs, payment gateways, shipping and what to pick."),
- ("Software","Automation","5 min","screen","5 spreadsheets your business should replace","Billing, stock, attendance and more — when custom software pays off."),
- ("Websites","Speed","4 min","code","Why your website is slow on mobile (and how to fix it)","Images, hosting and the small things that cost you customers."),
-]
+from articles import ARTICLES
+# (category, folder, minutes, image, title, description, slug)
+POSTS = [(a["cat"], a["folder"], a["mins"], a["img"], a["title"], a["desc"], a["slug"]) for a in ARTICLES]
 BLOG_CATS = ["All","Websites","Local SEO","CRM","Apps","Social","Ads","E-commerce","Software"]
 
 # ---------------- FAQ ----------------

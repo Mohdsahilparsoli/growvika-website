@@ -1,6 +1,7 @@
 import sys, os
 sys.path.insert(0, os.path.dirname(__file__))
 from build import *
+from more import *
 
 out = []
 
@@ -66,7 +67,7 @@ out.append(page("services.html", "Services | Websites, Apps, CRM, Software &amp;
    ("Automate","Custom CRM or software to replace spreadsheets.")], "Not sure what you need? These combinations work for most businesses — we'll tailor the exact scope."),
  why(),
  work_grid(WORK[:6], soft=True),
- stack("Tools &amp; tech", "Modern tools,", "<em class=\"s\">proven stack.</em>", ["HTML5 / CSS3","JavaScript","Next.js","React","Node.js","WordPress","Shopify","WooCommerce","Flutter","PostgreSQL","Supabase","Razorpay","Google Analytics","Search Console","Meta Ads","Google Ads"], "We choose tools that are fast, secure and easy for you to own."),
+ stack("Tools &amp; tech", "Modern tools,", "<em class=\"s\">proven stack.</em>"),
  industries(),
  promise(),
  faq(FAQ_GROUPS[1][3] + FAQ_GROUPS[2][3][:2]),
@@ -86,10 +87,11 @@ for s in SERVICES:
      split("Overview", s["overview"][0], None, s["overview"][1], s["overview"][2], img=s["img2"], img2=s["img"]),
      incl("What's included", "Everything you", "<em class=\"s\">need.</em>", s["incl"], soft=True),
      types("Types", "What we", "<em class=\"s\">build.</em>", s["types"], "Tell us which one fits — or describe your idea and we'll suggest the right approach."),
+     service_guide(s),
      process([(t, d, w) for t, d, w in s["steps"]], a="How it", b="<em class=\"s\">works.</em>"),
      why(),
      industries([(i, f"{s['name']} for {i}.", INDUSTRIES[k % 6][2]) for k, i in enumerate(s["inds"])], "Who it's for", f"Built for <em class=\"s\">your industry.</em>", "Industries we regularly build for."),
-     stack("Tools &amp; tech", "Tools we", "<em class=\"s\">use.</em>", s["stack"], "Proven, well-supported tools — so your project is easy to maintain."),
+     stack("Tools &amp; tech", "Technology", "<em class=\"s\">we trust.</em>", s["stack"], "Proven, well-supported tools — so your project is easy to maintain."),
      work_grid(rel, "Related work", "Examples of", "<em class=\"s\">our work.</em>", soft=True),
      svc_cards(SERVICES, "Other services", "Works great", "<em class=\"s\">together.</em>", "Combine services for the best results.", exclude=s["slug"]),
      promise(),
@@ -104,6 +106,22 @@ out.append(page("work.html", "Our Work | Websites, Apps &amp; CRM Projects | Gro
    "Websites, stores, apps, CRMs and campaigns for clinics, restaurants, retailers, institutes and manufacturers across Delhi NCR.", "desk",
    b1=("fa-solid fa-layer-group","8+ project types","websites to CRMs"), b2=("fa-solid fa-mobile-screen","Mobile-first","tested on real phones")),
  work_grid(WORK, "All projects", "Selected", "<em class=\"s\">projects.</em>", filt=True, lead="Filter by type. Each card is an example of the kind of project we build for that industry."),
+ work_deep(WORK),
+ incl("Every project", "What every project", '<em class="s">includes.</em>', [
+   ("fa-comments","Discovery call","We learn your customers, competitors and goals."),
+   ("fa-pen-ruler","Design approval","You approve designs before any code is written."),
+   ("fa-mobile-screen","Mobile testing","Tested on real Android and iPhone devices."),
+   ("fa-gauge-high","Speed checks","Optimised images and code for fast loading."),
+   ("fa-magnifying-glass","SEO setup","Titles, meta, sitemap, Search Console and analytics."),
+   ("fa-brands fa-whatsapp","Lead capture","Call, WhatsApp and forms wired to you or your CRM."),
+   ("fa-graduation-cap","Handover &amp; training","Logins, documentation and a walkthrough for your team."),
+   ("fa-headset","Post-launch support","Fixes and help after you go live.")], soft=True),
+ seo_copy("Our work", "Websites, apps &amp; CRM", '<em class="s">built for Delhi NCR.</em>', [
+   ("What kind of projects do we build?","<p>From <a href=\"website-development.html\">business websites</a> and <a href=\"ecommerce-development.html\">online stores</a> to <a href=\"mobile-app-development.html\">mobile apps</a>, <a href=\"crm-development.html\">CRMs</a> and <a href=\"custom-software-development.html\">custom software</a> — plus the <a href=\"digital-marketing.html\">SEO, social media and ads</a> that bring customers to them.</p>"),
+   ("Industries we build for","<p>Clinics and dentists, restaurants and cafés, fashion and lifestyle brands, coaching institutes, salons and gyms, real-estate developers, manufacturers and B2B suppliers across Delhi, Gurugram, Noida, Greater Noida, Ghaziabad and Faridabad.</p>"),
+   ("How we measure success","<ul><li>Faster pages that work well on mobile</li><li>More calls, WhatsApp chats and form enquiries — tracked, not guessed</li><li>Fewer lost leads thanks to follow-up reminders</li><li>Less time spent on spreadsheets and manual work</li></ul>"),
+   ("Want to see a project like yours?","<p>Many clients prefer privacy, so we share live links and references one-to-one. Message us on WhatsApp with your industry and we'll send relevant examples.</p>")],
+   "Ask for examples", ["Live links on request","Projects in your industry","Talk to the builder","Free consultation"]),
  split("Case study", "Dental clinic:", "<em class=\"s\">from Google to booked.</em>",
    "<b>The challenge:</b> patients searched on Google Maps, found an outdated site and called a competitor. <b>What we built:</b> a fast treatment-focused website with online appointment requests, WhatsApp booking, Google Business Profile optimisation and review requests after every visit.",
    ["Treatment pages written for patients, not doctors","Appointment request → WhatsApp in one tap","Google Maps profile, photos and posts","Simple CRM to follow up on enquiries"], img="clinic", img2="phone", soft=True),
@@ -114,7 +132,7 @@ out.append(page("work.html", "Our Work | Websites, Apps &amp; CRM Projects | Gro
    "Every project starts with your customer: what they search, what they need to see, and what makes them call. We design for that, build it fast, and track enquiries after launch so we can keep improving.",
    ["Designed around real customer questions","Speed and mobile tested before launch","Analytics and lead tracking from day one"], img="sketch", rev=True),
  industries(),
- stack("Tools &amp; tech", "Built with", "<em class=\"s\">modern tools.</em>", ["Next.js","React","WordPress","Shopify","WooCommerce","Flutter","Node.js","PostgreSQL","Supabase","Razorpay","GA4","Meta Ads","Google Ads"]),
+ stack("Tools &amp; tech", "Built with", "<em class=\"s\">modern tools.</em>"),
  why(),
  promise(),
  faq([("Can I see live examples?","Yes — ask us on WhatsApp and we'll share live links to projects similar to yours."),("Why don't you show client names?","Many clients prefer privacy. We share references and links one-to-one when you ask."),("Can you redesign my current website?","Yes. We'll review it first and tell you honestly whether to improve or rebuild."),("Do you work with startups?","Yes — from first websites and MVP apps to CRMs as you grow.")]),
@@ -130,6 +148,12 @@ out.append(page("service-area.html", "Service Area | Delhi, Gurugram, Noida, Gha
    b1=("fa-solid fa-city","6 cities","across Delhi NCR"), b2=("fa-solid fa-handshake","Free first meeting","at your office"),
    chips=[a["name"] for a in AREAS]),
  city_cards(),
+ seo_copy("Delhi NCR guide", "Digital agency for", '<em class="s">all of Delhi NCR.</em>', [
+   ("One team across six cities","<p>GrowVika works with businesses in " + ", ".join(f'<a href="service-area-{a["slug"]}.html">{a["name"]}</a>' for a in AREAS) + ". Each city has its own customers, competitors and search habits — so we build local pages, local SEO and campaigns targeted to the areas you actually serve.</p>"),
+   ("Websites and local SEO","<p>Customers search “near me” on their phones. We build fast, mobile-first websites with service and area pages, and set up your Google Business Profile so you appear in Google Maps for your neighbourhood.</p>"),
+   ("Apps, CRM and software","<p>From restaurant ordering apps in Gurugram to admission CRMs in Noida and B2B portals in Faridabad, we build software that fits how NCR businesses work — with UPI payments, WhatsApp and Hindi/English content.</p>"),
+   ("How we work with you","<ul><li>Free first meeting at your office anywhere in Delhi NCR</li><li>Fixed quote before work begins</li><li>Updates on WhatsApp and video calls</li><li>Support after launch, one message away</li></ul>")],
+   "Serving Delhi NCR", [a["name"] for a in AREAS]),
  area_slider,
  split("Local + online", "Local when it helps,", "<em class=\"s\">online when it's faster.</em>",
    "Meet us at your office for the first conversation, then work together on WhatsApp and video calls. You get a local team that understands NCR customers — without wasting time in traffic.",
@@ -167,6 +191,7 @@ for a in AREAS:
         f'Customers in {a["name"]} search on their phones, compare a few options on Google Maps, and message the one that looks most trustworthy. We help you be that business — with a fast website, an optimised Google profile, social media that builds trust and a CRM so no enquiry is missed.',
         ["Free first meeting at your office", "Local SEO for your exact area", "Websites, apps, CRM and marketing in one team", "Replies on WhatsApp the same day"], img=a["img2"], img2=a["img3"]),
      localities(a),
+     area_guide(a),
      svc_cards(SERVICES, f"Services in {a['name']}", "Everything you need", f'<em class="s">in {a["name"]}.</em>', "All our services are available here."),
      incl("Popular here", f"What {a['name']}", '<em class="s">businesses ask for.</em>', [("fa-solid " + s["icon"] if False else s["icon"], s["name"], s["card"]) for s in svcs] + [("fa-location-dot","Google Business Profile",f"Rank in Google Maps searches across {a['name']}."),("fa-brands fa-whatsapp","WhatsApp enquiries","Turn visitors into WhatsApp chats in one tap."),("fa-hashtag","Social media","Reels and posts that build local trust."),("fa-chart-line","Monthly reports","Calls, chats and leads — clearly reported."),("fa-handshake","Local meetings",f"We meet you in {a['name']} when it helps.")], soft=True),
      industries([(i, f"Websites, SEO and CRM for {i} in {a['name']}.", INDUSTRIES[k % 6][2]) for k, i in enumerate(a["inds"])], f"Industries in {a['name']}", f'Who we help <em class="s">here.</em>', "Common businesses we work with in this area."),
@@ -185,7 +210,7 @@ for a in AREAS:
 
 # ======================= BLOG LISTING =======================
 feat = POSTS[0]
-grid = "\n".join(f'''      <a href="blog.html" class="bc rv" data-cat="{c}" data-cursor="view"><div class="img"><img src="{U(img,800)}" alt="" loading="lazy"><span class="cat">{c}</span></div><div class="meta"><span><i class="fa-regular fa-folder"></i>{f}</span><span><i class="fa-regular fa-clock"></i>{m}</span></div><h3>{t}</h3><p>{d}</p><span class="rm">Read article <i class="fa-solid fa-arrow-right"></i></span></a>''' for c, f, m, img, t, d in POSTS)
+grid = "\n".join(f'''      <a href="blog-{sl}.html" class="bc rv" data-cat="{c}" data-cursor="view"><div class="img"><img src="{U(img,800)}" alt="{t}" loading="lazy"><span class="cat">{c}</span></div><div class="meta"><span><i class="fa-regular fa-folder"></i>{f}</span><span><i class="fa-regular fa-clock"></i>{m}</span></div><h3>{t}</h3><p>{d}</p><span class="rm">Read article <i class="fa-solid fa-arrow-right"></i></span></a>''' for c, f, m, img, t, d, sl in POSTS)
 blog_list = f'''<section class="sec">
   <div class="wrap">
 {headrow("Latest articles", "Practical guides", '<em class="s">for growing businesses.</em>', "Short, useful articles about websites, Google, social media, apps and CRM.")}
@@ -197,7 +222,7 @@ blog_list = f'''<section class="sec">
 </section>'''
 featured = f'''<section class="sec soft">
   <div class="wrap">
-    <a href="blog.html" class="feat-post rv" data-cursor="view">
+    <a href="blog-{feat[6]}.html" class="feat-post rv" data-cursor="view">
       <div class="img"><img src="{U(feat[3],1100)}" alt="" loading="lazy"></div>
       <div class="fp-b"><span class="cat">Featured · {feat[0]}</span><h2>{feat[4]}</h2><p>{feat[5]} We break down the pages, features and content that actually bring enquiries — and what you can skip.</p><div class="meta"><span><i class="fa-regular fa-folder"></i>{feat[1]}</span><span><i class="fa-regular fa-clock"></i>{feat[2]} read</span></div><span class="rm">Read article <i class="fa-solid fa-arrow-right"></i></span></div>
     </a>
@@ -253,6 +278,9 @@ out.append(page("faq.html", "FAQ | Websites, Apps, CRM, SEO &amp; Pricing Questi
  cta_strip("Ready to start", "your project?", "Free consultation, fixed quote, and a reply the same day."),
  enquiry(),
 ]))
+
+for art in ARTICLES:
+    out.append(article_page(art))
 
 for f, n in out:
     print(f"{f}: {n} sections (+ header + footer)")

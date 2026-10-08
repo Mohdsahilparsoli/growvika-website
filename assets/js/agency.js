@@ -269,6 +269,23 @@
     });
   }
 
+
+  /* copy-link buttons (blog share) */
+  $$("[data-copy]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var url = b.getAttribute("data-copy");
+      var done = function () { b.innerHTML = '<i class="fa-solid fa-check"></i>'; setTimeout(function () { b.innerHTML = '<i class="fa-solid fa-link"></i>'; }, 1500); };
+      if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, done); else done();
+    });
+  });
+  /* article table of contents: highlight current section */
+  var tocLinks = $$(".toc a");
+  if (tocLinks.length) {
+    var heads = tocLinks.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); }).filter(Boolean);
+    var tocObs = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { var id = "#" + e.target.id; tocLinks.forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === id); }); } }); }, { rootMargin: "-20% 0px -70% 0px" });
+    heads.forEach(function (h) { tocObs.observe(h); });
+  }
+
   /* FAQ */
   $$(".qa").forEach(function (qa) {
     var b = $("button", qa);

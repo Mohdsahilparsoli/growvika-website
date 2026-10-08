@@ -20,7 +20,8 @@ SON = " on"
 def esc(s): return s.replace("&", "&amp;").replace("&amp;amp;", "&amp;").replace("&amp;#", "&#")
 
 # ---------------- shell ----------------
-def head(title, desc, popup=0):
+BASE = "https://growvika-website.vercel.app"
+def head(title, desc, popup=0, path="", schema="", ogimg="team"):
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -28,7 +29,16 @@ def head(title, desc, popup=0):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
+<link rel="canonical" href="{BASE}/{path}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GrowVika">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{BASE}/{path}">
+<meta property="og:image" content="{U(ogimg,1200)}">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A0F1E">
+{schema}
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -185,14 +195,21 @@ def footer():
 
 '''
 
-def page(fname, title, desc, cur, sections, popup=0):
+def page(fname, title, desc, cur, sections, popup=0, schema="", ogimg="team", crumbs_ld=None):
     n = [0]
     def num(m):
         n[0] += 1
         return f'<b>{n[0]:02d}</b>'
     body = "\n".join(sections)
     body = re.sub(r"<b>##</b>", num, body)
-    html = head(title, desc, popup) + header(cur) + "\n<main>\n" + body + "\n</main>\n\n" + footer() + POPUP + f'<script src="assets/js/agency.js?v={VER}" defer></script>\n</body>\n</html>\n'
+    path = "" if fname == "index.html" else fname[:-5]
+    if crumbs_ld is None:
+        nm = re.sub(r"\s*\|.*$", "", title).replace("&amp;", "&")
+        if fname in [s["slug"] + ".html" for s in SERVICES]: crumbs_ld = [("Services", "services"), (nm, path)]
+        elif fname.startswith("service-area-"): crumbs_ld = [("Service area", "service-area"), (nm, path)]
+        else: crumbs_ld = [(nm, path)]
+    ld = schema_org() + (breadcrumb_ld(crumbs_ld) if crumbs_ld else "") + faq_ld(body) + schema
+    html = head(title, desc, popup, path, ld, ogimg) + header(cur) + "\n<main>\n" + body + "\n</main>\n\n" + footer() + POPUP + f'<script src="assets/js/agency.js?v={VER}" defer></script>\n</body>\n</html>\n'
     open(f"{SITE}/{fname}", "w").write(html)
     return fname, html.count('<section')
 
@@ -449,7 +466,7 @@ def map_sec(q, label="Find us", a="Serving", b=None):
 </section>'''
 
 def blog_slider(posts=POSTS[:6]):
-    cards = "\n".join(f'''      <a href="blog.html" class="bc" data-cursor="view"><div class="img"><img src="{U(img,800)}" alt="" loading="lazy"><span class="cat">{c}</span></div><div class="meta"><span><i class="fa-regular fa-folder"></i>{f}</span><span><i class="fa-regular fa-clock"></i>{m}</span></div><h3>{t}</h3><p>{d}</p><span class="rm">Read article <i class="fa-solid fa-arrow-right"></i></span></a>''' for c, f, m, img, t, d in posts)
+    cards = "\n".join(f'''      <a href="blog-{sl}.html" class="bc" data-cursor="view"><div class="img"><img src="{U(img,800)}" alt="{t}" loading="lazy"><span class="cat">{c}</span></div><div class="meta"><span><i class="fa-regular fa-folder"></i>{f}</span><span><i class="fa-regular fa-clock"></i>{m}</span></div><h3>{t}</h3><p>{d}</p><span class="rm">Read article <i class="fa-solid fa-arrow-right"></i></span></a>''' for c, f, m, img, t, d, sl in posts)
     return f'''<section class="sec soft blog2">
   <div class="wrap">
 {headrow("Journal", "From the " + EMS + "blog.</em>", right='<div class="sl-ctrl rv"><a href="blog.html" class="btn btn-o">All articles</a><button type="button" data-b-prev aria-label="Previous articles"><i class="fa-solid fa-arrow-left"></i></button><button type="button" data-b-next aria-label="Next articles"><i class="fa-solid fa-arrow-right"></i></button></div>')}
@@ -478,6 +495,88 @@ def contact_cards(label="Reach us", a="Pick what's <em class=\"s\">easiest.</em>
       <a href="https://wa.me/{WA}" target="_blank" rel="noopener" class="way wa-way rv d1"><span class="ic"><i class="fa-brands fa-whatsapp"></i></span><small>WhatsApp</small><b>Chat with us</b><p>Fastest reply — share photos, links or voice notes.</p><span class="go">Open WhatsApp <i class="fa-solid fa-arrow-right"></i></span></a>
       <a href="mailto:sahil@growvika.com" class="way rv d2"><span class="ic"><i class="fa-regular fa-envelope"></i></span><small>Email</small><b>sahil@growvika.com</b><p>Send a brief, documents or a proposal request.</p><span class="go">Write an email <i class="fa-solid fa-arrow-right"></i></span></a>
       <button type="button" class="way rv d3" data-open-modal><span class="ic"><i class="fa-solid fa-location-dot"></i></span><small>Meet in person</small><b>Delhi NCR</b><p>Delhi, Gurugram, Noida, Ghaziabad, Faridabad.</p><span class="go">Book a meeting <i class="fa-solid fa-arrow-right"></i></span></button>
+    </div>
+  </div>
+</section>'''
+
+
+# ---------------- structured data ----------------
+import json
+def ld(obj): return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False) + '</script>\n'
+def schema_org():
+    return ld({"@context":"https://schema.org","@type":"ProfessionalService","name":"GrowVika","url":BASE,"telephone":"+91-9818186876","email":"sahil@growvika.com",
+      "description":"Website development, mobile apps, CRM, custom software and digital marketing agency in Delhi NCR.",
+      "areaServed":[a["name"] for a in AREAS],"address":{"@type":"PostalAddress","addressRegion":"Delhi NCR","addressCountry":"IN"},
+      "founder":{"@type":"Person","name":"Md Sahil"}})
+def breadcrumb_ld(items):
+    els=[{"@type":"ListItem","position":1,"name":"Home","item":BASE+"/"}]
+    for k,(name,path) in enumerate(items):
+        els.append({"@type":"ListItem","position":k+2,"name":name,"item":f"{BASE}/{path}"})
+    return ld({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":els})
+def faq_ld(body):
+    qs=re.findall(r'<div class="qa[^"]*"><button type="button" aria-expanded="[a-z]+">(.*?)<i class="fa-solid fa-plus"></i></button><div class="ans"><div><p>(.*?)</p>',body)
+    if not qs: return ""
+    strip=lambda s: re.sub(r"<[^>]+>","",s).replace("&amp;","&")
+    return ld({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":strip(q),"acceptedAnswer":{"@type":"Answer","text":strip(a)}} for q,a in qs[:30]]})
+
+# ---------------- tools & tech (categorised) ----------------
+TECH = [
+ ("fa-pen-ruler","Design &amp; UX","Wireframes, UI design and clickable prototypes you approve before code.",[("Figma","UI design &amp; prototypes"),("Canva","Social creatives"),("Adobe XD","Legacy design files")]),
+ ("fa-code","Frontend","Fast, accessible interfaces that work on every screen.",[("HTML5 / CSS3","Semantic, SEO-friendly markup"),("JavaScript","Interactions"),("React","Component UIs"),("Next.js","Fast, SEO-ready sites &amp; apps"),("Tailwind","Consistent styling")]),
+ ("fa-server","Backend &amp; data","Secure APIs, databases and logins behind your product.",[("Node.js","APIs &amp; servers"),("Python","Automation &amp; data"),("PostgreSQL","Reliable database"),("Supabase","Auth, storage &amp; database"),("Firebase","Realtime &amp; push")]),
+ ("fa-store","CMS &amp; e-commerce","Editable websites and online stores you can manage yourself.",[("WordPress","Editable business sites"),("Shopify","Hosted online stores"),("WooCommerce","WordPress stores")]),
+ ("fa-mobile-screen","Mobile apps","One codebase for Android and iOS with a native feel.",[("Flutter","Cross-platform apps"),("React Native","Cross-platform apps"),("OneSignal","Push notifications")]),
+ ("fa-plug","Payments &amp; integrations","The services your customers already use in India.",[("Razorpay","UPI, cards &amp; wallets"),("UPI / PhonePe","Instant payments"),("Shiprocket","Shipping &amp; tracking"),("WhatsApp","Click-to-chat &amp; alerts"),("Google Maps","Locations &amp; directions")]),
+ ("fa-chart-line","Marketing &amp; analytics","Track every visit, call and lead — and improve every month.",[("Google Analytics 4","Visits &amp; conversions"),("Search Console","Google rankings"),("Google Ads","Search campaigns"),("Meta Ads","Facebook &amp; Instagram"),("Looker Studio","Monthly reports")]),
+ ("fa-shield-halved","Hosting &amp; security","Fast global hosting with SSL, backups and monitoring.",[("Vercel","Fast hosting"),("Cloudflare","CDN &amp; protection"),("AWS","Scalable cloud"),("SSL / HTTPS","Encrypted connections"),("Backups","Daily safety copies")]),
+]
+PRINCIPLES = [("fa-bolt","Fast by default","Lightweight code and optimised images for quick mobile loading."),("fa-lock","Secure","HTTPS, safe logins, updates and regular backups."),("fa-key","You own it","Accounts, code and data in your name — no lock-in."),("fa-screwdriver-wrench","Easy to maintain","Popular, well-supported tools any good developer knows.")]
+
+def stack(label, a, b, chips=None, lead=None):
+    hl = set(re.sub(r"&amp;", "&", c).lower() for c in (chips or []))
+    def tool(n, d):
+        on = re.sub(r"&amp;", "&", n).lower() in hl or any(h in re.sub(r"&amp;", "&", n).lower() for h in hl if len(h) > 3)
+        return f'<li class="{"hl" if on else ""}"><b>{n}</b><span>{d}</span></li>'
+    cards = "\n".join(f'''      <div class="tc rv"><div class="tc-h"><span class="ic"><i class="fa-solid {ic}"></i></span><div><h3>{t}</h3><p>{d}</p></div></div><ul>{"".join(tool(n, dd) for n, dd in tools)}</ul></div>''' for ic, t, d, tools in TECH)
+    pr = "".join(f'<div class="tp rv"><i class="fa-solid {ic}"></i><div><b>{t}</b><span>{d}</span></div></div>' for ic, t, d in PRINCIPLES)
+    note = '<p class="tc-note rv"><i class="fa-solid fa-circle"></i> Highlighted tools are the ones we use most for this service.</p>' if chips else ""
+    return f'''<section class="sec tech">
+  <div class="wrap">
+{headrow(label, a, b, lead or "We pick proven, well-supported tools — so your project is fast, secure and easy for anyone to maintain.")}
+    <div class="tp-row">{pr}</div>
+    <div class="tc-grid">
+{cards}
+    </div>
+    {note}
+  </div>
+</section>'''
+
+# ---------------- long-form SEO copy ----------------
+def seo_copy(label, a, b, blocks, aside_title, aside_items, soft=False):
+    body = "\n".join(f'<h3>{h}</h3>\n{p}' for h, p in blocks)
+    toc = "".join(f'<li><i class="fa-solid fa-check"></i>{x}</li>' for x in aside_items)
+    return f'''<section class="sec seo{' soft' if soft else ''}">
+  <div class="wrap">
+{headrow(label, a, b)}
+    <div class="seo-g">
+      <article class="prose rv">
+{body}
+      </article>
+      <aside class="seo-aside rv">
+        <div class="sa-card"><h4>{aside_title}</h4><ul>{toc}</ul><button type="button" class="btn btn-i" data-open-modal>Get a free quote <i class="fa-solid fa-arrow-right"></i></button><a href="https://wa.me/{WA}" target="_blank" rel="noopener" class="sa-wa"><i class="fa-brands fa-whatsapp"></i> Ask on WhatsApp</a></div>
+      </aside>
+    </div>
+  </div>
+</section>'''
+
+# ---------------- modern 'types' (cards) ----------------
+def types(label, a, b, items, lead=None, soft=False):
+    cards = "\n".join(f'''      <div class="ty2 rv"><span class="n">{k+1:02d}</span><h3>{t}</h3><p>{d}</p><button type="button" class="ty2-go" data-open-modal>Ask about this <i class="fa-solid fa-arrow-right"></i></button></div>''' for k, (t, d) in enumerate(items))
+    return f'''<section class="sec types{' soft' if soft else ''}">
+  <div class="wrap">
+{headrow(label, a, b, lead)}
+    <div class="ty2-grid">
+{cards}
     </div>
   </div>
 </section>'''
