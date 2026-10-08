@@ -460,31 +460,37 @@ def work_grid(items, label="Selected work", a="Built for real", b="<em class=\"s
   </div>
 </section>"""
 
-def promise_cards():
+def stars(n):
+    return '<span class="stars" aria-label="%d out of 5 stars">' % n + "".join(
+        '<i class="fa-solid fa-star"></i>' if i < n else '<i class="fa-regular fa-star"></i>' for i in range(5)) + "</span>"
+
+def review_cards():
+    from data import SAMPLE_REVIEWS
     cards = []
-    for cat, ic, txt in PROMISES:
-        icon = ic if ic.startswith("fa-brands") else "fa-solid " + ic
-        cards.append(f'<article class="pr-c"><div class="pr-top"><span class="pr-ic"><i class="{icon}"></i></span><span class="pr-cat">{cat}</span></div><p>“{txt}”</p><div class="pr-by"><span class="av">MS</span><div><b>Md Sahil</b><small>Founder, GrowVika</small></div></div></article>')
+    for n, biz, city, txt in SAMPLE_REVIEWS:
+        cards.append(f'<article class="pr-c rv-card"><div class="rc-top">{stars(n)}<span class="rc-g" title="Google review"><i class="fa-brands fa-google"></i></span></div><p>“{txt}”</p><div class="pr-by"><span class="av">CN</span><div><b>Client name <em class="smp">Sample</em></b><small>{biz} · {city}</small></div></div></article>')
     half = len(cards) // 2
-    r1, r2 = "".join(cards[:half]), "".join(cards[half:])
-    return r1, r2
+    return "".join(cards[:half]), "".join(cards[half:])
 
 def promise():
-    r1, r2 = promise_cards()
+    from data import GOOGLE_RATING, GOOGLE_COUNT
+    r1, r2 = review_cards()
     return f"""<section class="sec prom">
   <div class="wrap">
     <div class="prom-h">
       {idx("Our promise")}
       {h2("What you can", '<em class="s">count on.</em>')}
       <p class="lead rv">Clear commitments we make to every client — on pricing, ownership, quality and support.</p>
+      <div class="g-rate rv"><span class="gr-g"><i class="fa-brands fa-google"></i></span><div><div class="g-rate-t"><b data-g-rating>{GOOGLE_RATING}</b>{stars(5)}</div><small><span data-g-count>{GOOGLE_COUNT}</span> reviews on Google</small></div></div>
     </div>
   </div>
-  <div class="mq2" aria-label="Our promises">
+  <div class="mq2" aria-label="Client reviews">
     <div class="mq2-row"><div class="mq2-tr">{r1}{r1}</div></div>
     <div class="mq2-row rev"><div class="mq2-tr">{r2}{r2}</div></div>
   </div>
   <div class="wrap gr-cta rv"><a class="gr-btn" href="https://www.google.com/maps/search/?api=1&amp;query=GrowVika" target="_blank" rel="noopener"><span class="gr-g"><i class="fa-brands fa-google"></i></span><span><small>Reviews on Google</small><b>See what our clients say</b></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
-</section>"""
+</section>
+"""
 
 def faq(items, label="FAQ", a="Questions,", b="<em class=\"s\">answered.</em>", sid="", more=True, card=True):
     qs = "\n".join(f'''      <div class="qa{' open' if k==0 else ''} rv"><button type="button" aria-expanded="{'true' if k==0 else 'false'}">{q}<i class="fa-solid fa-plus"></i></button><div class="ans"><div><p>{ans}</p></div></div></div>''' for k, (q, ans) in enumerate(items))
