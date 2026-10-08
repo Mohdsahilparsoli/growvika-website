@@ -1585,5 +1585,3 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
 .rail-nav button:hover{background:#fff;color:var(--ink)}
 @media (max-width:980px){.svc .sl2-hr{align-items:flex-start}.svc .sl2-hr .lead{text-align:left}}
 
-/* click flame (canvas) */
-.flame-cv{position:fixed;inset:0;pointer-events:none;z-index:10000;filter:blur(.6px) saturate(1.25)}
