@@ -102,7 +102,7 @@
     if (!pin || !rail) return;
     pinOn = window.innerWidth > 980;
     if (!pinOn) { pin.style.height = ""; rail.style.transform = ""; return; }
-    maxX = Math.max(0, rail.scrollWidth - window.innerWidth + window.innerWidth * 0.04);
+    var rl = rail.lastElementChild; maxX = rl ? Math.max(0, rl.offsetLeft + rl.offsetWidth - rail.clientWidth) : 0;
     pin.style.height = (window.innerHeight + maxX) + "px";
     movePin();
   }
