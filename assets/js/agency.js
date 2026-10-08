@@ -73,28 +73,65 @@
   });
 
 
-  /* click effect: small flame burst in blue, red and yellow */
-  if (!reduce) {
-    var FL = ["#4453F0", "#5C6BFF", "#FF3B30", "#FF6A3D", "#FFC93C", "#FFE066"];
+  /* click effect: realistic flame (canvas particles, blue core + orange tips) */
+  if (!reduce) (function () {
+    var cv = document.createElement("canvas"), cx = cv.getContext("2d"), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.className = "flame-cv"; cv.setAttribute("aria-hidden", "true"); document.body.appendChild(cv);
+    function size() { cv.width = innerWidth * dpr; cv.height = innerHeight * dpr; cv.style.width = innerWidth + "px"; cv.style.height = innerHeight + "px"; }
+    size(); window.addEventListener("resize", size);
+    var parts = [], emitters = [], running = false;
+    function spawn(x, y, t) {
+      var blue = Math.random() < 0.55;
+      parts.push({ x: x + (Math.random() - .5) * 14 * t, y: y + (Math.random() - .5) * 6, vx: (Math.random() - .5) * .8, vy: -(2 + Math.random() * 2.6),
+        r: (15 + Math.random() * 18) * t, life: 0, max: 34 + Math.random() * 30, ph: Math.random() * 6.28, blue: blue });
+      if (Math.random() < .12) parts.push({ x: x, y: y, vx: (Math.random() - .5) * 2.4, vy: -(2 + Math.random() * 3), r: 1.4, life: 0, max: 40 + Math.random() * 30, ph: 0, spark: true, blue: Math.random() < .5 });
+    }
+    function color(p, k) {
+      // k: 0 → 1 over life
+      if (p.spark) return p.blue ? [140, 200, 255] : [255, 210, 120];
+      if (p.blue) {
+        if (k < .25) return [150, 210, 255];      // light blue core
+        if (k < .7) return [70, 140, 255];        // blue
+        return [40, 70, 220];                     // deep blue tip
+      }
+      if (k < .2) return [255, 220, 130];        // hot core
+      if (k < .55) return [255, 170, 40];         // orange
+      return [230, 70, 20];                       // red tip
+    }
+    function frame() {
+      cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cx.clearRect(0, 0, innerWidth, innerHeight);
+      cx.globalCompositeOperation = "lighter";
+      for (var e = emitters.length - 1; e >= 0; e--) {
+        var em = emitters[e]; em.t++;
+        var power = Math.max(0, 1 - em.t / 34);
+        for (var n = 0; n < 4 * power + 1; n++) spawn(em.x, em.y, .55 + power * .5);
+        if (em.t > 34) emitters.splice(e, 1);
+      }
+      for (var i = parts.length - 1; i >= 0; i--) {
+        var p = parts[i]; p.life++;
+        var k = p.life / p.max; if (k >= 1) { parts.splice(i, 1); continue; }
+        p.ph += .25; p.vx += Math.sin(p.ph) * .12; p.vx *= .96; p.vy *= .985;
+        p.x += p.vx; p.y += p.vy;
+        var c = color(p, k), a = (p.spark ? .9 : .2) * (1 - k) * (k < .1 ? k * 10 : 1);
+        var r = p.spark ? p.r : p.r * (1 - k * .8);
+        var g = cx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r);
+        g.addColorStop(0, "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + a.toFixed(3) + ")");
+        g.addColorStop(.45, "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + (a * .45).toFixed(3) + ")");
+        g.addColorStop(1, "rgba(" + c[0] + "," + c[1] + "," + c[2] + ",0)");
+        cx.fillStyle = g;
+        cx.beginPath(); cx.ellipse(p.x, p.y, r * .55, r * (p.spark ? 1 : 1.6), 0, 0, 6.283); cx.fill();
+      }
+      if (parts.length || emitters.length) requestAnimationFrame(frame);
+      else { running = false; cx.clearRect(0, 0, innerWidth, innerHeight); }
+    }
     document.addEventListener("pointerdown", function (e) {
       if (e.button && e.button !== 0) return;
-      var box = document.createElement("div"); box.className = "flame-fx";
-      box.style.left = e.clientX + "px"; box.style.top = e.clientY + "px";
-      for (var i = 0; i < 14; i++) {
-        var p = document.createElement("i");
-        var ang = -Math.PI / 2 + (Math.random() - .5) * 2.2, dist = 26 + Math.random() * 46, sz = 6 + Math.random() * 10;
-        p.style.setProperty("--x", (Math.cos(ang) * dist).toFixed(1) + "px");
-        p.style.setProperty("--y", (Math.sin(ang) * dist - 12).toFixed(1) + "px");
-        p.style.width = p.style.height = sz.toFixed(1) + "px";
-        p.style.background = FL[(Math.random() * FL.length) | 0];
-        p.style.animationDelay = (Math.random() * 60) + "ms";
-        p.style.animationDuration = (520 + Math.random() * 320) + "ms";
-        box.appendChild(p);
-      }
-      document.body.appendChild(box);
-      setTimeout(function () { box.remove(); }, 1000);
+      if (emitters.length > 4) emitters.shift();
+      emitters.push({ x: e.clientX, y: e.clientY, t: 0 });
+      if (!running) { running = true; requestAnimationFrame(frame); }
     }, { passive: true });
-  }
+  })();
 
   /* reveal */
   var io = new IntersectionObserver(function (es) {
