@@ -312,7 +312,7 @@ def _more(t, d):
     m = INCL_MORE.get(t, INCL_MORE.get(t.replace("&amp;", "&"), ""))
     return (d + " " + m).strip()
 
-def incl(label, a, b, items, lead=None, soft=False, dark=False, style="tabs", imgs=None):
+def incl(label, a, b, items, lead=None, soft=False, dark=False, style="slider", imgs=None):
     ims = _imgs(items, imgs, label + a)
     cls = "sec" + (" soft" if soft else "") + (" dark" if dark else "")
     if style == "slider":
@@ -336,6 +336,7 @@ def slider_wrap(cls, label, a, b, lead, cards):
     nav = '<div class="sl2-nav"><span class="sl2-bar"><i></i></span><button type="button" data-sl2-prev aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button><button type="button" data-sl2-next aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button></div>'
     lp = f'<p class="lead">{lead}</p>' if lead else ""
     return f"""<section class="{cls}">
+ <div class="sl2-sticky">
   <div class="wrap">
     <div class="head-row">
       <div>
@@ -350,6 +351,7 @@ def slider_wrap(cls, label, a, b, lead, cards):
 {cards}
     </div>
   </div>
+ </div>
 </section>"""
 
 def types(label, a, b, items, lead=None, soft=False):
@@ -497,15 +499,9 @@ def nums(items, label="In numbers", a="Small team.", b="<em class=\"s\">Serious 
 </section>'''
 
 def city_cards(exclude=None, label="Cities we serve", a="Pick your", b="<em class=\"s\">city.</em>", lead="Local pages for every part of Delhi NCR — with the areas we cover and what businesses there need most.", soft=False):
-    cards = "\n".join(f'''      <a href="service-area-{c["slug"]}.html" class="cc rv" data-cursor="view"><img src="{U(c["img"],800)}" alt="{c["name"]}" loading="lazy"><div class="cc-b"><span class="cc-tag">{c["tag"]}</span><h3>{c["name"]}</h3><p>{", ".join(c["locs"][:4])} &amp; more</p><span class="go">View {c["name"]} <i class="fa-solid fa-arrow-right"></i></span></div></a>''' for c in AREAS if c["slug"] != exclude)
-    return f'''<section class="sec{' soft' if soft else ''}">
-  <div class="wrap">
-{headrow(label, a, b, lead)}
-    <div class="cc-grid">
-{cards}
-    </div>
-  </div>
-</section>'''
+    cs = [c for c in AREAS if c["slug"] != exclude]
+    cards = "\n".join(f"""      <article class="sl2-c ov"><img src="{U(c['img'],900)}" alt="{c['name']}" loading="lazy"><div class="ov-b"><div class="ov-top"><span class="ov-k">{c['tag']}</span><span class="sl2-n">{k+1:02d}</span></div><h3>{c['name']}</h3><p>{c['intro']}</p><p class="ov-locs">{", ".join(c["locs"][:5])} &amp; more</p><div class="ov-f"><a href="service-area-{c['slug']}.html">View {c['name']}</a><button type="button" data-open-modal>Free meeting <i class="fa-solid fa-arrow-right"></i></button></div></div></article>""" for k, c in enumerate(cs))
+    return slider_wrap("sec sl2-sec" + (" soft" if soft else ""), label, a, b, lead, cards)
 
 TPL = [
  "{l} in {c} is home to {biz}. Customers here compare options on Google Maps before they call, so we focus on a fast website, a complete Google Business Profile and local SEO for searches like “near me in {l}”.",

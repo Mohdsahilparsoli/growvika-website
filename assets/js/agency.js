@@ -302,22 +302,41 @@
     });
   });
 
-  /* swiper-style sliders: arrows, progress, drag */
+  /* swiper-style sliders: pinned on desktop (vertical scroll moves the slider), swipe on touch */
   $$("[data-sl2]").forEach(function (sl) {
-    var sec = sl.closest("section"), tr = $(".sl2-track", sl), bar = $(".sl2-bar i", sec);
+    var sec = sl.closest("section"), tr = $(".sl2-track", sl), bar = $(".sl2-bar i", sec), pinned = false, maxX = 0;
+    function setBar(p) { if (bar) bar.style.width = (15 + p * 85) + "%"; }
     function step() { var c = $(".sl2-c", tr); return c ? c.offsetWidth + 24 : 400; }
-    function prog() { var m = tr.scrollWidth - tr.clientWidth; var p = m > 0 ? tr.scrollLeft / m : 1; if (bar) bar.style.width = (15 + p * 85) + "%"; }
-    tr.addEventListener("scroll", prog, { passive: true }); prog();
-    var pv = $("[data-sl2-prev]", sec), nx = $("[data-sl2-next]", sec);
-    if (pv) pv.addEventListener("click", function () { tr.scrollBy({ left: -step(), behavior: "smooth" }); });
-    if (nx) nx.addEventListener("click", function () { if (tr.scrollLeft + tr.clientWidth >= tr.scrollWidth - 5) tr.scrollTo({ left: 0, behavior: "smooth" }); else tr.scrollBy({ left: step(), behavior: "smooth" }); });
-    if (fine) {
-      var down = false, sx = 0, sl0 = 0, moved = false;
-      tr.addEventListener("mousedown", function (e) { down = true; moved = false; sx = e.pageX; sl0 = tr.scrollLeft; });
-      window.addEventListener("mousemove", function (e) { if (!down) return; var dx = e.pageX - sx; if (Math.abs(dx) > 5) { moved = true; tr.classList.add("drag"); } tr.scrollLeft = sl0 - dx; });
-      window.addEventListener("mouseup", function () { if (!down) return; down = false; setTimeout(function () { tr.classList.remove("drag"); }, 0); });
-      tr.addEventListener("click", function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+    function setup() {
+      pinned = window.innerWidth > 980;
+      sec.classList.toggle("pinned", pinned);
+      tr.style.transform = "";
+      if (!pinned) { sec.style.height = ""; return; }
+      var cs = $$(".sl2-c", tr), last = cs[cs.length - 1], pad = parseFloat(getComputedStyle(tr).paddingLeft) || 0;
+      maxX = last ? Math.max(0, last.offsetLeft + last.offsetWidth + pad - tr.clientWidth) : 0;
+      sec.style.height = (window.innerHeight + maxX) + "px";
+      move();
     }
+    function move() {
+      if (!pinned) return;
+      var r = sec.getBoundingClientRect(), tot = sec.offsetHeight - window.innerHeight;
+      var p = tot > 0 ? Math.min(Math.max(-r.top / tot, 0), 1) : 0;
+      tr.style.transform = "translate3d(" + (-maxX * p) + "px,0,0)"; setBar(p);
+    }
+    function nprog() { if (pinned) return; var m = tr.scrollWidth - tr.clientWidth; setBar(m > 0 ? tr.scrollLeft / m : 1); }
+    window.addEventListener("scroll", move, { passive: true });
+    window.addEventListener("resize", setup);
+    window.addEventListener("load", setup);
+    tr.addEventListener("scroll", nprog, { passive: true });
+    setup(); nprog();
+    function go(d) {
+      if (pinned) { window.scrollBy({ top: d * step(), behavior: reduce ? "auto" : "smooth" }); return; }
+      if (d > 0 && tr.scrollLeft + tr.clientWidth >= tr.scrollWidth - 5) tr.scrollTo({ left: 0, behavior: "smooth" });
+      else tr.scrollBy({ left: d * step(), behavior: "smooth" });
+    }
+    var pv = $("[data-sl2-prev]", sec), nx = $("[data-sl2-next]", sec);
+    if (pv) pv.addEventListener("click", function () { go(-1); });
+    if (nx) nx.addEventListener("click", function () { go(1); });
   });
 
   /* FAQ */

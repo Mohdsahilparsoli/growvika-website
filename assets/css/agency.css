@@ -1481,3 +1481,30 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
   .ov-b h3{font-size:28px}
   .work-grid .wk{grid-column:auto!important}
 }
+
+/* ---- pinned sliders (desktop): scroll moves the slider, then the page continues ---- */
+.sl2-sec.pinned{padding:0}
+.sl2-sec.pinned .sl2-sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:96px 0 24px}
+.sl2-sec.pinned .head-row{margin-bottom:30px}
+.sl2-sec.pinned .sl2-track{overflow:visible;scroll-snap-type:none;cursor:default;will-change:transform}
+.sl2-sec.pinned .sl2-c .img{height:min(260px,26vh)}
+.sl2-sec.pinned .sl2-c.ov{height:min(540px,calc(100vh - 360px));min-height:400px}
+.sl2-sec.pinned .h2{font-size:clamp(34px,4.2vw,66px)}
+.ov-locs{font-size:13px!important;font-weight:700;color:var(--lime)!important}
+/* CTA strip: equal space above and below */
+.sec.cta2{padding:0 0 70px}
+.sl2-sec.pinned .sl2-sticky{padding:92px 0 20px}
+.sl2-sec.pinned .sl2-c.ov{height:calc(100vh - 330px);min-height:0;max-height:560px}
+.sl2-sec.pinned .ov-b{padding:24px}
+@media (min-width:981px) and (max-height:820px){
+  .sl2-sec.pinned .head-row{margin-bottom:18px}
+  .sl2-sec.pinned .h2{font-size:clamp(30px,3.4vw,46px)}
+  .sl2-sec.pinned .sl2-hr .lead{display:none}
+  .sl2-sec.pinned .idx{margin-bottom:10px}
+  .sl2-sec.pinned .sl2-c.ov{height:calc(100vh - 250px)}
+  .sl2-sec.pinned .ov-b h3{font-size:26px;margin-bottom:6px}
+  .sl2-sec.pinned .ov-b p{font-size:13.5px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:12px}
+  .sl2-sec.pinned .sl2-c .img{height:20vh}
+  .sl2-sec.pinned .sl2-b{padding:18px 22px 20px}
+  .sl2-sec.pinned .sl2-b p{font-size:14px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+}
