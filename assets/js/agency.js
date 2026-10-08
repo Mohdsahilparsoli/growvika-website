@@ -204,6 +204,18 @@
     new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) ago(ai); else clearTimeout(atimer); }); }, { threshold: 0.25 }).observe(stage);
   }
 
+
+  /* rotating word in hero */
+  var rot = $(".rot");
+  if (rot && !reduce) {
+    var rw = $$("span", rot), ri = 0;
+    setInterval(function () {
+      var cur = rw[ri]; cur.classList.remove("on"); cur.classList.add("out");
+      setTimeout(function () { cur.classList.remove("out"); }, 700);
+      ri = (ri + 1) % rw.length; rw[ri].classList.add("on");
+    }, 2400);
+  }
+
   /* FAQ */
   $$(".qa").forEach(function (qa) {
     var b = $("button", qa);
