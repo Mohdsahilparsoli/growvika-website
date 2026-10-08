@@ -1579,3 +1579,8 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
 .mnav .sub.coll{display:grid;max-height:0;overflow:hidden;padding:0;transition:max-height .45s var(--ease),padding .45s}
 .mnav .sub.coll.open{max-height:520px;padding:14px 0}
 .mnav .sub a.all{grid-column:1/-1;background:var(--navy);color:#fff}
+/* home services rail arrows (on navy) */
+.svc .sl2-hr .lead{color:rgba(255,255,255,.65)}
+.rail-nav button{border-color:rgba(255,255,255,.6);color:#fff}
+.rail-nav button:hover{background:#fff;color:var(--ink)}
+@media (max-width:980px){.svc .sl2-hr{align-items:flex-start}.svc .sl2-hr .lead{text-align:left}}

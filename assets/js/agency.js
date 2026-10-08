@@ -138,6 +138,20 @@
   window.addEventListener("load", setupPin);
   setupPin();
 
+
+  /* services rail arrows (home) */
+  (function () {
+    var pv = $("[data-rail-prev]"), nx = $("[data-rail-next]"); if (!pv || !rail) return;
+    function stepW() { var c = rail.firstElementChild; return c ? c.offsetWidth + 26 : 400; }
+    function go(d) {
+      if (pinOn) { window.scrollBy({ top: d * stepW(), behavior: reduce ? "auto" : "smooth" }); return; }
+      if (d > 0 && rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 5) rail.scrollTo({ left: 0, behavior: "smooth" });
+      else rail.scrollBy({ left: d * stepW(), behavior: "smooth" });
+    }
+    pv.addEventListener("click", function () { go(-1); });
+    nx.addEventListener("click", function () { go(1); });
+  })();
+
   /* process: swap image on hover/scroll */
   var steps = $$(".step"), pimgs = $$(".proc-img img");
   function setStep(i) { steps.forEach(function (s, k) { s.classList.toggle("on", k === i); }); pimgs.forEach(function (im, k) { im.classList.toggle("on", k === i); }); }
