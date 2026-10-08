@@ -460,20 +460,30 @@ def work_grid(items, label="Selected work", a="Built for real", b="<em class=\"s
   </div>
 </section>"""
 
+def promise_cards():
+    cards = []
+    for cat, ic, txt in PROMISES:
+        icon = ic if ic.startswith("fa-brands") else "fa-solid " + ic
+        cards.append(f'<article class="pr-c"><div class="pr-top"><span class="pr-ic"><i class="{icon}"></i></span><span class="pr-cat">{cat}</span></div><p>“{txt}”</p><div class="pr-by"><span class="av">MS</span><div><b>Md Sahil</b><small>Founder, GrowVika</small></div></div></article>')
+    half = len(cards) // 2
+    r1, r2 = "".join(cards[:half]), "".join(cards[half:])
+    return r1, r2
+
 def promise():
-    tq = "\n".join(f'''        <div class="tq{' on' if k==0 else ''}"><span class="mark">“</span><blockquote>{q}</blockquote><div class="who"><span class="av">MS</span><div><b>Md Sahil</b><span>Founder, GrowVika · {t}</span></div></div></div>''' for k, (q, t) in enumerate(PROMISE))
-    return f'''<section class="sec tst2">
+    r1, r2 = promise_cards()
+    return f"""<section class="sec prom">
   <div class="wrap">
-    <div class="t-img img rv cl"><img src="{U('pair',900)}" alt="GrowVika team working with a client" loading="lazy"><div class="badge"><b>1:1</b><div class="st"><i class="fa-solid fa-circle-check"></i> Founder-led</div><span>You work directly with the builder</span></div></div>
-    <div class="t-r">
+    <div class="prom-h">
       {idx("Our promise")}
-      <div class="tst-sl rv">
-{tq}
-      </div>
-      <div class="t-nav"><span class="sl-count" data-t-cnt><b>01</b> / 03</span><span class="t-prog"><i data-t-prog></i></span><div class="sl-ctrl"><button type="button" data-t-prev aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button><button type="button" data-t-next aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button></div></div>
+      {h2("What you can", '<em class="s">count on.</em>')}
+      <p class="lead rv">Clear commitments we make to every client — on pricing, ownership, quality and support.</p>
     </div>
   </div>
-</section>'''
+  <div class="mq2" aria-label="Our promises">
+    <div class="mq2-row"><div class="mq2-tr">{r1}{r1}</div></div>
+    <div class="mq2-row rev"><div class="mq2-tr">{r2}{r2}</div></div>
+  </div>
+</section>"""
 
 def faq(items, label="FAQ", a="Questions,", b="<em class=\"s\">answered.</em>", sid="", more=True, card=True):
     qs = "\n".join(f'''      <div class="qa{' open' if k==0 else ''} rv"><button type="button" aria-expanded="{'true' if k==0 else 'false'}">{q}<i class="fa-solid fa-plus"></i></button><div class="ans"><div><p>{ans}</p></div></div></div>''' for k, (q, ans) in enumerate(items))
