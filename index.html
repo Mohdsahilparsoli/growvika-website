@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="assets/css/agency.css">
 </head>
@@ -159,9 +159,14 @@
 <section class="sec about" id="about">
   <div class="wrap">
     <div class="ab-pics">
-      <div class="p1 img rv cl"><img src="https://images.unsplash.com/photo-1603201667230-bd139210db18?auto=format&fit=crop&w=900&q=70" alt="GrowVika team discussing a website plan" loading="lazy"></div>
+      <div class="p1 vid rv cl">
+        <video autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=70" aria-label="GrowVika team at work">
+          <source src="https://assets.mixkit.co/active_storage/video_items/100328/1722991554/100328-video-720.mp4" type="video/mp4">
+        </video>
+        <button type="button" class="vbtn" aria-label="Pause video"><i class="fa-solid fa-pause"></i></button>
+      </div>
       <div class="p2 img rv cl d2"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=700&q=70" alt="Designer desk with laptop" loading="lazy"></div>
-      <div class="tag rv d3"><b>₹9,999</b>Business websites starting price</div>
+      <div class="tag rv d3"><b>1 team</b>for build &amp; marketing</div>
     </div>
     <div class="ab-txt">
       <div class="idx rv"><b>01</b><span>About GrowVika</span></div>
@@ -194,12 +199,12 @@
       <a href="#contact" class="card-s" data-open-modal data-svc="Website" data-cursor="view">
         <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=70" alt="Website development" loading="lazy">
         <div class="no">01<i class="fa-solid fa-arrow-right"></i></div>
-        <div><h3>Website Development</h3><p>Business sites, landing pages and portals that load fast and bring enquiries.</p><ul><li>Business sites</li><li>Landing pages</li><li>WordPress / custom</li></ul><div class="from">From ₹9,999</div></div>
+        <div><h3>Website Development</h3><p>Business sites, landing pages and portals that load fast and bring enquiries.</p><ul><li>Business sites</li><li>Landing pages</li><li>WordPress / custom</li></ul></div>
       </a>
       <a href="#contact" class="card-s" data-open-modal data-svc="E-commerce" data-cursor="view">
         <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=70" alt="Online store checkout" loading="lazy">
         <div class="no">02<i class="fa-solid fa-arrow-right"></i></div>
-        <div><h3>E-commerce Stores</h3><p>Online stores with payments, shipping and an easy admin to manage orders.</p><ul><li>Payments</li><li>Inventory</li><li>Shiprocket</li></ul><div class="from">From ₹19,999</div></div>
+        <div><h3>E-commerce Stores</h3><p>Online stores with payments, shipping and an easy admin to manage orders.</p><ul><li>Payments</li><li>Inventory</li><li>Shiprocket</li></ul></div>
       </a>
       <a href="#contact" class="card-s" data-open-modal data-svc="Mobile app" data-cursor="view">
         <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=70" alt="Mobile app design" loading="lazy">
@@ -290,26 +295,26 @@
   </div>
 </section>
 
-<!-- ============ 6. WHY + NUMBERS ============ -->
-<section class="sec why">
+<!-- ============ 6. WHY ============ -->
+<section class="sec soft why2">
   <div class="wrap">
-    <div class="head-row" style="margin-bottom:0">
+    <div class="head-row">
       <div>
-        <div class="idx rv"><b>05</b><span>Why GrowVika</span></div>
-        <h2 class="h2 rv"><span class="mask"><span>One team.</span></span><span class="mask"><span>Build <em class="s">to</em> growth.</span></span></h2>
+        <div class="idx rv"><b>05</b><span>Why choose us</span></div>
+        <h2 class="h2 rv"><span class="mask"><span>Six reasons clients</span></span><span class="mask"><span><em class="s">stay with us.</em></span></span></h2>
       </div>
-      <p class="lead rv">You talk to the people who actually build your project — not a sales desk.</p>
+      <button type="button" class="btn btn-o rv" data-open-modal>Talk to us <i class="fa-solid fa-arrow-right"></i></button>
     </div>
-    <div class="nums rv">
-      <div><b><span data-count="11">0</span><sup>+</sup></b><span>Services under one roof</span></div>
-      <div><b><span data-count="10">0</span><sup>+</sup></b><span>Cities served across Delhi NCR</span></div>
-      <div><b><sup style="margin:0 4px 0 0">₹</sup><span data-count="9999">0</span></b><span>Websites starting price</span></div>
-      <div><b><span data-count="1">0</span></b><span>Team for build &amp; marketing</span></div>
-    </div>
-    <div class="why-grid">
-      <div class="why-c rv"><i class="fa-solid fa-tags"></i><h3>Clear, fixed pricing</h3><p>You know the full cost before we start. No hidden charges later.</p></div>
-      <div class="why-c rv d1"><i class="fa-solid fa-bolt"></i><h3>Fast &amp; mobile-first</h3><p>Built for phones first, because that is where your customers are.</p></div>
-      <div class="why-c rv d2"><i class="fa-solid fa-code-branch"></i><h3>We build our own software</h3><p>We run our business on a CRM we built — so we know what works.</p></div>
+    <div class="why-wrap">
+      <div class="why-g">
+        <div class="wy rv"><span class="n">— 01</span><i class="fa-solid fa-layer-group"></i><h3>Build + grow, one team</h3><p>Website, app, CRM and marketing from the same people. No juggling vendors.</p></div>
+        <div class="wy rv d1"><span class="n">— 02</span><i class="fa-solid fa-mobile-screen-button"></i><h3>Mobile-first &amp; fast</h3><p>Designed for phones first and built to load fast — where your customers are.</p></div>
+        <div class="wy rv d2"><span class="n">— 03</span><i class="fa-solid fa-magnifying-glass-chart"></i><h3>SEO-ready from day one</h3><p>Clean code, Google setup and local SEO built in, not added later.</p></div>
+        <div class="wy rv"><span class="n">— 04</span><i class="fa-solid fa-file-signature"></i><h3>Clear, fixed quotes</h3><p>You know the full scope and cost before we start. No hidden charges.</p></div>
+        <div class="wy rv d1"><span class="n">— 05</span><i class="fa-solid fa-code-branch"></i><h3>We build our own software</h3><p>We run our business on a CRM we built ourselves — so we know what works.</p></div>
+        <div class="wy rv d2"><span class="n">— 06</span><i class="fa-solid fa-headset"></i><h3>Support after launch</h3><p>Updates, fixes and growth help on WhatsApp — we don't disappear after go-live.</p></div>
+      </div>
+      <div class="why-img img rv cl"><img src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&w=700&q=70" alt="GrowVika team member smiling at work" loading="lazy"><div><b><span data-count="10">0</span>+</b><span>cities served across Delhi NCR</span></div></div>
     </div>
   </div>
 </section>
@@ -336,17 +341,17 @@
 </section>
 
 <!-- ============ 8. TESTIMONIALS ============ -->
-<section class="sec soft tst">
+<section class="sec tst2">
   <div class="wrap">
-    <div class="tst-img img rv cl"><img src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?auto=format&fit=crop&w=800&q=70" alt="Happy client meeting" loading="lazy"><span class="q"><i class="fa-solid fa-quote-right"></i></span></div>
-    <div>
-      <div class="idx rv"><b>07</b><span>Client words</span></div>
+    <div class="t-img img rv cl"><img src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?auto=format&fit=crop&w=900&q=70" alt="GrowVika team with a client" loading="lazy"><div class="badge"><b>5.0</b><div class="st">★★★★★</div><span>Rated by our clients</span></div></div>
+    <div class="t-r">
+      <div class="idx rv"><b>07</b><span>Testimonials</span></div>
       <div class="tst-sl rv">
-        <div class="tq on"><div class="stars">★★★★★</div><blockquote>“[Client review goes here — what problem they had, what GrowVika built, and the result.]”</blockquote><div class="by"><span>CN</span><div><b>[Client name]</b><small>[Business, City]</small></div></div></div>
-        <div class="tq"><div class="stars">★★★★★</div><blockquote>“[Second client review — e.g. about the CRM, the app, or how quickly the site went live.]”</blockquote><div class="by"><span>CN</span><div><b>[Client name]</b><small>[Business, City]</small></div></div></div>
-        <div class="tq"><div class="stars">★★★★★</div><blockquote>“[Third client review — e.g. about SEO results or more enquiries from Google.]”</blockquote><div class="by"><span>CN</span><div><b>[Client name]</b><small>[Business, City]</small></div></div></div>
+        <div class="tq on"><span class="mark">“</span><blockquote>[Client review goes here — the problem they had, what GrowVika built, and the <em>result</em>.]</blockquote><div class="who"><span class="av">C</span><div><b>[Client name]</b><span>[Business, City]</span></div></div></div>
+        <div class="tq"><span class="mark">“</span><blockquote>[Second review — e.g. how the CRM made follow-ups <em>effortless</em>.]</blockquote><div class="who"><span class="av">C</span><div><b>[Client name]</b><span>[Business, City]</span></div></div></div>
+        <div class="tq"><span class="mark">“</span><blockquote>[Third review — e.g. more enquiries from <em>Google</em> after SEO.]</blockquote><div class="who"><span class="av">C</span><div><b>[Client name]</b><span>[Business, City]</span></div></div></div>
       </div>
-      <div class="tst-ui"><button type="button" class="arr" data-t-prev aria-label="Previous review"><i class="fa-solid fa-arrow-left"></i></button><button type="button" class="arr" data-t-next aria-label="Next review"><i class="fa-solid fa-arrow-right"></i></button><span class="c" data-t-cnt>01 / 03</span></div>
+      <div class="t-nav"><span class="sl-count" data-t-cnt><b>01</b> / 03</span><div class="sl-ctrl"><button type="button" data-t-prev aria-label="Previous review"><i class="fa-solid fa-arrow-left"></i></button><button type="button" data-t-next aria-label="Next review"><i class="fa-solid fa-arrow-right"></i></button></div></div>
     </div>
   </div>
 </section>
@@ -378,31 +383,22 @@
 </section>
 
 <!-- ============ 10. BLOG ============ -->
-<section class="sec soft" id="blog">
+<section class="sec soft blog2" id="blog">
   <div class="wrap">
     <div class="head-row">
       <div>
-        <div class="idx rv"><b>09</b><span>Insights</span></div>
+        <div class="idx rv"><b>09</b><span>Journal</span></div>
         <h2 class="h2 rv"><span class="mask"><span>From the <em class="s">blog.</em></span></span></h2>
       </div>
-      <a href="#blog" class="link rv">All articles <i class="fa-solid fa-arrow-right"></i></a>
+      <div class="sl-ctrl rv"><a href="#blog" class="btn btn-o">All articles</a><button type="button" data-b-prev aria-label="Previous articles"><i class="fa-solid fa-arrow-left"></i></button><button type="button" data-b-next aria-label="Next articles"><i class="fa-solid fa-arrow-right"></i></button></div>
     </div>
-    <div class="blog-grid">
-      <a href="#blog" class="post rv" data-cursor="view">
-        <div class="img"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=900&q=70" alt="Laptop with website design" loading="lazy"></div>
-        <div class="cat"><b>Websites</b>5 min read</div>
-        <h3>How much does a business website cost in Delhi in 2026?</h3>
-      </a>
-      <a href="#blog" class="post rv d1" data-cursor="view">
-        <div class="img"><img src="https://images.unsplash.com/photo-1542641728-6ca359b085f4?auto=format&fit=crop&w=700&q=70" alt="Google Maps on a phone" loading="lazy"></div>
-        <div class="cat"><b>Local SEO</b>4 min read</div>
-        <h3>7 ways to rank your shop on Google Maps</h3>
-      </a>
-      <a href="#blog" class="post rv d2" data-cursor="view">
-        <div class="img"><img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=700&q=70" alt="Laptop and coffee mug" loading="lazy"></div>
-        <div class="cat"><b>CRM</b>6 min read</div>
-        <h3>Why small businesses lose leads — and how a CRM fixes it</h3>
-      </a>
+    <div class="bl-track rv">
+      <a href="#blog" class="bc" data-cursor="view"><div class="img"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="cat">Guide</span></div><div class="meta"><span><i class="fa-regular fa-folder"></i>Websites</span><span><i class="fa-regular fa-clock"></i>5 min</span></div><h3>How much does a business website really need?</h3><p>Pages, features and content — what a small business site must have to bring enquiries.</p><span class="rm">Read article <i class="fa-solid fa-arrow-right"></i></span></a>
+      <a href="#blog" class="bc" data-cursor="view"><div class="img"><img src="https://images.unsplash.com/photo-1542641728-6ca359b085f4?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="cat">Local SEO</span></div><div class="meta"><span><i class="fa-regular fa-folder"></i>Google Maps</span><span><i class="fa-regular fa-clock"></i>4 min</span></div><h3>7 ways to rank your shop on Google Maps</h3><p>Simple Google Business Profile steps that put you in front of nearby customers.</p><span class="rm">Read article <i class="fa-solid fa-arrow-right"></i></span></a>
+      <a href="#blog" class="bc" data-cursor="view"><div class="img"><img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="cat">CRM</span></div><div class="meta"><span><i class="fa-regular fa-folder"></i>Leads</span><span><i class="fa-regular fa-clock"></i>6 min</span></div><h3>Why small businesses lose leads — and how a CRM fixes it</h3><p>Missed calls, forgotten follow-ups and lost WhatsApp chats — and the simple fix.</p><span class="rm">Read article <i class="fa-solid fa-arrow-right"></i></span></a>
+      <a href="#blog" class="bc" data-cursor="view"><div class="img"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="cat">Apps</span></div><div class="meta"><span><i class="fa-regular fa-folder"></i>Mobile apps</span><span><i class="fa-regular fa-clock"></i>5 min</span></div><h3>Do you need an app, or just a better website?</h3><p>A quick way to decide what your customers actually need.</p><span class="rm">Read article <i class="fa-solid fa-arrow-right"></i></span></a>
+      <a href="#blog" class="bc" data-cursor="view"><div class="img"><img src="https://images.unsplash.com/photo-1759215524600-7971d6a4dac0?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="cat">Social</span></div><div class="meta"><span><i class="fa-regular fa-folder"></i>Instagram</span><span><i class="fa-regular fa-clock"></i>4 min</span></div><h3>Reels that bring customers, not just likes</h3><p>What local businesses should post — and how often.</p><span class="rm">Read article <i class="fa-solid fa-arrow-right"></i></span></a>
+      <a href="#blog" class="bc" data-cursor="view"><div class="img"><img src="https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=800&q=70" alt="" loading="lazy"><span class="cat">Ads</span></div><div class="meta"><span><i class="fa-regular fa-folder"></i>Google & Meta</span><span><i class="fa-regular fa-clock"></i>5 min</span></div><h3>Google Ads vs Meta Ads for local businesses</h3><p>Where to spend first, and how to know it's working.</p><span class="rm">Read article <i class="fa-solid fa-arrow-right"></i></span></a>
     </div>
   </div>
 </section>
@@ -420,7 +416,7 @@
       </div>
     </div>
     <div class="qas">
-      <div class="qa open rv"><button type="button" aria-expanded="true">How much does a website cost?<i class="fa-solid fa-plus"></i></button><div class="ans"><div><p>Business websites start from ₹9,999 and e-commerce stores from ₹19,999. Apps, CRM and custom software are quoted after a free call, as a fixed price.</p></div></div></div>
+      <div class="qa open rv"><button type="button" aria-expanded="true">How much does a website cost?<i class="fa-solid fa-plus"></i></button><div class="ans"><div><p>It depends on the pages and features you need. After a free call we send a clear, fixed quote — no hidden charges later.</p></div></div></div>
       <div class="qa rv"><button type="button" aria-expanded="false">How long does it take?<i class="fa-solid fa-plus"></i></button><div class="ans"><div><p>Most business websites go live in 7–15 days. E-commerce, apps and CRM usually take 3–8 weeks depending on features.</p></div></div></div>
       <div class="qa rv"><button type="button" aria-expanded="false">Will my website work well on mobile?<i class="fa-solid fa-plus"></i></button><div class="ans"><div><p>Yes. Everything we build is designed for phones first, then scaled up for tablets and desktops.</p></div></div></div>
       <div class="qa rv"><button type="button" aria-expanded="false">Do you also do SEO and ads?<i class="fa-solid fa-plus"></i></button><div class="ans"><div><p>Yes. We handle SEO, Google Business Profile, social media, and Meta &amp; Google Ads — so the site you get also brings customers.</p></div></div></div>
@@ -430,19 +426,33 @@
   </div>
 </section>
 
-<!-- ============ 12. CTA ============ -->
-<section class="cta" id="contact">
+<!-- ============ 12. ENQUIRY ============ -->
+<section class="sec enq" id="contact">
   <div class="wrap">
-    <div class="cta-box rv">
-      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=60" alt="" loading="lazy">
-      <div class="idx" style="color:#fff"><b style="color:var(--lime)">11</b><span>Let's talk</span></div>
-      <h2><span class="mask"><span>Have a project</span></span><span class="mask"><span>in <em class="s">mind?</em></span></span></h2>
-      <p>Tell us what you need. We'll reply with a clear plan and a fixed quote — usually the same day.</p>
-      <div class="row">
-        <button type="button" class="btn btn-w" data-open-modal>Start a new project <i class="fa-solid fa-arrow-right"></i></button>
-        <a href="tel:+919818186876" class="btn btn-o"><i class="fa-solid fa-phone"></i> +91-9818186876</a>
+    <div class="enq-g">
+      <div>
+        <div class="idx rv"><b>11</b><span>Enquiry</span></div>
+        <h2 class="h2 rv"><span class="mask"><span>Let's build something</span></span><span class="mask"><span><em class="s">that grows.</em></span></span></h2>
+        <div class="ct rv">
+          <div><i class="fa-solid fa-phone"></i><span><small>Call</small><a href="tel:+919818186876">+91-9818186876</a></span></div>
+          <div><i class="fa-regular fa-envelope"></i><span><small>Email</small><a href="mailto:sahil@growvika.com">sahil@growvika.com</a></span></div>
+          <div><i class="fa-brands fa-whatsapp"></i><span><small>WhatsApp</small><a href="https://wa.me/919818186876" target="_blank" rel="noopener">Chat with us</a></span></div>
+          <div><i class="fa-solid fa-location-dot"></i><span><small>Visit</small><b>Delhi NCR — we come to you</b></span></div>
+          <div><i class="fa-regular fa-clock"></i><span><small>Hours</small><b>Mon – Sat, 10:00 AM – 7:00 PM</b></span></div>
+        </div>
       </div>
+      <form class="ef rv" id="eform" novalidate>
+        <div><label for="e-name">Name *</label><input id="e-name" name="name" placeholder="Your full name" required autocomplete="name"></div>
+        <div><label for="e-phone">Phone *</label><input id="e-phone" name="phone" type="tel" placeholder="+91" required inputmode="tel" autocomplete="tel"></div>
+        <div><label for="e-email">Email</label><input id="e-email" name="email" type="email" placeholder="you@company.com" autocomplete="email"></div>
+        <div><label for="e-biz">Business</label><input id="e-biz" name="biz" placeholder="Business name" autocomplete="organization"></div>
+        <div><label for="e-svc">Service *</label><select id="e-svc" name="svc" required><option value="">Choose…</option><option>Website</option><option>E-commerce store</option><option>Mobile app</option><option>CRM</option><option>Custom software</option><option>SEO / Google Business Profile</option><option>Social media &amp; ads</option><option>Not sure yet</option></select></div>
+        <div><label for="e-time">Timeline</label><select id="e-time" name="time"><option value="">Choose…</option><option>As soon as possible</option><option>Within a month</option><option>1–3 months</option><option>Just exploring</option></select></div>
+        <div class="full"><label for="e-msg">Requirement</label><textarea id="e-msg" name="msg" placeholder="Tell us about your business and what you need…"></textarea></div>
+        <div class="full"><button type="submit" class="btn btn-d">Send enquiry <i class="fa-solid fa-arrow-right"></i></button><p class="form-msg" role="status">Thanks! WhatsApp is open — press send and we'll reply soon.</p></div>
+      </form>
     </div>
+    <div class="map rv"><iframe title="GrowVika service area: Delhi NCR" src="https://www.google.com/maps?q=New+Delhi,+Delhi+NCR&z=10&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><a class="map-open" href="https://www.google.com/maps?q=New+Delhi" target="_blank" rel="noopener">Open in Maps <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
   </div>
 </section>
 </main>
@@ -510,7 +520,7 @@
             </div>
           </div>
           <div><label for="f-biz">Business name</label><input id="f-biz" name="biz" autocomplete="organization"></div>
-          <div><label for="f-budget">Budget</label><select id="f-budget" name="budget"><option value="">Select</option><option>Under ₹15,000</option><option>₹15,000 – ₹50,000</option><option>₹50,000 – ₹1,00,000</option><option>Above ₹1,00,000</option><option>Not sure yet</option></select></div>
+          <div><label for="f-budget">Timeline</label><select id="f-budget" name="budget"><option value="">Select</option><option>As soon as possible</option><option>Within a month</option><option>1–3 months</option><option>Just exploring</option></select></div>
           <div class="full"><label for="f-msg">Tell us a little more</label><textarea id="f-msg" name="msg"></textarea></div>
         </div>
         <button type="submit" class="btn btn-i">Send on WhatsApp <i class="fa-brands fa-whatsapp"></i></button>

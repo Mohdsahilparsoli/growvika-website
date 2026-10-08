@@ -138,10 +138,48 @@
 
   /* testimonials */
   var tqs = $$(".tq"), ti = 0, tcnt = $("[data-t-cnt]"), ttimer;
-  function tgo(i) { ti = (i + tqs.length) % tqs.length; tqs.forEach(function (q, k) { q.classList.toggle("on", k === ti); }); tcnt.textContent = "0" + (ti + 1) + " / 0" + tqs.length; clearTimeout(ttimer); ttimer = setTimeout(function () { tgo(ti + 1); }, 7000); }
+  function tgo(i) { ti = (i + tqs.length) % tqs.length; tqs.forEach(function (q, k) { q.classList.toggle("on", k === ti); }); tcnt.innerHTML = "<b>0" + (ti + 1) + "</b> / 0" + tqs.length; clearTimeout(ttimer); ttimer = setTimeout(function () { tgo(ti + 1); }, 7000); }
   $("[data-t-prev]").addEventListener("click", function () { tgo(ti - 1); });
   $("[data-t-next]").addEventListener("click", function () { tgo(ti + 1); });
   tgo(0);
+
+
+  /* about video: play/pause, pause when off-screen */
+  var vid = $(".vid video"), vbtn = $(".vbtn");
+  if (vid) {
+    var userPaused = false;
+    if (reduce) { vid.removeAttribute("autoplay"); vid.pause(); userPaused = true; }
+    var setIcon = function () { var p = vid.paused; vbtn.innerHTML = '<i class="fa-solid fa-' + (p ? "play" : "pause") + '"></i>'; vbtn.setAttribute("aria-label", p ? "Play video" : "Pause video"); };
+    vbtn.addEventListener("click", function () { if (vid.paused) { userPaused = false; vid.play(); } else { userPaused = true; vid.pause(); } });
+    vid.addEventListener("play", setIcon); vid.addEventListener("pause", setIcon); setIcon();
+    new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { if (!userPaused) { var pr = vid.play(); if (pr && pr.catch) pr.catch(function () {}); } } else vid.pause(); }); }, { threshold: 0.2 }).observe(vid);
+    vid.addEventListener("error", function () { vid.closest(".vid").classList.add("fail"); }, true);
+  }
+
+  /* blog slider */
+  var bt = $(".bl-track");
+  if (bt) {
+    var bstep = function (d) { var c = $(".bc", bt); bt.scrollBy({ left: d * (c.offsetWidth + 26), behavior: reduce ? "auto" : "smooth" }); };
+    $("[data-b-prev]").addEventListener("click", function () { bstep(-1); });
+    $("[data-b-next]").addEventListener("click", function () { if (bt.scrollLeft + bt.clientWidth >= bt.scrollWidth - 5) bt.scrollTo({ left: 0, behavior: "smooth" }); else bstep(1); });
+  }
+
+  /* enquiry form -> WhatsApp */
+  var ef = $("#eform");
+  if (ef) ef.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var F = ef.elements;
+    var req = [F["name"], F["phone"], F["svc"]], ok = true;
+    req.forEach(function (i) { var bad = !i.value.trim(); i.classList.toggle("err", bad); if (bad && ok) { i.focus(); ok = false; } });
+    if (!ok) return;
+    var L = ["Hi GrowVika, new enquiry from the website.", "", "Name: " + F["name"].value.trim(), "Phone: " + F["phone"].value.trim(), "Service: " + F["svc"].value];
+    if (F["email"].value.trim()) L.push("Email: " + F["email"].value.trim());
+    if (F["biz"].value.trim()) L.push("Business: " + F["biz"].value.trim());
+    if (F["time"].value) L.push("Timeline: " + F["time"].value);
+    if (F["msg"].value.trim()) L.push("Requirement: " + F["msg"].value.trim());
+    window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(L.join("\n")), "_blank", "noopener");
+    $(".form-msg", ef).classList.add("ok"); ef.reset();
+  });
 
   /* FAQ */
   $$(".qa").forEach(function (qa) {
@@ -209,7 +247,7 @@
     var lines = ["Hi GrowVika, I want to start a new project.", "", "Name: " + name.value.trim(), "Phone: " + phone.value.trim()];
     if (svcs) lines.push("Need: " + svcs);
     if (form.biz.value.trim()) lines.push("Business: " + form.biz.value.trim());
-    if (form.budget.value) lines.push("Budget: " + form.budget.value);
+    if (form.budget.value) lines.push("Timeline: " + form.budget.value);
     if (form.msg.value.trim()) lines.push("Details: " + form.msg.value.trim());
     window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
     modal.classList.add("sent"); form.reset();
