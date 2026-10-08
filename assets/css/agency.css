@@ -1527,3 +1527,23 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
   .ph.full .btn{height:clamp(48px,6vh,58px)}
 }
 @media (min-width:981px) and (max-height:820px){.ph.full .ph-chips{display:none}}
+
+/* ---- logo: same as brand mark (small square full stop) ---- */
+.logo{gap:0;align-items:baseline;line-height:1}
+.logo i{width:.2em;height:.2em;border-radius:.03em;transform:none;margin-left:.05em;flex-shrink:0}
+
+/* ---- navy header ---- */
+.header:before{background:var(--navy);border-bottom:1px solid rgba(255,255,255,.07)}
+.header.scrolled:before{border-color:rgba(255,255,255,.1)}
+.header .logo{color:#fff}
+.nav>ul>li>a,.nav>ul>li>button{color:rgba(255,255,255,.82)}
+.nav>ul>li>a:hover,.nav>ul>li>button:hover,.nav li.open>button{background:rgba(255,255,255,.08);color:#fff}
+.nav a.cur-page,.nav button.cur-page{background:rgba(92,107,255,.2);color:#C7CCFF}
+.header .hcall .ic{background:rgba(92,107,255,.2);color:#C7CCFF}
+.header .hcall small{color:rgba(255,255,255,.55)}
+.header .hcall b{color:#fff}
+.header .btn-d{background:var(--ind-d)}
+.header .btn-d:before{background:#fff}
+.header .btn-d:hover{color:var(--ink)}
+.burger{background:var(--ind-d)}
+.topbar{border-bottom:1px solid rgba(255,255,255,.06)}
