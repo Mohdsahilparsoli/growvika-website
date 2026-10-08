@@ -605,8 +605,8 @@ em.s{font-family:var(--f-ser);font-style:italic;font-weight:400;letter-spacing:-
 /* ---------- hero = one full screen (desktop) ---------- */
 @media (min-width:981px){
   .hero{min-height:calc(100vh - 130px);min-height:calc(100svh - 130px);display:flex;align-items:center;padding:clamp(20px,3.5vh,48px) 0 clamp(56px,7vh,80px)}
-  .hero .wrap{width:min(1320px,92%);grid-template-columns:1.12fr .88fr;gap:clamp(30px,4vw,60px)}
-  .hero h1{font-size:clamp(42px,min(5.3vw,7.4vh),94px);margin:clamp(10px,2vh,24px) 0}
+  .hero .wrap{width:min(1320px,92%);grid-template-columns:1.02fr 1fr;gap:clamp(40px,4.8vw,70px)}
+  .hero h1{font-size:clamp(46px,6.3vw,104px);margin:0 0 28px}
   .hero .lead{font-size:clamp(15.5px,1.95vh,19px);max-width:560px}
   .ticks{margin:clamp(14px,2.6vh,28px) 0 clamp(18px,3.2vh,34px);gap:clamp(6px,1.2vh,12px) 24px}
   .btn{height:clamp(50px,6vh,58px)}
