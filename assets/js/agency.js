@@ -73,6 +73,29 @@
   });
 
 
+  /* click effect: small flame burst in blue, red and yellow */
+  if (!reduce) {
+    var FL = ["#4453F0", "#5C6BFF", "#FF3B30", "#FF6A3D", "#FFC93C", "#FFE066"];
+    document.addEventListener("pointerdown", function (e) {
+      if (e.button && e.button !== 0) return;
+      var box = document.createElement("div"); box.className = "flame-fx";
+      box.style.left = e.clientX + "px"; box.style.top = e.clientY + "px";
+      for (var i = 0; i < 14; i++) {
+        var p = document.createElement("i");
+        var ang = -Math.PI / 2 + (Math.random() - .5) * 2.2, dist = 26 + Math.random() * 46, sz = 6 + Math.random() * 10;
+        p.style.setProperty("--x", (Math.cos(ang) * dist).toFixed(1) + "px");
+        p.style.setProperty("--y", (Math.sin(ang) * dist - 12).toFixed(1) + "px");
+        p.style.width = p.style.height = sz.toFixed(1) + "px";
+        p.style.background = FL[(Math.random() * FL.length) | 0];
+        p.style.animationDelay = (Math.random() * 60) + "ms";
+        p.style.animationDuration = (520 + Math.random() * 320) + "ms";
+        box.appendChild(p);
+      }
+      document.body.appendChild(box);
+      setTimeout(function () { box.remove(); }, 1000);
+    }, { passive: true });
+  }
+
   /* reveal */
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
