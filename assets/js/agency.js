@@ -276,7 +276,11 @@
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var name = $("#f-name"), phone = $("#f-phone"), ok = true;
-    [name, phone].forEach(function (i) { var bad = !i.value.trim(); i.style.borderColor = bad ? "#E5484D" : ""; if (bad && ok) { i.focus(); ok = false; } });
+    var checks = [[name, !name.value.trim()], [phone, phone.value.replace(/\D/g, "").length < 10]];
+    checks.forEach(function (c) {
+      var fl = c[0].closest(".fl"); fl.classList.remove("err");
+      if (c[1]) { void fl.offsetWidth; fl.classList.add("err"); if (ok) { c[0].focus(); ok = false; } }
+    });
     if (!ok) return;
     var svcs = $$('input[name=svc]:checked', form).map(function (c) { return c.value; }).join(", ");
     var lines = ["Hi GrowVika, I want to start a new project.", "", "Name: " + name.value.trim(), "Phone: " + phone.value.trim()];
@@ -287,6 +291,7 @@
     window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
     modal.classList.add("sent"); form.reset();
   });
+  $$(".fl input", form).forEach(function (i) { i.addEventListener("input", function () { i.closest(".fl").classList.remove("err"); }); });
   var auto = +document.body.getAttribute("data-auto-popup") || 0, seen = false;
   try { seen = sessionStorage.getItem("gv_popup") === "1"; } catch (e) {}
   if (auto > 0 && !seen) setTimeout(function () { if (!modal.classList.contains("open") && !$(".mnav.open")) openModal(); }, auto * 1000);
