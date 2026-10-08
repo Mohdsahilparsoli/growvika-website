@@ -132,7 +132,7 @@ em.s{font-family:var(--f-ser);font-style:italic;font-weight:400;letter-spacing:-
 .pill b{white-space:nowrap;background:var(--navy);color:var(--lime);border-radius:99px;padding:4px 12px;font-size:12px;letter-spacing:.06em}
 .pill .dot{width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:ping 1.8s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
-.hero h1{font-size:clamp(46px,6.3vw,104px);margin:28px 0 28px;letter-spacing:-.045em;line-height:.98}
+.hero h1{font-size:clamp(46px,6.3vw,89px);margin:28px 0 28px;letter-spacing:-.045em;line-height:.98}
 .hero h1 em.s{font-weight:300}
 .hero h1 .ul{position:relative;display:inline-block}
 .hero h1 .ul svg{position:absolute;left:-2%;bottom:-.12em;width:104%;height:.32em;overflow:visible}
@@ -623,7 +623,7 @@ em.s{font-family:var(--f-ser);font-style:italic;font-weight:400;letter-spacing:-
 @media (min-width:981px){
   .hero{min-height:calc(100vh - 130px);min-height:calc(100svh - 130px);display:flex;align-items:center;padding:clamp(20px,3.5vh,48px) 0 clamp(56px,7vh,80px)}
   .hero .wrap{width:min(1320px,92%);grid-template-columns:1.02fr 1fr;gap:clamp(40px,4.8vw,70px)}
-  .hero h1{font-size:clamp(46px,6.3vw,104px);margin:0 0 28px}
+  .hero h1{font-size:clamp(46px,6.3vw,89px);margin:0 0 28px}
   .hero .lead{font-size:clamp(15.5px,1.95vh,19px);max-width:560px}
   .ticks{margin:clamp(14px,2.6vh,28px) 0 clamp(18px,3.2vh,34px);gap:clamp(6px,1.2vh,12px) 24px}
   .btn{height:clamp(50px,6vh,58px)}
