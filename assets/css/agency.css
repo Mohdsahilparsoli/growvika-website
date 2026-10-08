@@ -1533,3 +1533,7 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
 .logo i{width:.2em;height:.2em;border-radius:.03em;transform:none;margin-left:.05em;flex-shrink:0}
 
 .btn.busy{opacity:.6;pointer-events:none}
+.logo i{width:.3em}
+/* popup: darker navy panel so the indigo logo mark stands out */
+.m-side:after{background:linear-gradient(180deg,rgba(10,15,30,.92) 0%,rgba(10,15,30,.72) 40%,rgba(10,15,30,.9) 75%,rgba(10,15,30,.97) 100%),radial-gradient(600px 360px at 100% 100%,rgba(92,107,255,.35),transparent 70%)}
+.m-side .logo i{background:var(--ind)}
