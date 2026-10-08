@@ -282,7 +282,7 @@ def split(label, a, b, text, bullets=None, img="meeting", img2=None, rev=False, 
 </section>'''
 
 def svc_cards(svcs, label="What we do", a="Everything you need", b="to <em class=\"s\">grow online.</em>", lead="Pick one service or the whole stack.", soft=False, exclude=None):
-    cards = "\n".join(f'''      <a href="{s["slug"]}.html" class="sc rv" data-cursor="view"><div class="img"><img src="{U(s["img"],800)}" alt="{s["name"]}" loading="lazy"></div><div class="sc-b"><span class="sc-ic"><i class="fa-solid {s["icon"]}"></i></span><h3>{s["name"]}</h3><p>{s["card"]}</p><span class="go">Explore <i class="fa-solid fa-arrow-right"></i></span></div></a>''' for s in svcs if s["slug"] != exclude)
+    cards = "\n".join(f'''      <a href="{s["slug"]}.html" class="sc rv" data-cursor="view"><div class="img"><img src="{U(s["img"],800)}" alt="{s["name"]}" loading="lazy"></div><div class="sc-b"><span class="sc-ic"><i class="fa-solid {s["icon"]}"></i></span><h3>{s["name"]}</h3><p>{SVC_LONG.get(s["slug"], s["card"])}</p><span class="go">Explore <i class="fa-solid fa-arrow-right"></i></span></div></a>''' for s in svcs if s["slug"] != exclude)
     return f'''<section class="sec{' soft' if soft else ''}">
   <div class="wrap">
 {headrow(label, a, b, lead)}
@@ -447,12 +447,27 @@ def city_cards(exclude=None, label="Cities we serve", a="Pick your", b="<em clas
   </div>
 </section>'''
 
+TPL = [
+ "{l} in {c} is home to {biz}. Customers here compare options on Google Maps before they call, so we focus on a fast website, a complete Google Business Profile and local SEO for searches like “near me in {l}”.",
+ "For {biz} in {l}, most enquiries start on a phone. We build mobile-first pages, add one-tap WhatsApp and call buttons, and run ads targeted to people within a few kilometres of {l}, {c}.",
+ "Competition is close in {l} — {biz} often sit a few doors apart. A professional website, genuine reviews, regular Instagram posts and quick replies on WhatsApp help {c} businesses here stand out and win the first call.",
+ "We work with {biz} across {l}. Popular projects here include {svc}, Google Maps optimisation and a simple CRM so every enquiry from {l} gets a follow-up — with a free first meeting at your office.",
+]
 def localities(city, soft=True):
-    chips = "".join(f'<span class="rv"><i class="fa-solid fa-location-dot"></i>{l}</span>' for l in city["locs"])
+    cards = []
+    for k, l in enumerate(city["locs"]):
+        key = l.replace("&", "&amp;").replace("&amp;amp;", "&amp;")
+        info = LOC_INFO.get(key) or LOC_INFO.get(l) or ("Local business area", "shops, clinics and services", "website-development")
+        if city["slug"] == "faridabad" and l == "Sector 15": info = LOC_INFO["Sector 15 (Faridabad)"]
+        kind, biz, svc = info; sv = SVC[svc]
+        cards.append(f'''      <div class="lc rv"><div class="lc-h"><span class="lc-ic"><i class="fa-solid fa-location-dot"></i></span><div><h3>{l}</h3><small>{kind}</small></div></div><p>{TPL[k % len(TPL)].format(l=l, c=city["name"], biz=biz, svc=sv["name"].lower())}</p><div class="lc-f"><span>Popular: <a href="{sv["slug"]}.html">{sv["name"]}</a></span><button type="button" data-open-modal>Free meeting in {l} <i class="fa-solid fa-arrow-right"></i></button></div></div>''')
     return f'''<section class="sec loc-sec{' soft' if soft else ''}">
   <div class="wrap">
-{headrow("Areas we cover", "Across", EMS + city["name"] + ".</em>", "Meetings at your office or online — whichever suits you. Don't see your area? We probably cover it.")}
-    <div class="loc-grid">{chips}</div>
+{headrow("Areas we cover", "Across", EMS + city["name"] + ".</em>", f"We work with businesses in every part of {city['name']} — meetings at your office or online. Here are the areas we serve most often, and what businesses there usually need.")}
+    <div class="lc-grid">
+{chr(10).join(cards)}
+    </div>
+    <p class="lc-more rv">Don't see your area? We cover all of {city["name"]} and nearby — <a href="contact.html">get in touch</a>.</p>
   </div>
 </section>'''
 

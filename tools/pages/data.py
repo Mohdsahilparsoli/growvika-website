@@ -216,3 +216,91 @@ INDUSTRIES = [("Clinics &amp; healthcare","Appointment booking, Google Maps rank
  ("Real estate","Project landing pages, lead ads and a CRM for site visits.","site"),
  ("Education &amp; coaching","Admission enquiries, student CRM and course pages.","smiling"),
  ("Manufacturing &amp; B2B","Catalogue sites, RFQ forms, dealer portals and software.","screen")]
+
+# ---------------- localities: what each area is known for (used in detailed area cards) ----------------
+LOC_INFO = {
+ # Delhi
+ "Connaught Place": ("Central business district", "offices, showrooms, restaurants and cafés", "website-development"),
+ "Karol Bagh": ("Busy market hub", "retail shops, jewellers, hotels and wholesalers", "ecommerce-development"),
+ "Laxmi Nagar": ("Education &amp; retail area", "coaching institutes, CA firms and local retail", "crm-development"),
+ "Dwarka": ("Planned residential sub-city", "clinics, schools, gyms and neighbourhood services", "digital-marketing"),
+ "Rohini": ("Large residential area", "clinics, coaching centres, retail and home services", "digital-marketing"),
+ "Saket": ("South Delhi hub", "hospitals, clinics, malls and premium services", "website-development"),
+ "Janakpuri": ("West Delhi neighbourhood", "clinics, institutes, restaurants and showrooms", "website-development"),
+ "Pitampura": ("North-west Delhi hub", "coaching, clinics, retail and food businesses", "digital-marketing"),
+ "Rajouri Garden": ("Shopping &amp; dining area", "fashion retail, restaurants and salons", "ecommerce-development"),
+ "Lajpat Nagar": ("Popular market area", "fashion, home décor, clinics and wholesalers", "ecommerce-development"),
+ "Preet Vihar": ("East Delhi neighbourhood", "coaching institutes, clinics and professional services", "crm-development"),
+ "Vasant Kunj": ("South-west Delhi residential area", "premium clinics, salons, schools and malls", "digital-marketing"),
+ # Gurugram
+ "Cyber City": ("Corporate &amp; tech hub", "IT companies, startups, co-working spaces and cafés", "custom-software-development"),
+ "Golf Course Road": ("Premium business corridor", "corporate offices, premium real estate and clinics", "website-development"),
+ "Sohna Road": ("Fast-growing commercial belt", "real-estate projects, retail and services", "digital-marketing"),
+ "Udyog Vihar": ("Industrial &amp; office area", "manufacturers, exporters and corporate offices", "custom-software-development"),
+ "DLF Phase 1–5": ("Established residential areas", "clinics, salons, gyms and home services", "digital-marketing"),
+ "Sector 29": ("Food &amp; nightlife hub", "restaurants, bars, cafés and event venues", "mobile-app-development"),
+ "MG Road": ("Retail &amp; office corridor", "malls, showrooms, offices and restaurants", "website-development"),
+ "Sushant Lok": ("Residential &amp; commercial mix", "clinics, coaching centres and local businesses", "crm-development"),
+ "Sector 56": ("Growing residential sector", "neighbourhood services, clinics and retail", "digital-marketing"),
+ "Golf Course Extension": ("New-age residential corridor", "real estate, premium services and retail", "website-development"),
+ # Noida
+ "Sector 18": ("Noida's main market", "retail, restaurants, malls and showrooms", "ecommerce-development"),
+ "Sector 62": ("IT &amp; institutional hub", "IT companies, institutes and offices", "custom-software-development"),
+ "Sector 63": ("Industrial &amp; startup area", "manufacturers, startups and service companies", "custom-software-development"),
+ "Sector 132": ("Expressway business district", "corporate offices and IT companies", "crm-development"),
+ "Noida Extension": ("Large residential area", "clinics, schools, gyms and local retail", "digital-marketing"),
+ "Film City": ("Media &amp; production hub", "media houses, studios and production companies", "website-development"),
+ "Sector 50": ("Residential sector", "clinics, salons and neighbourhood services", "digital-marketing"),
+ "Sector 76": ("High-rise residential area", "home services, clinics and retail", "digital-marketing"),
+ "Sector 15": ("Established residential sector", "clinics, coaching and local businesses", "website-development"),
+ "Sector 137": ("Expressway residential corridor", "neighbourhood retail, gyms and services", "digital-marketing"),
+ # Greater Noida
+ "Pari Chowk": ("Central commercial area", "retail, restaurants and services", "website-development"),
+ "Knowledge Park": ("Education hub", "colleges, institutes and student services", "crm-development"),
+ "Alpha &amp; Beta": ("Residential sectors", "clinics, schools and local retail", "digital-marketing"),
+ "Gaur City": ("Large residential township", "retail, food, salons and home services", "digital-marketing"),
+ "Jagat Farm": ("Local market area", "shops, eateries and services", "website-development"),
+ "Greater Noida West": ("Fast-growing residential belt", "new retail, clinics, gyms and schools", "digital-marketing"),
+ "Delta": ("Residential sectors", "neighbourhood services and retail", "website-development"),
+ "Techzone": ("Industrial &amp; IT zone", "manufacturers, IT units and offices", "custom-software-development"),
+ # Ghaziabad
+ "Indirapuram": ("Busy residential &amp; retail hub", "clinics, restaurants, salons and coaching", "digital-marketing"),
+ "Vaishali": ("Metro-connected business area", "offices, clinics, retail and services", "website-development"),
+ "Raj Nagar": ("Central residential area", "clinics, schools, retail and services", "digital-marketing"),
+ "Kaushambi": ("Commercial &amp; hospital area", "hospitals, offices and hotels", "website-development"),
+ "Vasundhara": ("Residential sectors", "local retail, clinics and home services", "digital-marketing"),
+ "Crossings Republik": ("Residential township", "neighbourhood retail, gyms and services", "digital-marketing"),
+ "Raj Nagar Extension": ("Growing residential area", "new retail, clinics and schools", "website-development"),
+ "Kavi Nagar": ("Established residential &amp; industrial area", "manufacturers, retail and services", "custom-software-development"),
+ # Faridabad
+ "NIT": ("Main commercial area", "markets, showrooms, clinics and services", "website-development"),
+ "Sector 21": ("Residential &amp; commercial sector", "clinics, schools and retail", "digital-marketing"),
+ "Ballabgarh": ("Industrial &amp; market town", "manufacturers, traders and retail", "custom-software-development"),
+ "Neharpar": ("Greater Faridabad residential area", "new retail, clinics and schools", "digital-marketing"),
+ "Industrial Area": ("Manufacturing belt", "factories, suppliers and exporters", "custom-software-development"),
+ "Sector 16": ("Central residential sector", "clinics, coaching and local businesses", "website-development"),
+ "Old Faridabad": ("Traditional market area", "traders, retail and local services", "ecommerce-development"),
+}
+LOC_INFO["Sector 15 (Faridabad)"] = ("Commercial &amp; residential sector", "markets, clinics and offices", "website-development")
+
+# Longer, SEO-friendly descriptions for cards
+SVC_LONG = {
+ "website-development": "Custom, mobile-first business websites and landing pages that load fast, rank on Google and turn visitors into calls and WhatsApp enquiries. Every site includes on-page SEO, analytics, click-to-call and WhatsApp buttons, enquiry forms and full ownership of your domain and code.",
+ "ecommerce-development": "Online stores on Shopify, WooCommerce or custom code with UPI, card and COD payments, courier integration, GST invoices, coupons and an easy admin. Sell directly to customers across India without marketplace commissions and build a brand you own.",
+ "mobile-app-development": "Android and iOS apps from a single codebase for bookings, food ordering, memberships, loyalty and field teams — with push notifications, in-app payments, maps and an admin panel. We help publish on Play Store and App Store and support you after launch.",
+ "crm-development": "Custom CRM software built around your sales process — lead stages, follow-up reminders, client history, payments, dues and plan renewals in one place. Works on mobile like an app, imports your Excel data and has no per-user fees.",
+ "custom-software-development": "Custom billing, booking, inventory, HR and dashboard software that replaces messy spreadsheets and WhatsApp groups. Browser-based, secure, role-based access for your team, and built in stages so you get value quickly — with code and data in your name.",
+ "digital-marketing": "SEO, local SEO and Google Business Profile, social media management, and Meta and Google Ads focused on real enquiries — calls, WhatsApp chats and form fills. Clear monthly reports, landing pages built for each campaign and honest advice on budgets.",
+}
+WHY = [("fa-layer-group","Build + grow, one team","Website, app, CRM and digital marketing from the same people — so your ads land on pages built to convert and every lead flows into one system. No juggling separate developers and marketing agencies."),
+ ("fa-mobile-screen-button","Mobile-first &amp; fast","Most of your customers find you on a phone. Every page and screen is designed for mobile first, optimised for speed and tested on real Android and iPhone devices before launch."),
+ ("fa-magnifying-glass-chart","SEO-ready from day one","Clean code, proper headings, meta tags, sitemaps, schema, Google Analytics and Search Console are part of every build — not an expensive add-on later."),
+ ("fa-file-signature","Clear, fixed quotes","After a free consultation you get a written scope and a fixed price. What we agree is what you pay — no hourly surprises or hidden charges halfway through the project."),
+ ("fa-code-branch","We build our own software","GrowVika runs on a CRM we built ourselves for leads, follow-ups and renewals. We know what works in real businesses because we use it every day."),
+ ("fa-headset","Support after launch","We don't disappear after go-live. Updates, fixes, hosting help and growth advice are one WhatsApp message away, with monthly support plans if you need them.")]
+INDUSTRIES = [("Clinics &amp; healthcare","Patient-friendly websites, online appointment requests, Google Maps ranking, review strategy and CRM follow-ups for clinics, dentists, physiotherapists and diagnostic centres.","clinic"),
+ ("Restaurants &amp; cafés","Online menus, direct ordering apps without aggregator commissions, table bookings, Instagram reels and local ads that bring regular customers back.","restaurant"),
+ ("Retail &amp; e-commerce","Online stores with UPI and COD, courier tracking, catalogue ads on Meta and Google, and WhatsApp order updates for fashion, lifestyle and local retail brands.","shop"),
+ ("Real estate","Fast project landing pages, lead ads on Meta and Google, site-visit scheduling and a CRM for brokers and developers to follow up every enquiry.","site"),
+ ("Education &amp; coaching","Course pages, admission enquiry forms, counselling CRMs, fee follow-ups and local SEO for coaching institutes, schools and training centres.","smiling"),
+ ("Manufacturing &amp; B2B","Product catalogue websites, request-for-quote forms, dealer portals and custom software for manufacturers, distributors and exporters.","screen")]
