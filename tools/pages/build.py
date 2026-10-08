@@ -261,7 +261,7 @@ def page_hero(cr, h1a, h1b, lead, img, b1=("fa-brands fa-whatsapp","Same-day rep
 
 def marquee(words):
     sp = "".join(f'{w} <i class="fa-solid fa-asterisk"></i> ' if k % 2 == 0 else f'<em>{w}</em> <i class="fa-solid fa-asterisk"></i> ' for k, w in enumerate(words))
-    return f'''<div class="marq-wrap"><div class="marq" aria-hidden="true"><div class="tr"><span>{sp}</span><span>{sp}</span></div></div></div>'''
+    return f'''<div class="marq-wrap flat"><div class="marq" aria-hidden="true"><div class="tr"><span>{sp}</span><span>{sp}</span></div></div></div>'''
 
 def split(label, a, b, text, bullets=None, img="meeting", img2=None, rev=False, soft=False, extra="", sid=""):
     bl = "".join(f'<li><i class="fa-solid fa-check"></i>{x}</li>' for x in (bullets or []))
@@ -303,17 +303,54 @@ def svc_cards(svcs, label="What we do", a="Everything you need", b="to <em class
   </div>
 </section>'''
 
-def incl(label, a, b, items, lead=None, soft=False, dark=False):
-    cards = "\n".join(f'''      <div class="ic-card rv"><span class="ic"><i class="{ic if ic.startswith('fa-brands') else 'fa-solid '+ic}"></i></span><h3>{t}</h3><p>{d} {INCL_MORE.get(t, INCL_MORE.get(t.replace("&amp;","&"), ""))}</p></div>''' for ic, t, d in items)
-    cls = "sec incl" + (" soft" if soft else "") + (" dark" if dark else "")
-    return f'''<section class="{cls}">
+POOL = ["meeting","sketch","code","desk","phone","data","laptop_mug","team","screen","marketing","social","mobile","pair","smiling","shop","site"]
+def _imgs(items, imgs, seed):
+    if imgs: return [imgs[k % len(imgs)] for k in range(len(items))]
+    off = sum(map(ord, seed)) % len(POOL)
+    return [POOL[(off + k * 3) % len(POOL)] for k in range(len(items))]
+def _more(t, d):
+    m = INCL_MORE.get(t, INCL_MORE.get(t.replace("&amp;", "&"), ""))
+    return (d + " " + m).strip()
+
+def incl(label, a, b, items, lead=None, soft=False, dark=False, style="tabs", imgs=None):
+    ims = _imgs(items, imgs, label + a)
+    cls = "sec" + (" soft" if soft else "") + (" dark" if dark else "")
+    if style == "slider":
+        cards = "\n".join(f"""      <article class="sl2-c"><div class="img"><img src="{U(ims[k],800)}" alt="{t}" loading="lazy"><span class="sl2-n">{k+1:02d}</span></div><div class="sl2-b"><h3>{t}</h3><p>{_more(t, d)}</p></div></article>""" for k, (ic, t, d) in enumerate(items))
+        return slider_wrap(cls + " sl2-sec", label, a, b, lead, cards)
+    rows = "\n".join(f"""        <li class="ft2-it{' on' if k==0 else ''}"><button type="button" aria-expanded="{'true' if k==0 else 'false'}"><span class="n">{k+1:02d}</span><span class="t">{t}</span><i class="fa-solid fa-arrow-right"></i></button><div class="ft2-a"><div><p>{_more(t, d)}</p></div></div></li>""" for k, (ic, t, d) in enumerate(items))
+    pics = "".join(f'<img{ON if k==0 else ""} src="{U(ims[k],1000)}" alt="{t}" loading="lazy">' for k, (ic, t, d) in enumerate(items))
+    return f"""<section class="{cls} ft2-sec">
   <div class="wrap">
 {headrow(label, a, b, lead)}
-    <div class="ic-grid">
+    <div class="ft2" data-ft2>
+      <div class="ft2-vis rv"><div class="ft2-imgs">{pics}</div><div class="ft2-cap"><span class="n" data-ft2-n>01</span><b data-ft2-t>{items[0][1]}</b></div></div>
+      <ol class="ft2-list rv">
+{rows}
+      </ol>
+    </div>
+  </div>
+</section>"""
+
+def slider_wrap(cls, label, a, b, lead, cards):
+    nav = '<div class="sl2-nav"><span class="sl2-bar"><i></i></span><button type="button" data-sl2-prev aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button><button type="button" data-sl2-next aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button></div>'
+    lp = f'<p class="lead">{lead}</p>' if lead else ""
+    return f"""<section class="{cls}">
+  <div class="wrap">
+    <div class="head-row">
+      <div>
+        {idx(label)}
+        {h2(a, b)}
+      </div>
+      <div class="sl2-hr rv">{lp}{nav}</div>
+    </div>
+  </div>
+  <div class="sl2" data-sl2>
+    <div class="sl2-track">
 {cards}
     </div>
   </div>
-</section>'''
+</section>"""
 
 def types(label, a, b, items, lead=None, soft=False):
     rows = "\n".join(f'''      <div class="ty rv"><span class="n">{k+1:02d}</span><div><h3>{t}</h3><p>{d}</p></div><button type="button" class="ty-go" data-open-modal aria-label="Ask about {t}"><i class="fa-solid fa-arrow-right"></i></button></div>''' for k, (t, d) in enumerate(items))
@@ -387,30 +424,28 @@ def work_grid(items, label="Selected work", a="Built for real", b="<em class=\"s
     chips = ""
     if filt:
         chips = '<div class="wf rv" role="tablist">' + "".join(f'<button type="button" class="{"on" if k==0 else ""}" data-wf="{c}">{l}</button>' for k, (c, l) in enumerate(WORK_CATS)) + '</div>'
+    n = len(items)
+    sizes = [""] * n if n in (3, 6) else (["big", "mid"] + [""] * (n - 2))
     cards = []
-    for t, sub, img, cat, tag, d in items:
+    for k, (t, sub, img, cat, tag, d) in enumerate(items):
         ch, built, st = WORK_DETAIL[t]
-        cards.append(f'''      <a href="contact.html" class="wk2 wk3 rv" data-cat="{cat}" data-open-modal data-cursor="view">
-        <div class="img"><img src="{U(img,800)}" alt="{t} — {sub}" loading="lazy"></div><span class="wk2-tag">{tag}</span>
-        <div class="wk2-b">
-          <small>{sub}</small>
-          <h3>{t}</h3>
-          <p>{d} {ch}</p>
-          <ul class="wk3-f">{"".join(f'<li><i class="fa-solid fa-check"></i>{x}</li>' for x in built[:3])}</ul>
-          <div class="wk3-st">{"".join(f'<span>{x}</span>' for x in st)}</div>
-          <span class="wk3-go">Discuss a similar project <i class="fa-solid fa-arrow-right"></i></span>
-        </div>
-      </a>''')
-    return f'''<section class="sec{' soft' if soft else ''}" id="work">
+        tags = "".join(f"<span>{x}</span>" for x in tag.split(" + "))
+        cards.append(f"""      <a href="contact.html" class="wk {sizes[k]} rv" data-cat="{cat}" data-open-modal data-cursor="view">
+        <div class="img rv cl"><img src="{U(img,1000)}" alt="{t} — {sub}" loading="lazy"></div>
+        <span class="res"><i class="fa-solid fa-circle-check"></i>{built[0]}</span>
+        <div class="meta"><div><h3>{t}</h3><small>{sub}</small></div><div class="tags">{tags}</div></div>
+        <p class="wk-p">{d} {ch}</p>
+      </a>""")
+    return f"""<section class="sec{' soft' if soft else ''}" id="work">
   <div class="wrap">
 {headrow(label, a, b, lead)}
     {chips}
-    <div class="wk2-grid">
+    <div class="work-grid">
 {chr(10).join(cards)}
     </div>
     <p class="note rv">Examples by industry — client names are kept private. Ask us on WhatsApp for live links to projects similar to yours.</p>
   </div>
-</section>'''
+</section>"""
 
 def promise():
     tq = "\n".join(f'''        <div class="tq{' on' if k==0 else ''}"><span class="mark">“</span><blockquote>{q}</blockquote><div class="who"><span class="av">MS</span><div><b>Md Sahil</b><span>Founder, GrowVika · {t}</span></div></div></div>''' for k, (q, t) in enumerate(PROMISE))
@@ -480,21 +515,16 @@ TPL = [
 ]
 def localities(city, soft=True):
     cards = []
+    pool = [city["img"], city["img2"], city["img3"]] + POOL
     for k, l in enumerate(city["locs"]):
         key = l.replace("&", "&amp;").replace("&amp;amp;", "&amp;")
         info = LOC_INFO.get(key) or LOC_INFO.get(l) or ("Local business area", "shops, clinics and services", "website-development")
         if city["slug"] == "faridabad" and l == "Sector 15": info = LOC_INFO["Sector 15 (Faridabad)"]
         kind, biz, svc = info; sv = SVC[svc]
-        cards.append(f'''      <div class="lc rv"><div class="lc-h"><span class="lc-ic"><i class="fa-solid fa-location-dot"></i></span><div><h3>{l}</h3><small>{kind}</small></div></div><p>{TPL[k % len(TPL)].format(l=l, c=city["name"], biz=biz, svc=sv["name"].lower())}</p><div class="lc-f"><span>Popular: <a href="{sv["slug"]}.html">{sv["name"]}</a></span><button type="button" data-open-modal>Free meeting in {l} <i class="fa-solid fa-arrow-right"></i></button></div></div>''')
-    return f'''<section class="sec loc-sec{' soft' if soft else ''}">
-  <div class="wrap">
-{headrow("Areas we cover", "Across", EMS + city["name"] + ".</em>", f"We work with businesses in every part of {city['name']} — meetings at your office or online. Here are the areas we serve most often, and what businesses there usually need.")}
-    <div class="lc-grid">
-{chr(10).join(cards)}
-    </div>
-    <p class="lc-more rv">Don't see your area? We cover all of {city["name"]} and nearby — <a href="contact.html">get in touch</a>.</p>
-  </div>
-</section>'''
+        txt = TPL[k % len(TPL)].format(l=l, c=city["name"], biz=biz, svc=sv["name"].lower())
+        cards.append(f"""      <article class="sl2-c ov"><img src="{U(pool[k % len(pool)],900)}" alt="{l}, {city['name']}" loading="lazy"><div class="ov-b"><div class="ov-top"><span class="ov-k">{kind}</span><span class="sl2-n">{k+1:02d}</span></div><h3>{l}</h3><p>{txt}</p><div class="ov-f"><a href="{sv["slug"]}.html">{sv["name"]}</a><button type="button" data-open-modal>Free meeting <i class="fa-solid fa-arrow-right"></i></button></div></div></article>""")
+    return slider_wrap("sec sl2-sec" + (" soft" if soft else ""), "Areas we cover", "Across", EMS + city["name"] + ".</em>",
+        f"We work with businesses in every part of {city['name']} — at your office or online. Drag or use the arrows to explore each area.", chr(10).join(cards))
 
 def map_sec(q, label="Find us", a="Serving", b=None):
     b = b or f'<em class="s">{q}.</em>'

@@ -93,17 +93,14 @@ def article_page(art):
   </div>
 </section>'''
     main = f'''<section class="sec art">
-  <div class="wrap art-g">
-    <aside class="art-side">
-      <div class="toc"><h4>In this article</h4><ol>{toc}</ol></div>
-      {share}
-    </aside>
+  <div class="wrap">
     <article class="prose art-body">
       <p class="art-intro">{art["intro"]}</p>
 {body}
       <div class="takeaways"><h3><i class="fa-solid fa-lightbulb"></i> Key takeaways</h3><ul>{take}</ul></div>
       <h2 id="faq">Frequently asked questions</h2>
       <div class="art-faq">{faqh}</div>
+      <div class="art-share">{share}</div>
       <div class="author"><span class="av">MS</span><div><b>Written by Md Sahil</b><p>Founder of GrowVika. Builds websites, apps and CRMs for businesses across Delhi NCR — and runs the marketing that brings them customers.</p><a href="about.html" class="link">About GrowVika <i class="fa-solid fa-arrow-right"></i></a></div></div>
       <div class="art-cta"><div><h3>Want us to do this for you?</h3><p>Free consultation, fixed quote and a reply the same day.</p></div><button type="button" class="btn btn-w" data-open-modal>Start a project <i class="fa-solid fa-arrow-right"></i></button></div>
     </article>

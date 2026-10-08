@@ -107,7 +107,7 @@ out.append(page("work.html", "Our Work | Websites, Apps &amp; CRM Projects | Gro
    b1=("fa-solid fa-layer-group","8+ project types","websites to CRMs"), b2=("fa-solid fa-mobile-screen","Mobile-first","tested on real phones")),
  work_grid(WORK, "All projects", "Selected", "<em class=\"s\">projects.</em>", filt=True, lead="Filter by type. Each card is an example of the kind of project we build for that industry."),
  work_deep(WORK),
- incl("Every project", "What every project", '<em class="s">includes.</em>', [
+ incl("Every project", "What every project", '<em class="s">includes.</em>', style="slider", items=[
    ("fa-comments","Discovery call","We learn your customers, competitors and goals."),
    ("fa-pen-ruler","Design approval","You approve designs before any code is written."),
    ("fa-mobile-screen","Mobile testing","Tested on real Android and iPhone devices."),
@@ -228,7 +228,7 @@ featured = f'''<section class="sec soft">
     </a>
   </div>
 </section>'''
-cats = incl("Topics", "Browse by", '<em class="s">topic.</em>', [("fa-code","Websites","Design, speed, content and conversions."),("fa-location-dot","Local SEO","Google Maps, reviews and near-me searches."),("fa-users-gear","CRM","Leads, follow-ups and sales process."),("fa-mobile-screen","Apps","When you need one and what it costs to run."),("fa-hashtag","Social media","Reels, posting plans and content ideas."),("fa-bullhorn","Ads","Meta and Google ads for local businesses."),("fa-bag-shopping","E-commerce","Stores, payments, shipping and growth."),("fa-gears","Software","Automating the work spreadsheets can't handle.")], soft=True)
+cats = incl("Topics", "Browse by", '<em class="s">topic.</em>', style="slider", imgs=["code","phone","data","mobile","social","marketing","shop","screen"], items=[("fa-code","Websites","Design, speed, content and conversions."),("fa-location-dot","Local SEO","Google Maps, reviews and near-me searches."),("fa-users-gear","CRM","Leads, follow-ups and sales process."),("fa-mobile-screen","Apps","When you need one and what it costs to run."),("fa-hashtag","Social media","Reels, posting plans and content ideas."),("fa-bullhorn","Ads","Meta and Google ads for local businesses."),("fa-bag-shopping","E-commerce","Stores, payments, shipping and growth."),("fa-gears","Software","Automating the work spreadsheets can't handle.")], soft=True)
 start_here = types("Start here", "New to", '<em class="s">going online?</em>', [("Get your Google Business Profile right","The free listing that brings the most local calls."),("Build a website that answers questions","What to say on each page so visitors call you."),("Set up WhatsApp enquiries","Make it one tap for customers to message you."),("Track every lead","A simple CRM so no enquiry is ever forgotten.")], "Four steps we recommend to every local business.")
 tips = incl("Quick tips", "Six tips you can", '<em class="s">use today.</em>', [("fa-image","Compress your images","Big photos are the #1 reason sites are slow on phones."),("fa-star","Ask for reviews","Send a review link on WhatsApp after every happy customer."),("fa-phone","Show your number","Put a click-to-call button at the top of every page."),("fa-clock","Reply fast","Leads answered in 5 minutes convert far better than next day."),("fa-camera","Post real photos","Real photos of your team and work build trust."),("fa-bullseye","One goal per page","Each page should ask for one action: call, chat or book.")], dark=True)
 ask = split("Ask us", "Have a question", '<em class="s">we should answer?</em>', "Tell us what you'd like to learn — we write articles based on real questions from business owners in Delhi NCR. Or just ask us directly on WhatsApp.", ["Websites, SEO, apps, CRM or ads","Answered in plain words","Free — no strings attached"], img="laptop_mug", rev=True,
@@ -239,7 +239,6 @@ out.append(page("blog.html", "Blog | Website, SEO, CRM &amp; Marketing Tips | Gr
    "Practical guides on websites, Google Maps, social media, ads, apps and CRM — written for business owners, not developers.", "laptop_mug",
    b1=("fa-solid fa-book-open","Plain-English guides","no jargon"), b2=("fa-solid fa-lightbulb","Real questions","from NCR businesses"),
    ctas='<a href="#posts" class="btn btn-i">Read the latest <i class="fa-solid fa-arrow-down"></i></a><a href="https://wa.me/919818186876" target="_blank" rel="noopener" class="btn btn-o"><i class="fa-brands fa-whatsapp"></i> Ask a question</a>'),
- featured,
  blog_list.replace('<section class="sec">', '<section class="sec" id="posts">', 1),
  marquee(["Websites", "Local SEO", "CRM", "Apps", "Social media", "Ads", "E-commerce", "Software"]),
  cats,
