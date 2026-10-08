@@ -1594,3 +1594,6 @@ section.sec:not(.soft):not(.tech):not(.area2):not(.dark):not(.tst2):not(.enq):no
   40%{opacity:1}
   100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(1.4)}
 }
+.has-cursor .cur{display:grid;place-items:center}
+.cur svg{position:absolute;inset:0}
+.cur .lbl{position:relative;inset:auto;display:block;line-height:1;white-space:nowrap;text-align:center;letter-spacing:.02em}
